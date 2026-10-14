@@ -6781,7 +6781,7 @@ function renderOrder(){
 function orStart(i){
   const s=orPool()[i]; if(!s) return;
   let order=shuffle(s[3].map((_,k)=>k)); let g=0; while(order.every((v,k)=>v===k) && g++<5) order=shuffle(order);
-  orCur={level,i,s,order,checked:false,tries:0};
+  orCur={level,i,s,order,checked:false,tries:0,shown:false};
   $('#or-pick').value=i; orDraw();
 }
 function orDraw(){
@@ -6790,13 +6790,13 @@ function orDraw(){
   $('#or-box').innerHTML=`<p class="eyebrow">${esc(topicById(s[1]).title)}</p>
     <ol class="or-list">${order.map((v,k)=>`<li class="${checked?(v===k?'ok':'no'):''}" data-k="${k}"><span class="n">${k+1}</span><span class="tx">${esc(s[3][v])}</span>
       <span class="mv"><button data-up="${k}" aria-label="Move up" ${k===0?'disabled':''}>▲</button><button data-dn="${k}" aria-label="Move down" ${k===n-1?'disabled':''}>▼</button></span></li>`).join('')}</ol>
-    ${checked?`<div class="feedback ${right===n?'':'no'}"><b>${right===n?'All in the right order.':`${right} of ${n} in the right place.`}</b> ${right===n?(orCur.tries>1?`Got it in ${orCur.tries} tries.`:'First time.'):'Green steps are in the right place. Move the red ones and check again.'}</div>`:''}
+    ${checked?(orCur.shown?`<div class="feedback no"><b>Here's the correct order.</b> Read it through, then try the next process. Come back to this one later to test yourself.</div>`:`<div class="feedback ${right===n?'':'no'}"><b>${right===n?'All in the right order.':`${right} of ${n} in the right place.`}</b> ${right===n?(orCur.tries>1?`Got it in ${orCur.tries} tries.`:'Right first time!'):'Green steps are in the right place. Move the red ones and check again.'}</div>`):''}
     <div class="row" style="margin-top:12px"><button class="btn primary" id="or-check">Check my order</button><button class="btn" id="or-show">Show the answer</button><button class="btn" id="or-next">Next process →</button></div>`;
   const mv=(a,b)=>{ [orCur.order[a],orCur.order[b]]=[orCur.order[b],orCur.order[a]]; orCur.checked=false; orDraw(); const li=$('#or-box').querySelector(`li[data-k="${b}"]`); if(li){li.classList.add('moved'); const bt=li.querySelector(a<b?'[data-dn]':'[data-up]'); (bt&&!bt.disabled?bt:li.querySelector('button:not(:disabled)')).focus({preventScroll:true});} };
   $('#or-box').querySelectorAll('[data-up]').forEach(b=>b.onclick=()=>mv(+b.dataset.up,+b.dataset.up-1));
   $('#or-box').querySelectorAll('[data-dn]').forEach(b=>b.onclick=()=>mv(+b.dataset.dn,+b.dataset.dn+1));
   $('#or-check').onclick=()=>{orCur.checked=true;orCur.tries++;orDraw()};
-  $('#or-show').onclick=()=>{orCur.order=orCur.s[3].map((_,k)=>k);orCur.checked=true;orDraw()};
+  $('#or-show').onclick=()=>{orCur.order=orCur.s[3].map((_,k)=>k);orCur.checked=true;orCur.shown=true;orDraw()};
   $('#or-next').onclick=()=>orStart((orCur.i+1)%orPool().length);
 }
 $('#or-pick').onchange=()=>orStart(+$('#or-pick').value);
