@@ -5164,8 +5164,8 @@ exam:[]},
 {id:'drives', area:'mech', title:'Drive systems & mechanisms', short:'Drive systems',
 notes:[
  {lv:'b', h:'Types of motion', html:`<p>A <b>mechanism</b> changes an input motion and force into a different output motion and force: it makes a job easier. Learn the four motions and their British Standard symbols.</p><ul><li><b>Rotary</b>: turning in a circle (a wheel).</li><li><b>Linear</b>: in a straight line (a conveyor belt load).</li><li><b>Reciprocating</b>: backwards and forwards in a straight line (a pneumatic piston, a saw).</li><li><b>Oscillating</b>: swinging backwards and forwards in an arc (a pendulum, a windscreen wiper).</li></ul>{{fig:c_motion}}`},
- {lv:'b', h:'Gear trains', html:`<ul><li>In a <b>simple gear train</b> meshing gears turn in opposite directions.</li><li><b>Velocity ratio</b> VR = speed of input ÷ speed of output = teeth on driven gear ÷ teeth on driver gear. A VR of 4:1 means the output turns 4 times slower.</li><li>Speed method: <b>input speed × input teeth = output speed × output teeth</b>. E.g. 1500 × 52 = output × 12, so output = 6500 rev/min.</li><li>An <b>idler gear</b> between driver and driven makes them turn in the <b>same direction</b>. It doesn't change the velocity ratio, whatever its size: changing its number of teeth has no effect on the output speed.</li><li>A <b>compound gear train</b> has two gears fixed on the same shaft, giving a large speed change in a small space. Total VR = VR<sub>1</sub> × VR<sub>2</sub>.</li></ul>{{fig:gears}}
- <p>Write speeds in rev/min (not "RPM") and simplify ratios, e.g. 120:820 = 6:41. The 2024 N5 report: candidates using the data booklet speed method scored better on compound trains than those juggling ratios.</p>`},
+ {lv:'b', h:'Gear trains', html:`<ul><li>In a <b>simple gear train</b> meshing gears turn in opposite directions.</li><li><b>Velocity ratio</b> VR = speed of input ÷ speed of output = teeth on driven gear ÷ teeth on driver gear. A VR of 4:1 means the output turns 4 times slower.</li><li>Speed method: <b>input speed × input teeth = output speed × output teeth</b>. E.g. 1500 × 52 = output × 12, so output = 6500 revs min⁻¹.</li><li>An <b>idler gear</b> between driver and driven makes them turn in the <b>same direction</b>. It doesn't change the velocity ratio, whatever its size: changing its number of teeth has no effect on the output speed.</li><li>A <b>compound gear train</b> has two gears fixed on the same shaft, giving a large speed change in a small space. Total VR = VR<sub>1</sub> × VR<sub>2</sub>.</li></ul>{{fig:gears}}
+ <p>Write speeds in revs min⁻¹ (not "RPM") and simplify ratios, e.g. 120:820 = 6:41. The 2024 N5 report: candidates using the data booklet speed method scored better on compound trains than those juggling ratios.</p>`},
  {lv:'b', h:'Speeds, units and compound trains', html:`<ul><li>The input gear is the <b>driver</b>; the output gear is the <b>driven</b>.</li><li>Rotary speed is measured in <b>revolutions per minute: revs min⁻¹</b>.</li><li><b>VR = teeth on driven ÷ teeth on driver = input speed ÷ output speed.</b> The SQA calls it the velocity ratio (or speed ratio). Example: driver 14T, driven 72T: VR = 72 ÷ 14 = 5.1, so a 100 revs min⁻¹ input gives about 19 revs min⁻¹.</li><li>A small driver with a large driven <b>reduces</b> speed; a large driver with a small driven <b>increases</b> it.</li><li>An <b>idler</b> makes the driven turn the same way as the driver. Its size has no effect on speed, so idlers are kept small to save space and material.</li><li>In a <b>compound gear train</b> two gears share one shaft and turn at the same speed. Total VR = VR of pair 1 × VR of pair 2. Example: A 20T drives B 60T; C 10T (on B's shaft) drives D 80T: VR = 3 × 8 = 24, so 100 revs min⁻¹ in gives 4.2 revs min⁻¹ out.</li><li>Compound trains give a large VR in a <b>compact</b> space, with fewer and smaller gears than a simple train.</li></ul>`},
  {lv:'b', h:'Friction', html:`<p>In a gear system the meshing teeth rub, turning kinetic energy into <b>heat and sound</b>. Heat makes parts <b>expand</b>, increasing wear and damage, and the lost energy <b>reduces efficiency</b>. Reduce friction with oil or grease, <b>bearings</b> (which change rubbing into rolling), and regular maintenance to replace worn parts.</p><p>Friction is not always a problem: it is <b>useful</b> in brakes, clutches and belt drives, where it lets one surface grip another.</p>`},
  {lv:'h', h:'Higher mechanisms', html:`<div class="tbl"><table class="cmp"><tr><th>Mechanism</th><th>Key points</th></tr>
@@ -5195,7 +5195,7 @@ mcq:[
  ['b','A pneumatic piston moving in and out shows…',['Rotary motion','Oscillating motion','Reciprocating motion','Linear only'],2,'Back and forth in a straight line.'],
  ['b','A 20-tooth driver turns a 60-tooth gear. The VR is…',['1:3','3:1','20:1','60:1'],1,'60 ÷ 20.'],
  ['b','Reducing the teeth on an idler gear makes the output…',['Faster','Slower','No different','Reverse'],2,'Idlers don\'t change the VR.'],
- ['b','A 1500 rev/min, 52-tooth gear drives a 12-tooth gear. Output speed is about…',['346 rev/min','6500 rev/min','1500 rev/min','780 rev/min'],1,'1500 × 52 ÷ 12.'],
+ ['b','A 1500 revs min⁻¹, 52-tooth gear drives a 12-tooth gear. Output speed is about…',['346 revs min⁻¹','6500 revs min⁻¹','1500 revs min⁻¹','780 revs min⁻¹'],1,'1500 × 52 ÷ 12.'],
  ['h','Which drive cannot be driven backwards?',['Belt and pulley','Chain and sprocket','Worm and wheel','Simple gears'],2,'Worm and wheel.'],
  ['h','A force of 50 N at a radius of 0.2 m gives a torque of…',['10 N m','250 N m','0.004 N m','50.2 N m'],0,'T = F r.']
 ],
@@ -5914,22 +5914,22 @@ const EXAM = [
 {t:'materials',lv:'h',ctx:'A rod stretches 0.4 mm under a force of 3 kN.',q:'Calculate the strain energy stored.',m:2,
  pts:['Strain energy = ½ × F × ΔL = 0.5 × 3000 × 0.4 × 10⁻³','= 0.6 J'],zero:['Leaving extension in mm gives 600: wrong units'],seen:'H 2024'},
 /* ── from Mr Kelly's class worksheets ── */
-{t:'energy',lv:'b',ctx:'A lift raises a mass of 1000 kg to the next floor of a shopping centre, 20 m up.',q:'Calculate the minimum work done by the lift.',m:3,pts:['F = mg = 1000 × 9.8 = 9800 N','E_w = F × d = 9800 × 20','E_w = 196 000 J (196 kJ)'],seen:'Class worksheet: work done'},
-{t:'energy',lv:'b',ctx:'An electric hob runs at 230 V and draws 5 A. It takes 7 minutes to boil a pot of soup.',q:'Calculate the electrical energy used.',m:3,pts:['t = 7 × 60 = 420 s','E_e = VIt = 230 × 5 × 420','E_e = 483 000 J (483 kJ)'],zero:['Using 7 instead of 420 seconds'],seen:'Class worksheet: electrical energy'},
-{t:'energy',lv:'b',ctx:'A 50 kg crate falls freely from a height of 30 m.',q:'Calculate its velocity just before it hits the ground, assuming no energy losses.',m:3,pts:['E_p = mgh = 50 × 9.8 × 30 = 14 700 J','E_k = E_p, so 14 700 = ½ × 50 × v²','v = √588 = 24 m/s'],seen:'Class worksheet: energy transfers'},
-{t:'energy',lv:'b',ctx:'A coffee machine heats 0.15 kg of water from 20 °C to 85 °C in 15 s. The element runs from 230 V and draws 22 A. c for water = 4180 J/kg °C.',q:'Calculate the efficiency of the coffee machine.',m:4,pts:['E_e = VIt = 230 × 22 × 15 = 75 900 J','E_h = cmΔT = 4180 × 0.15 × 65 = 40 755 J','η = E_out ÷ E_in × 100 = 40 755 ÷ 75 900 × 100','η = 54%'],seen:'Class worksheet: efficiency and audits'},
-{t:'energy',lv:'b',ctx:'The coffee machine has an input of 75.9 kJ and a useful output of 40.8 kJ.',q:'Draw an energy audit for the coffee machine.',m:3,pts:['Electrical energy in: 75.9 kJ','Useful heat energy out: 40.8 kJ','Wasted energy (heat to surroundings / sound): 35.1 kJ'],seen:'Class worksheet: efficiency and audits'},
-{t:'drives',lv:'b',ctx:'A motorised winch is driven by a motor at 1200 revs min⁻¹. The drum must turn at 25 revs min⁻¹.',q:'Calculate the velocity ratio required.',m:2,pts:['VR = input speed ÷ output speed = 1200 ÷ 25','VR = 48 (48:1)'],seen:'Class worksheet: compound gear trains'},
-{t:'drives',lv:'b',ctx:'Gear A (20 teeth) drives gear B (60 teeth). Gear C (40 teeth) is on the same shaft as B and drives gear D (50 teeth). The motor turns A at 1000 revs min⁻¹.',q:'Calculate the output speed of gear D.',m:3,pts:['VR_AB = 60 ÷ 20 = 3; VR_CD = 50 ÷ 40 = 1.25','VR total = 3 × 1.25 = 3.75','Output speed = 1000 ÷ 3.75 = 267 revs min⁻¹'],seen:'Class worksheet: compound gear trains'},
-{t:'pneumatics',lv:'b',ctx:'A single-acting cylinder with a 40 mm diameter piston is supplied with air at 3 bar.',q:'Calculate the outstroke force.',m:3,pts:['P = 3 bar = 0.3 N/mm²','A = π × 20² = 1257 mm²','F = P × A = 0.3 × 1257 = 377 N'],zero:['Leaving the pressure in bar'],seen:'Class worksheet: pneumatics'},
-{t:'pneumatics',lv:'b',ctx:'A door needs a force of 400 N to slide it open. The single-acting cylinder is supplied at 5 bar.',q:'Calculate the minimum piston diameter required.',m:4,pts:['P = 0.5 N/mm²','A = F ÷ P = 400 ÷ 0.5 = 800 mm²','d² = 4A ÷ π = 1019','d = 32 mm'],seen:'Class worksheet: pneumatics'},
-{t:'pneumatics',lv:'b',ctx:'A double-acting cylinder has a 60 mm piston and a 10 mm rod. Air is supplied at 12 bar.',q:'Calculate the instroke force.',m:3,pts:['A = π × 30² − π × 5² = 2749 mm²','P = 12 bar = 1.2 N/mm²','F = 1.2 × 2749 = 3300 N'],seen:'Class worksheet: pneumatics'},
+{t:'energy',lv:'b',ctx:'A lift raises a mass of 1000 kg to the next floor of a shopping centre, 20 m up.',q:'Calculate the minimum work done by the lift.',m:3,pts:['F = mg = 1000 × 9.8 = 9800 N','E_w = F × d = 9800 × 20','E_w = 196 000 J (196 kJ)'],seen:'class worksheet (work done)'},
+{t:'energy',lv:'b',ctx:'An electric hob runs at 230 V and draws 5 A. It takes 7 minutes to boil a pot of soup.',q:'Calculate the electrical energy used.',m:3,pts:['t = 7 × 60 = 420 s','E_e = VIt = 230 × 5 × 420','E_e = 483 000 J (483 kJ)'],zero:['Using 7 instead of 420 seconds'],seen:'class worksheet (electrical energy)'},
+{t:'energy',lv:'b',ctx:'A 50 kg crate falls freely from a height of 30 m.',q:'Calculate its velocity just before it hits the ground, assuming no energy losses.',m:3,pts:['E_p = mgh = 50 × 9.8 × 30 = 14 700 J','E_k = E_p, so 14 700 = ½ × 50 × v²','v = √588 = 24 m/s'],seen:'class worksheet (energy transfers)'},
+{t:'energy',lv:'b',ctx:'A coffee machine heats 0.15 kg of water from 20 °C to 85 °C in 15 s. The element runs from 230 V and draws 22 A. c for water = 4180 J/kg °C.',q:'Calculate the efficiency of the coffee machine.',m:4,pts:['E_e = VIt = 230 × 22 × 15 = 75 900 J','E_h = cmΔT = 4180 × 0.15 × 65 = 40 755 J','η = E_out ÷ E_in × 100 = 40 755 ÷ 75 900 × 100','η = 54%'],seen:'class worksheet (efficiency and audits)'},
+{t:'energy',lv:'b',ctx:'The coffee machine has an input of 75.9 kJ and a useful output of 40.8 kJ.',q:'Draw an energy audit for the coffee machine.',m:3,pts:['Electrical energy in: 75.9 kJ','Useful heat energy out: 40.8 kJ','Wasted energy (heat to surroundings / sound): 35.1 kJ'],seen:'class worksheet (efficiency and audits)'},
+{t:'drives',lv:'b',ctx:'A motorised winch is driven by a motor at 1200 revs min⁻¹. The drum must turn at 25 revs min⁻¹.',q:'Calculate the velocity ratio required.',m:2,pts:['VR = input speed ÷ output speed = 1200 ÷ 25','VR = 48 (48:1)'],seen:'class worksheet (compound gear trains)'},
+{t:'drives',lv:'b',ctx:'Gear A (20 teeth) drives gear B (60 teeth). Gear C (40 teeth) is on the same shaft as B and drives gear D (50 teeth). The motor turns A at 1000 revs min⁻¹.',q:'Calculate the output speed of gear D.',m:3,pts:['VR_AB = 60 ÷ 20 = 3; VR_CD = 50 ÷ 40 = 1.25','VR total = 3 × 1.25 = 3.75','Output speed = 1000 ÷ 3.75 = 267 revs min⁻¹'],seen:'class worksheet (compound gear trains)'},
+{t:'pneumatics',lv:'b',ctx:'A single-acting cylinder with a 40 mm diameter piston is supplied with air at 3 bar.',q:'Calculate the outstroke force.',m:3,pts:['P = 3 bar = 0.3 N/mm²','A = π × 20² = 1257 mm²','F = P × A = 0.3 × 1257 = 377 N'],zero:['Leaving the pressure in bar'],seen:'class worksheet (pneumatics)'},
+{t:'pneumatics',lv:'b',ctx:'A door needs a force of 400 N to slide it open. The single-acting cylinder is supplied at 5 bar.',q:'Calculate the minimum piston diameter required.',m:4,pts:['P = 0.5 N/mm²','A = F ÷ P = 400 ÷ 0.5 = 800 mm²','d² = 4A ÷ π = 1019','d = 32 mm'],seen:'class worksheet (pneumatics)'},
+{t:'pneumatics',lv:'b',ctx:'A double-acting cylinder has a 60 mm piston and a 10 mm rod. Air is supplied at 12 bar.',q:'Calculate the instroke force.',m:3,pts:['A = π × 30² − π × 5² = 2749 mm²','P = 12 bar = 1.2 N/mm²','F = 1.2 × 2749 = 3300 N'],seen:'class worksheet (pneumatics)'},
 {t:'pneumatics',lv:'b',ctx:'A pneumatic stamp isn\'t pressing the logo deeply enough.',q:'Describe two ways of increasing the force from the cylinder.',m:2,pts:['Increase the air pressure','Use a cylinder with a larger piston (larger area)']},
-{t:'materials',lv:'b',ctx:'A steel wire must support a load of 8.0 kN. The stress must not exceed 200 N/mm².',q:'Calculate the minimum diameter of the wire.',m:3,pts:['A = F ÷ σ = 8000 ÷ 200 = 40 mm²','d = √(4A ÷ π) = √50.9','d = 7.1 mm (round up for safety)'],seen:'Class worksheet: stress'},
-{t:'materials',lv:'b',ctx:'During a test, a steel rod stretches 0.6 mm. The strain was 0.0012.',q:'Calculate the original length of the rod.',m:2,pts:['L = ΔL ÷ ε = 0.6 ÷ 0.0012','L = 500 mm'],seen:'Class worksheet: strain'},
-{t:'structures',lv:'b',ctx:'A 95 kg soldier hangs from monkey bars 25 m long, 9 m from the left-hand support.',q:'Calculate the reactions at each support.',m:4,pts:['F = mg = 95 × 9.8 = 931 N','Moments about the left support: 931 × 9 = R_right × 25','R_right = 335 N','R_left = 931 − 335 = 596 N'],seen:'Class worksheet: moments and reactions'},
-{t:'circuits',lv:'b',ctx:'A 12 Ω and an 8 Ω resistor are connected in parallel across a 12 V supply.',q:'Calculate the total resistance and the supply current.',m:3,pts:['R_T = (12 × 8) ÷ (12 + 8) = 4.8 Ω','I = V ÷ R = 12 ÷ 4.8','I = 2.5 A'],seen:'Class worksheet: analogue electronics'},
-{t:'vdiv',lv:'b',ctx:'A voltage divider has a 24 V supply. R2 is 26 Ω and V1 across R1 must be 9 V.',q:'Calculate the resistance of R1.',m:3,pts:['V2 = 24 − 9 = 15 V','R1 = (V1 ÷ V2) × R2 = (9 ÷ 15) × 26','R1 = 15.6 Ω'],seen:'Class worksheet: voltage dividers'},
+{t:'materials',lv:'b',ctx:'A steel wire must support a load of 8.0 kN. The stress must not exceed 200 N/mm².',q:'Calculate the minimum diameter of the wire.',m:3,pts:['A = F ÷ σ = 8000 ÷ 200 = 40 mm²','d = √(4A ÷ π) = √50.9','d = 7.1 mm (round up for safety)'],seen:'class worksheet (stress)'},
+{t:'materials',lv:'b',ctx:'During a test, a steel rod stretches 0.6 mm. The strain was 0.0012.',q:'Calculate the original length of the rod.',m:2,pts:['L = ΔL ÷ ε = 0.6 ÷ 0.0012','L = 500 mm'],seen:'class worksheet (strain)'},
+{t:'structures',lv:'b',ctx:'A 95 kg soldier hangs from monkey bars 25 m long, 9 m from the left-hand support.',q:'Calculate the reactions at each support.',m:4,pts:['F = mg = 95 × 9.8 = 931 N','Moments about the left support: 931 × 9 = R_right × 25','R_right = 335 N','R_left = 931 − 335 = 596 N'],seen:'class worksheet (moments and reactions)'},
+{t:'circuits',lv:'b',ctx:'A 12 Ω and an 8 Ω resistor are connected in parallel across a 12 V supply.',q:'Calculate the total resistance and the supply current.',m:3,pts:['R_T = (12 × 8) ÷ (12 + 8) = 4.8 Ω','I = V ÷ R = 12 ÷ 4.8','I = 2.5 A'],seen:'class worksheet (analogue electronics)'},
+{t:'vdiv',lv:'b',ctx:'A voltage divider has a 24 V supply. R2 is 26 Ω and V1 across R1 must be 9 V.',q:'Calculate the resistance of R1.',m:3,pts:['V2 = 24 − 9 = 15 V','R1 = (V1 ÷ V2) × R2 = (9 ÷ 15) × 26','R1 = 15.6 Ω'],seen:'class worksheet (voltage dividers)'},
 {t:'systems',lv:'b',ctx:'A room heater keeps the room at the temperature set by the user. A thermistor measures the room temperature.',q:'Describe how the closed loop system controls the room temperature.',m:4,pts:['The user sets the required temperature (set value)','The thermistor measures the actual temperature and feeds it back to the control unit','The control unit compares the actual temperature with the set temperature','If it is too cold the heater is switched on; when the set temperature is reached it is switched off'],seen:'Class slides: describing systems'}
 ];
 
@@ -6260,18 +6260,21 @@ const PRINTABLES={
   "n5": [
    {
     "topic": "systems",
-    "title": "Systems & control worksheet",
-    "file": "printables/class/es-class-n5-systems-control-worksheet.pdf"
+    "title": "Systems & control: past paper practice",
+    "file": "printables/class/es-class-n5-systems-control-worksheet.pdf",
+    "ans": "printables/class/es-class-n5-systems-control-worksheet-answers.pdf"
    },
    {
     "topic": "systems",
     "title": "Tea & toast: systems and energy",
-    "file": "printables/class/es-class-n5-tea-toast-systems-and-energy.pdf"
+    "file": "printables/class/es-class-n5-tea-toast-systems-and-energy.pdf",
+    "ans": "printables/class/es-class-n5-tea-toast-systems-and-energy-answers.pdf"
    },
    {
     "topic": "systems",
-    "title": "Assignment prep: systems-style question (2024)",
-    "file": "printables/class/es-class-n5-assignment-prep-systems-style-question-2024.pdf"
+    "title": "Assignment prep: pool heating system",
+    "file": "printables/class/es-class-n5-assignment-prep-systems-style-question-2024.pdf",
+    "ans": "printables/class/es-class-n5-assignment-prep-systems-style-question-2024-answers.pdf"
    },
    {
     "topic": "energy",
@@ -6330,7 +6333,8 @@ const PRINTABLES={
    {
     "topic": "energy",
     "title": "Energy revision sheet",
-    "file": "printables/class/es-class-n5-energy-revision-sheet.pdf"
+    "file": "printables/class/es-class-n5-energy-revision-sheet.pdf",
+    "ans": "printables/class/es-class-n5-energy-revision-sheet-answers.pdf"
    },
    {
     "topic": "drives",
@@ -6358,13 +6362,15 @@ const PRINTABLES={
    },
    {
     "topic": "pneumatics",
-    "title": "Pneumatics revision mind map",
-    "file": "printables/class/es-class-n5-pneumatics-revision-mind-map.pdf"
+    "title": "Pneumatics revision summary",
+    "file": "printables/class/es-class-n5-pneumatics-revision-mind-map.pdf",
+    "ans": "printables/class/es-class-n5-pneumatics-revision-mind-map-answers.pdf"
    },
    {
     "topic": "structures",
     "title": "Moments and reactions",
-    "file": "printables/class/es-class-n5-moments-and-reactions.pdf"
+    "file": "printables/class/es-class-n5-moments-and-reactions.pdf",
+    "ans": "printables/class/es-class-n5-moments-and-reactions-answers.pdf"
    },
    {
     "topic": "structures",
@@ -6421,8 +6427,9 @@ const PRINTABLES={
    },
    {
     "topic": "circuits",
-    "title": "Analogue electronics revision mind map",
-    "file": "printables/class/es-class-n5-analogue-electronics-revision-mind-map.pdf"
+    "title": "Analogue electronics revision summary",
+    "file": "printables/class/es-class-n5-analogue-electronics-revision-mind-map.pdf",
+    "ans": "printables/class/es-class-n5-analogue-electronics-revision-mind-map-answers.pdf"
    }
   ],
   "h": []
