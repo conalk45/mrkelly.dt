@@ -58,6 +58,7 @@ main{padding-block:22px 60px}
 .chip.n{background:var(--steel);color:var(--steel-ink)}
 .btn{display:inline-flex;align-items:center;gap:6px;border:1.5px solid var(--ink);background:var(--card);padding:8px 16px;border-radius:var(--r);cursor:pointer;font-weight:600}
 .btn.primary{background:var(--steel);border-color:var(--steel);color:var(--steel-ink)}
+a.btn{text-decoration:none;color:var(--ink)}a.btn.primary{color:var(--steel-ink)}
 .btn:disabled{opacity:.45;cursor:not-allowed}
 .btn:hover:not(:disabled){filter:brightness(1.06)}
 select,input[type=text],textarea{background:var(--card);border:1.5px solid var(--line);border-radius:var(--r);padding:8px 10px;max-width:100%}
@@ -673,7 +674,7 @@ body.cu .tabs button:not(.tab-home){display:none}
   <section class="view" id="view-print" hidden>
     <div class="panel">
       <div class="panel-head"><div><div class="eyebrow">For class or home · <span id="pr-level"></span></div><h2>Printable worksheets</h2></div></div>
-      <p>One worksheet for every topic, in three steps. Answers are a separate download, so you can hand out worksheets without them.</p>
+      <p>One worksheet for every topic, in three steps. Each one opens as a PDF in a new tab, ready to print or save. Answers are separate, so you can hand out worksheets without them.</p>
       <div class="pr-how">
         <div><span class="pr-tag s">I DO</span><b>Worked example</b><small>A practice question with a full-mark answer, each mark ticked, and an answer that loses marks.</small></div>
         <div><span class="pr-tag y">WE DO</span><b>Guided practice</b><small>A similar question with sentence starters and a word bank.</small></div>
@@ -8544,21 +8545,22 @@ $('#ck-save-txt').onclick=async()=>{ if(ckEmpty()) return; try{ await saveFile({
 $('#ck-copy').onclick=()=>{ if(ckEmpty()) return; const t=ckText(); navigator.clipboard.writeText(t).then(()=>{ $('#ck-close').click(); toast('Copied. Paste it into Notes, Teams or an email'); }).catch(()=>{ const ta=$('#ck-copy-area'); ta.hidden=false; ta.value=t; ta.select(); toast('Select all and copy the list below'); }); };
 
 /* ── PRINTABLES ── */
+const prHref = f => (typeof STANDALONE!=='undefined'&&STANDALONE ? '' : 'https://mrkellydt.co.uk/') + f;
 function renderPrintables(){
   const list=PRINTABLES[level==='n5'?'n5':'h']||[];
   let html='';
   if(PRINTABLES.cases&&PRINTABLES.cases.length){
     html+=`<h2 class="ck-area">Case study practice</h2><p class="muted">Ten-mark case studies like the one in the practical activity: a product drawing and four questions on joints, materials, fixings, sustainability, tools and finishes. Open book, just like the real one.</p><div class="pr-grid">`+PRINTABLES.cases.map(x=>`<div class="pr-item"><h3>${esc(x.title)}</h3>
-      <div class="row"><button class="btn primary pr-dl" data-f="${x.file}">Case study</button><button class="btn pr-dl" data-f="${x.ans}">Answers</button></div></div>`).join('')+'</div><h2 class="ck-area" style="margin-top:28px">Topic worksheets</h2>';
+      <div class="row"><a class="btn primary pr-dl" href="${prHref(x.file)}" target="_blank" rel="noopener">Case study</a><a class="btn pr-dl" href="${prHref(x.ans)}" target="_blank" rel="noopener">Answers</a></div></div>`).join('')+'</div><h2 class="ck-area" style="margin-top:28px">Topic worksheets</h2>';
   }
   AREAS.forEach(a=>{
     const it=list.filter(x=>x.area===a.id); if(!it.length) return;
     html+=`<h2 class="ck-area">${esc(a.name)}</h2><div class="pr-grid">`+it.map(x=>`<div class="pr-item"><h3>${esc(x.title)}</h3>
-      <div class="row"><button class="btn primary pr-dl" data-f="${x.file}">Worksheet</button><button class="btn pr-dl" data-f="${x.ans}">Answers</button></div></div>`).join('')+'</div>';
+      <div class="row"><a class="btn primary pr-dl" href="${prHref(x.file)}" target="_blank" rel="noopener">Worksheet</a><a class="btn pr-dl" href="${prHref(x.ans)}" target="_blank" rel="noopener">Answers</a></div></div>`).join('')+'</div>';
   });
   $('#pr-list').innerHTML=html;
   $('#pr-level').textContent=levelName();
-  $('#pr-list').querySelectorAll('.pr-dl').forEach(btn=>btn.onclick=()=>prDownload(btn));
+  /* plain links: open the PDF in a new tab (works for everyone, no sign-in) */
 }
 const PR_MSG={declined:'',rate_limited:'A save prompt is already open. Finish that one first.',too_large:'That file is too large to save here.',
   unavailable:'Saving files isn\'t available in this view. Try opening the site in Chrome or the Claude app.',not_granted:'Saving files isn\'t allowed in this view.'};
