@@ -8889,7 +8889,7 @@ function renderPrintables(){
   }
   if(cls&&cls.length){
     const tt=id=>{const t=TOPICS.find(x=>x.id===id);return t?t.short:''};
-    html+=`<h2 class="ck-area">Mr Kelly's class ${level==='n5'?'worksheets':'booklets'}</h2><p class="muted">The ${level==='n5'?'worksheets':'course booklets'} we use in class, with answers where they're available.</p><div class="pr-grid">`+cls.map(x=>`<div class="pr-item"><span class="eyebrow">${esc(tt(x.topic))}</span><h3>${esc(x.title)}</h3>
+    html+=`<h2 class="ck-area">${level==='n5'?'Worksheets':'Booklets'}</h2><p class="muted">The ${level==='n5'?'worksheets':'course booklets'} we use in class, with answers where they're available.</p><div class="pr-grid">`+cls.map(x=>`<div class="pr-item"><span class="eyebrow">${esc(tt(x.topic))}</span><h3>${esc(x.title)}</h3>
       <div class="row">${prBtn(x.file,level==='n5'?'Worksheet':'Booklet',1)}${x.ans?prBtn(x.ans,'Answers'):''}</div></div>`).join('')+'</div><h2 class="ck-area" style="margin-top:28px">Topic worksheets</h2>';
   }
   AREAS.forEach(a=>{
