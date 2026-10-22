@@ -159,6 +159,7 @@ table.res th:first-child,table.res td:first-child{text-align:left;position:stick
 .fig-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
 @media (max-width:560px){.fig-scroll::after{content:"← swipe to see the whole diagram →";display:block;position:sticky;left:0;width:calc(100vw - 90px);text-align:center;font-size:.75rem;color:var(--muted);padding-top:6px}}
 .fig svg{display:block;width:100%;min-width:500px;max-width:640px;height:auto;margin:0 auto;color:var(--ink);font-family:var(--f-body)}
+.fig.img-fig img{display:block;max-width:min(100%,480px);height:auto;margin:0 auto;background:#fff;border-radius:6px;padding:6px}
 .fig figcaption{font-size:.9rem;color:var(--muted);margin-top:8px;max-width:68ch}
 .fig svg{stroke-width:1.5}
 .fig .ln{stroke:currentColor}
@@ -4796,8 +4797,11 @@ const TOPICS = [
 notes:[
  {lv:'b', h:'Input, process, output', html:`<p>Any system can be shown as a <b>universal system diagram</b>: <b>input → process → output</b>. A <b>sub-system diagram</b> breaks the process into blocks (e.g. sensor → control → driver → motor), with arrows showing the signal or energy passing between them.</p>
  <p>In exam diagrams use the general words <b>input</b>, <b>process</b> and <b>output</b> where asked. The 2025 report noted that specific labels such as "user input" or "output energy" scored nothing on a universal system diagram.</p>{{fig:system}}`},
+ {lv:'b', h:'Finding inputs and outputs', html:`<p>To fill in a universal system diagram, ask two questions:</p><ul><li><b>Input</b>: what do I have to do to make it work? (e.g. switch it on, add fuel, press a button)</li><li><b>Output</b>: what does it do? (e.g. hot water, rotary movement, light)</li></ul><p>You can also show the <b>energy</b> going in and out: a kettle turns electrical energy into heat (thermal) energy; a car turns chemical energy into kinetic energy.</p>`},
+ {lv:'b', h:'Sub-system diagrams, boundary and driver', html:`<p>A <b>sub-system diagram</b> breaks the process into parts. Draw a <b>dashed box</b> round it: this is the <b>system boundary</b>. Anything inside is part of the system; anything outside is the outside world (the user, the room).</p><p>Most Engineering Science systems follow the same pattern:</p><ul><li><b>Control unit</b>: usually an electronic circuit that makes decisions.</li><li><b>Driver</b>: amplifies the small signal from the control unit so it can power the output (e.g. a transistor or relay). A driver is always needed before a motor, lamp or heater.</li><li><b>Output</b>: usually a motor, lamp or heater.</li><li><b>Feedback sensor</b> (closed loop only): usually a light, temperature or speed sensor.</li></ul><p>Always draw proper arrowheads to show the direction of each signal.</p>`},
  {lv:'b', h:'Open and closed loop control', html:`<ul><li><b>Open loop</b>: no feedback. The system does what it is set to do and doesn't check the result, e.g. a toaster on a timer.</li><li><b>Closed loop</b>: a <b>sensor</b> measures the actual output and <b>feeds it back</b>; the <b>controller compares</b> the actual level with the set (desired) level and adjusts the output, e.g. a thermostat-controlled heater.</li></ul>
  <p>When describing a closed-loop system, include all three: the sensor measuring the actual output and feeding back; the control sub-system comparing set and actual; and the specific action on the output ("the heater switches on when the temperature is below the set level and off when above"). Write "closed loop control", not just "closed".</p>`},
+ {lv:'b', h:'Describing a closed loop system: four steps', html:`<ol><li>Say whether it is <b>open or closed loop</b> (most exam systems are automatic and closed loop).</li><li>The <b>user sets</b> the required value (the <b>set value</b>, or reference value), e.g. 21 °C, and the system starts producing its output.</li><li>The <b>feedback sensor</b> measures the <b>actual value</b> and feeds it back to the control unit.</li><li>The <b>control unit compares</b> the actual value with the set value and <b>adjusts the output</b> to match, e.g. switches the heater off when 21 °C is reached.</li></ol><p>Name the real sensor and output in the question: "the thermistor measures the room temperature", not just "the sensor". A speedometer only <b>displays</b> speed; a <b>speed sensor</b> measures it.</p>`},
  {lv:'h', h:'Feedback, error and types of control', html:`<ul><li><b>Negative feedback</b>: the feedback signal is subtracted from the set value at a <b>comparator</b> (summing point) to give an <b>error signal</b>. The controller acts to reduce the error to zero.</li><li><b>Two-state (on/off) control</b>: the output is either fully on or fully off. Simple and cheap, but the output overshoots and oscillates about the set point, giving uneven motion or temperature.</li><li><b>Proportional control</b>: the output is proportional to the size of the error, so the system slows as it approaches the set point, giving a smoother response with less overshoot.</li><li>A <b>response graph</b> for proportional control shows a quick initial response, the error reducing over time, and the system settling at (or near) the set point.</li></ul>
  <p>Control diagrams may include a gain: e.g. output = gain × (set − feedback). Rearrange to find the feedback voltage: 8.0 = 4 × (3.2 − V<sub>f</sub>) gives V<sub>f</sub> = 1.2 V.</p>`}
 ],
@@ -4823,6 +4827,8 @@ exam:[]},
 {id:'energy', area:'ctx', title:'Energy & efficiency', short:'Energy',
 notes:[
  {lv:'b', h:'Conservation of energy', html:`<p>Energy can't be created or destroyed, only changed from one form to another. In real systems some energy is always "lost" as unwanted heat and sound, often through friction. An <b>energy audit</b> lists the energy in, the useful energy out and the losses.</p>{{fig:energy}}`},
+ {lv:'b', h:'Forms and sources of energy', html:`<p>Forms include kinetic, potential, heat (thermal), electrical, chemical, light, sound, nuclear and magnetic.</p><ul><li><b>Fossil fuels</b>: coal, oil and gas: burned, so they release CO₂ and will run out.</li><li><b>Nuclear</b>: fission of uranium produces heat, which makes steam to turn a turbine and generator.</li><li><b>Renewable</b>: wind, wave, tidal, hydro-electric and solar.</li></ul><p><b>Energy</b> is the capacity to do work, measured in joules (J). <b>Power</b> is how fast energy is transferred, measured in watts (W = J/s). Think of energy as the fuel in the tank and power as how quickly it's used.</p><p>An energy <b>transfer</b> moves energy (electricity along wires); a <b>transformation</b> changes its form (chemical → kinetic). Every transformation wastes some energy, usually as heat and sound.</p>`},
+ {lv:'b', h:'Prefixes and significant figures', html:`<div class="tbl"><table class="cmp"><tr><th>Prefix</th><th>Means</th><th>Example</th></tr><tr><td>M (mega)</td><td>× 1 000 000</td><td>2.4 MJ = 2 400 000 J</td></tr><tr><td>k (kilo)</td><td>× 1000</td><td>3.5 kW = 3500 W</td></tr><tr><td>m (milli)</td><td>÷ 1000</td><td>30 mA = 0.03 A</td></tr><tr><td>μ (micro)</td><td>÷ 1 000 000</td><td>47 μF = 0.000 047 F</td></tr></table></div><p>Convert to base units <b>before</b> substituting, and convert time to seconds (7 minutes = 420 s). Give the final answer to <b>2 or 3 significant figures</b> with its unit: 0.0078 A, 54%, 24 m/s.</p>`},
  {lv:'b', h:'Energy formulae', html:`<div class="tbl"><table class="cmp"><tr><th>Quantity</th><th>Formula</th><th>Units</th></tr>
  <tr><td>Work done</td><td>E<sub>w</sub> = F d</td><td>J = N × m</td></tr>
  <tr><td>Potential energy</td><td>E<sub>p</sub> = m g h (g = 9.8 N/kg)</td><td>J</td></tr>
@@ -4834,6 +4840,8 @@ notes:[
  <p>These are in the data booklet; you must be able to <b>rearrange</b> them and use the answer from one in the next.</p>`},
  {lv:'b', h:'Calculation technique', html:`<ol><li>Write the formula.</li><li>Convert units first: hours to seconds (7.5 h = 27 000 s), kJ to J, mm to m where needed.</li><li>Substitute, then rearrange (transpose).</li><li>Give the answer to 2 significant figures <b>with a unit</b>.</li><li>Don't round in the middle of a calculation; round only the final answer.</li></ol>
  <p>Each step usually carries a mark: substitution, transposition and answer with unit. Follow-on marks mean a wrong earlier value doesn't lose you every later mark.</p>`},
+ {lv:'b', h:'Worked examples: energy changing form', html:`<p><b>Potential to kinetic.</b> A 50 kg object falls freely from 30 m. E<sub>p</sub> = mgh = 50 × 9.8 × 30 = 14 700 J. All of it becomes kinetic energy at impact: 14 700 = ½ × 50 × v², so v² = 588 and <b>v = 24 m/s</b>.</p><p><b>Electrical to heat.</b> A kettle uses 24 kJ to heat 2 kg of water to 100 °C (no losses). 24 000 = 4180 × 2 × ΔT, so ΔT = 2.87 °C and the water started at <b>97 °C</b>.</p><p><b>Efficiency in three steps.</b> A coffee machine (230 V, 22 A) heats 0.15 kg of water from 20 °C to 85 °C in 15 s.</p><ol><li>Energy in: E<sub>e</sub> = VIt = 230 × 22 × 15 = 75 900 J</li><li>Useful energy out: E<sub>h</sub> = cmΔT = 4180 × 0.15 × 65 = 40 755 J</li><li>Efficiency: η = 40 755 ÷ 75 900 × 100 = <b>54%</b></li></ol><p>The other 46% (35.1 kJ) is wasted, as heat to the casing and air, and sound. Efficiency can never be more than 100%.</p>`},
+ {lv:'b', h:'Energy audits', html:`<p>An <b>energy audit</b> lists all the energy going into and coming out of a system, so you can see where energy is wasted. Total energy in = useful energy out + wasted energy. Show it as a diagram: the input on the left, the useful output on the right, and the waste (heat, sound) coming off the side, each labelled with its value.</p>`},
  {lv:'b', h:'Improving efficiency', html:`<p>Explain with a cause linked to the context and its effect: "Lubricate the gears (cause) to reduce friction, so less energy is lost as heat (effect)." Other examples: bearings, streamlining, insulation, reducing weight.</p>`},
  {lv:'h', h:'Higher energy problems', html:`<p>Higher questions chain several formulae together. Example: a pump lifts 2500 litres (2500 kg) of water 2.9 m at 87% efficiency from a 230 V, 5 A supply. E<sub>w</sub> = (2500 × 9.8) × 2.9 = 71 050 J; E<sub>in</sub> = 71 050 ÷ 0.87 = 81 667 J; t = 81 667 ÷ (230 × 5) = 71 s.</p>`}
 ],
@@ -4926,6 +4934,7 @@ notes:[
  {lv:'b', h:'Ohm\'s law and power', html:`<ul><li><b>V = I R</b> (volts = amps × ohms).</li><li><b>P = V I</b>, also P = I² R and P = V² ÷ R (watts).</li><li>Convert kΩ to Ω (4.7 kΩ = 4700 Ω) and mA to A (18 mA = 0.018 A).</li></ul>`},
  {lv:'b', h:'Series and parallel resistors', html:`<ul><li><b>Series</b>: R<sub>T</sub> = R<sub>1</sub> + R<sub>2</sub> + … The same current flows through each.</li><li><b>Parallel</b>: 1/R<sub>T</sub> = 1/R<sub>1</sub> + 1/R<sub>2</sub> + …, or for two resistors R<sub>T</sub> = (R<sub>1</sub> × R<sub>2</sub>) ÷ (R<sub>1</sub> + R<sub>2</sub>). The total is always less than the smallest resistor. Each branch has the same voltage.</li><li>For mixed networks, work out the parallel part first, then add the series parts.</li></ul>
  <p>Effect questions: if a resistance increases in a series circuit, the current falls and the voltage across the other resistors falls.</p>`},
+ {lv:'b', h:'Circuit worked examples', html:`<ul><li><b>Series</b>: 10 Ω and 17 Ω on 9 V: R<sub>T</sub> = 27 Ω, I = 9 ÷ 27 = 0.33 A, V<sub>1</sub> = 0.33 × 10 = 3.3 V, V<sub>2</sub> = 5.7 V. Check: 3.3 + 5.7 = 9 V.</li><li><b>Two in parallel</b>: product over sum. 12 Ω and 8 Ω: R<sub>T</sub> = (12 × 8) ÷ (12 + 8) = <b>4.8 Ω</b>. On 12 V: I = 2.5 A, splitting into 1 A and 1.5 A. Check: the branch currents add up to the total.</li><li>Convert prefixes first: 30 mA = 0.03 A, 1.5 kΩ = 1500 Ω.</li><li>Practise building circuits in <b>Yenka</b> to check your answers.</li></ul>`},
  {lv:'b', h:'Why simulate circuits?', html:`<p>Explain one advantage with cause and effect: components can't be damaged in a simulation (cause), so testing costs less (effect); components can be swapped instantly, so designs are changed and retested quickly; faults are highlighted, so they are easier to correct; it's safer, as faults don't cause real hazards. Software such as Yenka is used in class and in the assignment.</p>`}
 ],
 cards:[
@@ -4951,9 +4960,9 @@ exam:[]},
 notes:[
  {lv:'b', h:'How a voltage divider works', html:`<p>Two resistances in series across a supply share the voltage in proportion to their resistance: the bigger resistance gets the bigger share.</p>
  <ul><li><b>V<sub>1</sub> / V<sub>2</sub> = R<sub>1</sub> / R<sub>2</sub></b></li><li><b>V<sub>2</sub> = V<sub>s</sub> × R<sub>2</sub> ÷ (R<sub>1</sub> + R<sub>2</sub>)</b></li><li>V<sub>1</sub> + V<sub>2</sub> = V<sub>s</sub>.</li></ul>{{fig:vdiv}}
- <p>Replace one resistor with an LDR or thermistor and the output voltage changes with light or temperature: this is the input signal for a control circuit. Put the sensor at the bottom to make V<sub>out</sub> rise when its resistance rises (e.g. LDR at the bottom: V<sub>out</sub> rises as it gets darker). Swap them to reverse the action.</p>`},
+ <p>Replace one resistor with an LDR or thermistor and the output voltage changes with light or temperature: this is the input signal for a control circuit. Put the sensor at the bottom to make V<sub>out</sub> rise when its resistance rises (e.g. LDR at the bottom: V<sub>out</sub> rises as it gets darker). Swap them to reverse the action.</p>{{fig:c_el_vdiv}}`},
  {lv:'b', h:'Designing a divider', html:`<p>Example: a thermistor of 4.8 kΩ is at the bottom and the transistor needs 1.4 V across the top resistor on a 5 V supply. V<sub>therm</sub> = 5 − 1.4 = 3.6 V; R<sub>1</sub>/4.8 k = 1.4/3.6, so R<sub>1</sub> = 1.9 kΩ. Read sensor resistances from the characteristic graph (resistance against light or temperature) carefully, including the kΩ scale.</p>`},
- {lv:'b', h:'Describing a sensing circuit', html:`<p>A full description follows the chain: <b>sensor resistance</b> changes → <b>V<sub>in</sub></b> changes → <b>transistor</b> switches on/off → <b>relay</b>/output switches. E.g. "As the water heats up the thermistor's resistance falls, so V<sub>in</sub> rises; the transistor switches on, the relay activates, the blue LED turns off and the red LED turns on." The 2024 report: some didn't refer to the thermistor resistance or V<sub>out</sub>.</p>`},
+ {lv:'b', h:'Describing a sensing circuit', html:`<p>A full description follows the chain: <b>sensor resistance</b> changes → <b>V<sub>in</sub></b> changes → <b>transistor</b> switches on/off → <b>relay</b>/output switches. E.g. "As the water heats up the thermistor's resistance falls, so V<sub>in</sub> rises; the transistor switches on, the relay activates, the blue LED turns off and the red LED turns on." The 2024 report: some didn't refer to the thermistor resistance or V<sub>out</sub>.</p>{{fig:c_el_therm}}{{fig:c_el_ldr}}`},
  {lv:'h', h:'Higher: designing to a specification', html:`<p>Use the sensor's characteristics to choose resistor values that give the required switching voltage at a stated light level or temperature, often in combination with a reference divider and an op-amp comparator. A <b>Wheatstone bridge</b> uses two dividers: it is balanced (zero difference) when R<sub>A</sub>/R<sub>B</sub> = R<sub>1</sub>/R<sub>2</sub>. It is used with strain gauges (see Materials).</p>`}
 ],
 cards:[
@@ -4976,7 +4985,7 @@ exam:[]},
 {id:'transistors', area:'elec', title:'Transistors, relays & MOSFETs', short:'Transistors',
 notes:[
  {lv:'b', h:'Transistor as a switch', html:`<p>An NPN transistor has a <b>base</b>, <b>collector</b> and <b>emitter</b>. When the voltage at the base is about <b>0.7 V</b> or more, the transistor switches on and a larger current flows from collector to emitter, operating the output (a relay, LED, buzzer or motor). A small input current controls a larger output current.</p>
- <ul><li>A <b>base resistor</b> limits the base current to protect the transistor.</li><li>A <b>relay</b> lets a low-current control circuit switch a separate, higher-current or higher-voltage output circuit.</li><li>A <b>protection diode</b> across the relay coil protects the transistor from the high reverse voltage produced when the coil switches off.</li></ul>{{fig:transistor}}`},
+ <ul><li>A <b>base resistor</b> limits the base current to protect the transistor.</li><li>A <b>relay</b> lets a low-current control circuit switch a separate, higher-current or higher-voltage output circuit.</li><li>A <b>protection diode</b> across the relay coil protects the transistor from the high reverse voltage produced when the coil switches off.</li></ul>{{fig:transistor}}{{fig:c_el_tr}}{{fig:c_el_relay}}`},
  {lv:'h', h:'BJT current gain', html:`<p><b>h<sub>FE</sub> = I<sub>C</sub> ÷ I<sub>B</sub></b>. Example: an op-amp output of 4.25 V drives a 1200 Ω base resistor. I<sub>B</sub> = (4.25 − 0.7) ÷ 1200 = 2.96 mA; with h<sub>FE</sub> = 320, I<sub>C</sub> = 0.95 A. Remember the 0.7 V dropped across the base-emitter junction, and that current flowing through a sensor may split between the base and another resistor.</p>`},
  {lv:'h', h:'MOSFETs', html:`<ul><li>An n-channel enhancement-mode <b>MOSFET</b> is a voltage-operated switch: when the gate-source voltage V<sub>GS</sub> exceeds the <b>threshold voltage</b>, current flows from drain to source.</li><li>Almost no current flows into the gate, so it doesn't load the sensing circuit; it has a very low on-resistance, so it wastes little energy as heat and can switch large currents.</li><li><b>BJT vs MOSFET</b>: a BJT is current-operated and cheap, good for small loads; a MOSFET is voltage-operated, draws negligible input current and suits high-current loads such as motors and solenoids.</li><li>Drain-source current: I<sub>DS</sub> = voltage across the load ÷ load resistance, e.g. (6 − 5.2) ÷ 2.9.</li></ul>`}
 ],
@@ -5100,10 +5109,11 @@ exam:[]},
 /* ───────────── MECHANISMS & STRUCTURES ───────────── */
 {id:'drives', area:'mech', title:'Drive systems & mechanisms', short:'Drive systems',
 notes:[
- {lv:'b', h:'Types of motion', html:`<ul><li><b>Rotary</b>: turning in a circle (a wheel).</li><li><b>Linear</b>: in a straight line (a conveyor belt load).</li><li><b>Reciprocating</b>: backwards and forwards in a straight line (a pneumatic piston, a saw).</li><li><b>Oscillating</b>: swinging backwards and forwards in an arc (a pendulum, a windscreen wiper).</li></ul>`},
+ {lv:'b', h:'Types of motion', html:`<p>A <b>mechanism</b> changes an input motion and force into a different output motion and force: it makes a job easier. Learn the four motions and their British Standard symbols.</p><ul><li><b>Rotary</b>: turning in a circle (a wheel).</li><li><b>Linear</b>: in a straight line (a conveyor belt load).</li><li><b>Reciprocating</b>: backwards and forwards in a straight line (a pneumatic piston, a saw).</li><li><b>Oscillating</b>: swinging backwards and forwards in an arc (a pendulum, a windscreen wiper).</li></ul>{{fig:c_motion}}`},
  {lv:'b', h:'Gear trains', html:`<ul><li>In a <b>simple gear train</b> meshing gears turn in opposite directions.</li><li><b>Velocity ratio</b> VR = speed of input ÷ speed of output = teeth on driven gear ÷ teeth on driver gear. A VR of 4:1 means the output turns 4 times slower.</li><li>Speed method: <b>input speed × input teeth = output speed × output teeth</b>. E.g. 1500 × 52 = output × 12, so output = 6500 rev/min.</li><li>An <b>idler gear</b> between driver and driven makes them turn in the <b>same direction</b>. It doesn't change the velocity ratio, whatever its size: changing its number of teeth has no effect on the output speed.</li><li>A <b>compound gear train</b> has two gears fixed on the same shaft, giving a large speed change in a small space. Total VR = VR<sub>1</sub> × VR<sub>2</sub>.</li></ul>{{fig:gears}}
  <p>Write speeds in rev/min (not "RPM") and simplify ratios, e.g. 120:820 = 6:41. The 2024 N5 report: candidates using the data booklet speed method scored better on compound trains than those juggling ratios.</p>`},
- {lv:'b', h:'Friction', html:`<p>Friction between moving parts wastes energy as heat and sound and causes wear. Reduce it with lubrication (oil, grease), bearings, smooth or slippery materials, and regular maintenance. Friction is useful in brakes, clutches and belt drives.</p>`},
+ {lv:'b', h:'Speeds, units and compound trains', html:`<ul><li>The input gear is the <b>driver</b>; the output gear is the <b>driven</b>.</li><li>Rotary speed is measured in <b>revolutions per minute: revs min⁻¹</b>.</li><li><b>VR = teeth on driven ÷ teeth on driver = input speed ÷ output speed.</b> The SQA calls it the velocity ratio (or speed ratio). Example: driver 14T, driven 72T: VR = 72 ÷ 14 = 5.1, so a 100 revs min⁻¹ input gives about 19 revs min⁻¹.</li><li>A small driver with a large driven <b>reduces</b> speed; a large driver with a small driven <b>increases</b> it.</li><li>An <b>idler</b> makes the driven turn the same way as the driver. Its size has no effect on speed, so idlers are kept small to save space and material.</li><li>In a <b>compound gear train</b> two gears share one shaft and turn at the same speed. Total VR = VR of pair 1 × VR of pair 2. Example: A 20T drives B 60T; C 10T (on B's shaft) drives D 80T: VR = 3 × 8 = 24, so 100 revs min⁻¹ in gives 4.2 revs min⁻¹ out.</li><li>Compound trains give a large VR in a <b>compact</b> space, with fewer and smaller gears than a simple train.</li></ul>`},
+ {lv:'b', h:'Friction', html:`<p>In a gear system the meshing teeth rub, turning kinetic energy into <b>heat and sound</b>. Heat makes parts <b>expand</b>, increasing wear and damage, and the lost energy <b>reduces efficiency</b>. Reduce friction with oil or grease, <b>bearings</b> (which change rubbing into rolling), and regular maintenance to replace worn parts.</p><p>Friction between moving parts wastes energy as heat and sound and causes wear. Reduce it with lubrication (oil, grease), bearings, smooth or slippery materials, and regular maintenance. Friction is useful in brakes, clutches and belt drives.</p>`},
  {lv:'h', h:'Higher mechanisms', html:`<div class="tbl"><table class="cmp"><tr><th>Mechanism</th><th>Key points</th></tr>
  <tr><td>Belt and pulley</td><td>Quiet, cheap, can slip (protects from overload). VR = driven diameter ÷ driver diameter</td></tr>
  <tr><td>Chain and sprocket</td><td>No slip, transmits large forces; needs lubrication. VR = driven teeth ÷ driver teeth</td></tr>
@@ -5139,10 +5149,11 @@ exam:[]},
 
 {id:'pneumatics', area:'mech', title:'Pneumatics', short:'Pneumatics',
 notes:[
- {lv:'b', h:'Components', html:`<ul><li><b>Single-acting cylinder</b>: air outstrokes the piston; a spring returns it.</li><li><b>Double-acting cylinder</b>: air drives the piston both out and in.</li><li><b>3/2 valve</b>: 3 ports, 2 states. Actuated by push button, lever, roller, plunger, solenoid, <b>diaphragm</b> (low-pressure signal from an air bleed) or pilot air; usually spring return.</li><li><b>5/2 valve</b>: 5 ports, 2 states; controls a double-acting cylinder. Often pilot-air operated in both directions, so it stays in its last state (memory).</li><li><b>Restrictor</b> and <b>uni-directional restrictor (UDR)</b>: control air flow. A UDR restricts flow one way only.</li><li><b>Reservoir</b>: a tank that takes time to fill; with a restrictor it gives a <b>time delay</b>.</li><li><b>Shuttle valve</b>: OR control. Two valves in series: AND control.</li></ul>{{fig:pneumatics}}`},
- {lv:'b', h:'Describing pneumatic circuits', html:`<p>Use the correct words: <b>3/2 valves actuate</b>, <b>5/2 valves change state</b>, pistons <b>outstroke</b> and <b>instroke</b>. E.g. "Valve 2 is actuated, so pilot air changes the state of valve 3 and cylinders A and B outstroke. Piston B actuates valve 4; pilot air changes valve 3 back and both cylinders instroke." All three course reports (2024–2025) criticised vague terms here.</p>`},
- {lv:'b', h:'Speed control and time delays', html:`<ul><li>To slow a piston, <b>restrict the exhaust air</b> leaving the cylinder, using a UDR in the exhaust line or a restrictor on the 5/2 valve's exhaust port. Restricting exhaust gives smoother, more controlled movement.</li><li>A <b>time delay</b>: a UDR feeding a reservoir before a pilot or diaphragm-operated valve. The smaller the restriction or the bigger the reservoir, the longer the delay.</li></ul>`},
+ {lv:'b', h:'Components', html:`<ul><li><b>Single-acting cylinder</b>: air outstrokes the piston; a spring returns it.</li><li><b>Double-acting cylinder</b>: air drives the piston both out and in.</li><li><b>3/2 valve</b>: 3 ports, 2 states. Actuated by push button, lever, roller, plunger, solenoid, <b>diaphragm</b> (low-pressure signal from an air bleed) or pilot air; usually spring return.</li><li><b>5/2 valve</b>: 5 ports, 2 states; controls a double-acting cylinder. Often pilot-air operated in both directions, so it stays in its last state (memory).</li><li><b>Restrictor</b> and <b>uni-directional restrictor (UDR)</b>: control air flow. A UDR restricts flow one way only.</li><li><b>Reservoir</b>: a tank that takes time to fill; with a restrictor it gives a <b>time delay</b>.</li><li><b>Shuttle valve</b>: OR control. Two valves in series: AND control.</li></ul>{{fig:pneumatics}}{{fig:c_pn_act}}{{fig:c_pn_single}}{{fig:c_pn_52}}`},
+ {lv:'b', h:'Describing pneumatic circuits', html:`<p>Use the correct words: <b>3/2 valves actuate</b>, <b>5/2 valves change state</b>, pistons <b>outstroke</b> and <b>instroke</b>. E.g. "Valve 2 is actuated, so pilot air changes the state of valve 3 and cylinders A and B outstroke. Piston B actuates valve 4; pilot air changes valve 3 back and both cylinders instroke." All three course reports (2024–2025) criticised vague terms here.</p>{{fig:c_pn_and}}{{fig:c_pn_or}}`},
+ {lv:'b', h:'Speed control and time delays', html:`<ul><li>To slow a piston, <b>restrict the exhaust air</b> leaving the cylinder, using a UDR in the exhaust line or a restrictor on the 5/2 valve's exhaust port. Restricting exhaust gives smoother, more controlled movement.</li><li>A <b>time delay</b>: a UDR feeding a reservoir before a pilot or diaphragm-operated valve. The smaller the restriction or the bigger the reservoir, the longer the delay.</li></ul>{{fig:c_pn_restrict}}`},
  {lv:'b', h:'Force, pressure and area', html:`<ul><li><b>P = F ÷ A</b>. Area of a piston A = π d² ÷ 4.</li><li>On the <b>instroke</b> of a double-acting cylinder, air pushes on the piston minus the rod: effective area = piston area − rod area. Square each diameter first, then subtract.</li><li>Work in <b>N/mm²</b> with areas in mm². Don't convert to m² unless asked: a 2025 error was giving N/m² without converting.</li><li>Don't use the diameter directly in P = F/A; calculate the area first.</li></ul>`},
+ {lv:'b', h:'Pressure in bar and worked examples', html:`<ul><li><b>1 bar = 0.1 N/mm²</b>, so 3 bar = 0.3 N/mm² and 0.5 N/mm² = 5 bar.</li><li><b>Force</b>: a 40 mm cylinder at 3 bar: A = π × 20² = 1257 mm², F = 0.3 × 1257 = <b>380 N</b>.</li><li><b>Pressure</b>: 454 N from a 34 mm piston: A = π × 34² ÷ 4 = 907.9 mm², P = 454 ÷ 907.9 = 0.50 N/mm² = <b>5 bar</b>.</li><li><b>Diameter</b>: 400 N at 5 bar: A = F ÷ P = 400 ÷ 0.5 = 800 mm²; d = √(4A ÷ π) = √(3200 ÷ π) = <b>32 mm</b>.</li><li><b>Instroke of a double-acting cylinder</b>: piston 25 mm, rod 10 mm, 0.4 N/mm²: A = π × 12.5² − π × 5² = 412 mm², F = 0.4 × 412 = <b>165 N</b>.</li><li>A <b>single-acting</b> cylinder's instroke is driven by its return spring, so you can't change its force with air pressure.</li><li>To increase the force: increase the pressure or use a larger piston.</li></ul>`},
  {lv:'h', h:'Sequential and electro-pneumatic control', html:`<p>Higher circuits sequence up to three cylinders: each cylinder's piston actuates a roller valve that triggers the next step, with time delays where needed. Faults to look for: a pilot valve where a diaphragm actuator is needed (air bleed), a time delay connected the wrong way round (UDR and reservoir swapped), or a missing delay between steps. In <b>electro-pneumatic</b> systems, solenoid-actuated valves are switched by a microcontroller, so the sequence is set in software.</p>`}
 ],
 cards:[
@@ -5169,10 +5180,11 @@ exam:[]},
 
 {id:'structures', area:'mech', title:'Structures & forces', short:'Structures',
 notes:[
- {lv:'b', h:'Forces in structures', html:`<ul><li><b>Tension</b> pulls a member (it would stretch); a member in tension is a <b>tie</b>.</li><li><b>Compression</b> pushes a member (it would squash); a member in compression is a <b>strut</b>.</li><li>When showing the forces acting on a member: arrows pointing towards each other (pushing in) show <b>compression</b>; arrows pointing away from each other (pulling apart) show <b>tension</b>.</li></ul>`},
+ {lv:'b', h:'Forces in structures', html:`<ul><li><b>Tension</b> pulls a member (it would stretch); a member in tension is a <b>tie</b>.</li><li><b>Compression</b> pushes a member (it would squash); a member in compression is a <b>strut</b>.</li><li>When showing the forces acting on a member: arrows pointing towards each other (pushing in) show <b>compression</b>; arrows pointing away from each other (pulling apart) show <b>tension</b>.</li></ul>{{fig:c_st_forces}}`},
  {lv:'b', h:'Equilibrium and free body diagrams', html:`<p>A structure is in <b>equilibrium</b> when it isn't moving: the forces balance. A <b>free body diagram</b> shows one object with all the forces acting on it. Three <b>concurrent</b> forces (acting through one point) in equilibrium form a closed <b>triangle of forces</b> when drawn to scale head to tail.</p>`},
  {lv:'b', h:'Moments', html:`<ul><li><b>Moment = force × perpendicular distance</b> from the pivot (N m).</li><li><b>Principle of moments</b>: for equilibrium, the sum of clockwise moments = the sum of anticlockwise moments (ΣCWM = ΣACWM).</li><li>Also, for equilibrium, upward forces = downward forces (ΣF<sub>v</sub> = 0).</li></ul>{{fig:beam}}
  <p><b>Simply supported beam</b>: take moments about one support to find the other reaction, then use ΣF<sub>v</sub> = 0 for the first. E.g. loads 650 N at 0.8 m and 890 N at 3 m balanced by 560 N at distance d: 520 + 2670 = 560 d, d = 5.7 m.</p>`},
+ {lv:'b', h:'Weight and loads', html:`<p>Loads are often given as a mass. Convert to a force first: <b>weight = m × g = m × 9.8</b>. A 95 kg person: 95 × 9.8 = 931 N; a 500 kg container: 4900 N. Then draw the free body diagram with every force, reaction and distance before taking moments.</p>`},
  {lv:'h', h:'Resolving forces', html:`<ul><li>Split an angled force into components: horizontal F cos θ, vertical F sin θ (θ measured from the horizontal).</li><li>For equilibrium: ΣF<sub>H</sub> = 0 and ΣF<sub>V</sub> = 0. The <b>resultant</b> R = √(F<sub>H</sub>² + F<sub>V</sub>²) at angle tan⁻¹(F<sub>V</sub>/F<sub>H</sub>); the <b>equilibrant</b> is equal and opposite to the resultant.</li><li>A <b>uniformly distributed load</b> (UDL) is replaced by a point load (load per metre × length) at the centre of the length it covers.</li><li>Angled loads on beams: only the component at 90° to the beam creates a moment about the support (e.g. 3.8 sin 62).</li><li>A <b>hinge (pin)</b> support can have horizontal and vertical reactions; a <b>roller</b> support has only a reaction at 90° to its surface.</li></ul>`},
  {lv:'h', h:'Nodal analysis of frames', html:`<p>Start at a node with no more than two unknown members. Resolve vertically and horizontally to find each member force, then move to the next node. State the size and the <b>nature</b> of each force: strut (compression) or tie (tension). E.g. at node A with a 47 kN reaction: AB = 47 ÷ sin 60 = 54 kN (strut); AE = 54 cos 60 = 27 kN (tie).</p>`}
 ],
@@ -5203,6 +5215,7 @@ exam:[]},
 notes:[
  {lv:'b', h:'Choosing materials', html:`<p>Select from a table of properties and justify with properties linked to the job: "Material C, because it is corrosion resistant, so it won't degrade in sea water, and has high strength, so it resists the forces on the mast." "Strong" alone doesn't score.</p>`},
  {lv:'b', h:'Stress and strain', html:`<ul><li><b>Direct stress σ = F ÷ A</b>, in N/mm² (force in N, area in mm²). E.g. 26 000 N on a 710 mm² cable: σ = 37 N/mm².</li><li><b>Strain ε = Δl ÷ l</b>: change in length ÷ original length. It has <b>no units</b>. E.g. 0.00036 = Δl ÷ 120 gives Δl = 0.043 mm.</li><li>A bigger force on the same area gives a bigger stress; a bigger area reduces stress.</li></ul>`},
+ {lv:'b', h:'Stress and strain worked examples', html:`<ul><li><b>Rectangular bar</b> 180 × 120 mm with 500 N: A = 21 600 mm², σ = 500 ÷ 21 600 = <b>0.023 N/mm²</b>.</li><li><b>Wire diameter</b> to carry 8 kN at no more than 200 N/mm²: A = 8000 ÷ 200 = 40 mm²; d = √(4 × 40 ÷ π) = <b>7.1 mm</b> (round up for safety).</li><li><b>Strain</b>: a 4.0 m wire stretches 2.5 mm: ε = 2.5 ÷ 4000 = <b>0.000 63</b> (no units). Put both lengths in the same units first.</li><li><b>Change in length</b>: ΔL = ε × L = 0.0075 × 2500 mm = <b>19 mm</b>.</li></ul>{{fig:c_st_strain}}`},
  {lv:'h', h:'Stress–strain graphs and properties', html:`{{fig:stressstrain}}<ul><li><b>Limit of proportionality</b>: up to here stress is proportional to strain (straight line).</li><li><b>Elastic limit</b>: below this the material returns to its original length when the load is removed (<b>elastic</b>).</li><li><b>Yield point</b>: the material starts to stretch permanently (<b>plastic</b> deformation).</li><li><b>Ultimate tensile stress (UTS)</b>: the maximum stress before it necks and breaks.</li><li>Properties: <b>brittle</b> (breaks with little deformation, e.g. cast iron, glass); <b>ductile</b> (can be drawn out into wire); <b>malleable</b> (can be hammered or pressed into shape); <b>elastic</b>; <b>plastic</b>; <b>strength</b>.</li></ul>`},
  {lv:'h', h:'Young\'s modulus, factor of safety and strain energy', html:`<ul><li><b>Young's modulus E = σ ÷ ε</b> (N/mm²): the stiffness of a material, from the straight part of the graph.</li><li><b>Factor of safety = UTS ÷ working stress</b>. Working stress = UTS ÷ FoS. Engineers use a FoS to allow for flaws in materials, unexpected loads, corrosion and wear, and inaccuracy in calculations.</li><li><b>Strain energy E<sub>s</sub> = ½ F x</b> (J), with x the extension in m.</li><li>Finding a size: area = force ÷ working stress, then d = √(4A ÷ π). For a tube, outer area = load-bearing area + inner area, then outer diameter, then thickness = (D − d) ÷ 2.</li></ul>`},
  {lv:'h', h:'Strain gauges', html:`<p>A strain gauge's resistance increases when stretched. It is bonded to a structure and wired into a bridge with a second, <b>passive (dummy) gauge</b> that isn't strained. The passive gauge cancels resistance changes caused by temperature, so only strain is measured. The bridge output feeds a difference amplifier.</p>`}
@@ -5377,6 +5390,25 @@ const REPORTS = [
 
 /* Put it in order: [level, topic, title, steps in the correct order] */
 const SEQ = [
+ ['b','energy','Efficiency in three steps',[
+  'Write down what you know and convert units',
+  'Calculate the energy going in',
+  'Calculate the useful energy coming out',
+  'Efficiency = useful energy out ÷ energy in × 100',
+  'Give the answer as a percentage to 2 or 3 significant figures']],
+ ['b','pneumatics','Finding the piston diameter for a given force',[
+  'Convert the pressure from bar to N/mm²',
+  'Area = force ÷ pressure',
+  'd² = 4 × area ÷ π',
+  'd = square root of d²',
+  'Round up to the next available size']],
+ ['b','systems','Describing a closed loop control system',[
+  'State that it is closed loop control',
+  'The user sets the required value',
+  'The sensor measures the actual value',
+  'The actual value is fed back to the control unit',
+  'The control unit compares actual and set values',
+  'The output is switched on or off to correct the difference']],
  ['b','systems','Closed loop control: around the loop',[
   'The user sets the required level (set level)',
   'The comparator subtracts the feedback signal to give an error',
@@ -5434,7 +5466,7 @@ const SEQ = [
   'Find VR2 for the second pair',
   'Total VR = VR1 × VR2',
   'Output speed = input speed ÷ total VR',
-  'Give the answer in rpm']],
+  'Give the answer in revs min⁻¹']],
  ['b','pneumatics','A single-acting cylinder with a 3/2 push-button valve',[
   'The push button actuates the 3/2 valve',
   'Main air flows from port 1 to port 2',
@@ -5738,17 +5770,17 @@ const EXAM = [
  pts:['There is no return to the start of the program','Add "goto main" at the end'],zero:['Fault identified with no correction written'],seen:'H 2024'},
 
 /* ── DRIVES ── */
-{t:'drives',lv:'b',ctx:'A 20-tooth driver gear meshes with a 60-tooth driven gear. The motor turns at 1500 rpm.',q:'Calculate the velocity ratio and the output speed.',m:3,
- pts:['VR = driven ÷ driver = 60 ÷ 20 = 3','Output speed = 1500 ÷ 3','= 500 rpm'],seen:'N5 2024, 2025'},
+{t:'drives',lv:'b',ctx:'A 20-tooth driver gear meshes with a 60-tooth driven gear. The motor turns at 1500 revs min⁻¹.',q:'Calculate the velocity ratio and the output speed.',m:3,
+ pts:['VR = driven ÷ driver = 60 ÷ 20 = 3','Output speed = 1500 ÷ 3','= 500 revs min⁻¹'],seen:'N5 2024, 2025'},
 {t:'drives',lv:'b',ctx:'An idler gear B is placed between gears A and C.',q:'State the effect on the output speed if the number of teeth on idler B is reduced.',m:1,
  pts:['No effect: the idler does not change the speed or VR'],zero:['"It reverses the direction" (speed was asked)'],seen:'N5 2024'},
-{t:'drives',lv:'b',ctx:'A compound gear train: A (15 teeth) drives B (45 teeth); C (10 teeth, on the same shaft as B) drives D (50 teeth). Input 3000 rpm.',q:'Calculate the output speed.',m:3,
- pts:['VR1 = 45 ÷ 15 = 3; VR2 = 50 ÷ 10 = 5','Total VR = 15','Output = 3000 ÷ 15 = 200 rpm']},
+{t:'drives',lv:'b',ctx:'A compound gear train: A (15 teeth) drives B (45 teeth); C (10 teeth, on the same shaft as B) drives D (50 teeth). Input 3000 revs min⁻¹.',q:'Calculate the output speed.',m:3,
+ pts:['VR1 = 45 ÷ 15 = 3; VR2 = 50 ÷ 10 = 5','Total VR = 15','Output = 3000 ÷ 15 = 200 revs min⁻¹']},
 {t:'drives',lv:'b',ctx:'Machines contain several types of motion.',q:'Name the four types of motion and give an example of each.',m:4,
  pts:['Rotary: a wheel','Linear: a conveyor/lift','Reciprocating: a piston/saw blade','Oscillating: a pendulum/swing'],seen:'N5 2025'},
 {t:'drives',lv:'b',ctx:'Moving parts in a drive system wear quickly.',q:'Describe one way to reduce wear.',m:1,
  pts:['Lubricate with oil or grease to reduce friction','Use bearings','Use harder or self-lubricating materials'],seen:'N5 2024'},
-{t:'drives',lv:'h',ctx:'A motor produces 2.4 N m of torque at 1200 rpm.',q:'Calculate the power output.',m:2,
+{t:'drives',lv:'h',ctx:'A motor produces 2.4 N m of torque at 1200 revs min⁻¹.',q:'Calculate the power output.',m:2,
  pts:['ω = 2πN/60 = 2π × 1200 ÷ 60 = 125.7 rad/s','P = Tω = 2.4 × 125.7 = 302 W (300 W)']},
 {t:'drives',lv:'h',ctx:'A winch drum of diameter 0.2 m lifts a 50 kg load.',q:'Calculate the torque on the drum.',m:2,
  pts:['F = mg = 50 × 9.8 = 490 N','T = F × r = 490 × 0.1 = 49 N m'],zero:['Using the diameter instead of the radius'],seen:'H 2024'},
@@ -5803,7 +5835,25 @@ const EXAM = [
 {t:'materials',lv:'h',ctx:'A strain gauge is fixed to a beam, with a second gauge B mounted on an unloaded part.',q:'Explain the purpose of strain gauge B.',m:2,
  pts:['Gauge B is a dummy gauge for temperature compensation','Temperature changes affect both gauges equally, so only strain from the load changes the output'],seen:'H 2024'},
 {t:'materials',lv:'h',ctx:'A rod stretches 0.4 mm under a force of 3 kN.',q:'Calculate the strain energy stored.',m:2,
- pts:['Strain energy = ½ × F × ΔL = 0.5 × 3000 × 0.4 × 10⁻³','= 0.6 J'],zero:['Leaving extension in mm gives 600: wrong units'],seen:'H 2024'}
+ pts:['Strain energy = ½ × F × ΔL = 0.5 × 3000 × 0.4 × 10⁻³','= 0.6 J'],zero:['Leaving extension in mm gives 600: wrong units'],seen:'H 2024'},
+/* ── from Mr Kelly's class worksheets ── */
+{t:'energy',lv:'b',ctx:'A lift raises a mass of 1000 kg to the next floor of a shopping centre, 20 m up.',q:'Calculate the minimum work done by the lift.',m:3,pts:['F = mg = 1000 × 9.8 = 9800 N','E_w = F × d = 9800 × 20','E_w = 196 000 J (196 kJ)'],seen:'Class worksheet: work done'},
+{t:'energy',lv:'b',ctx:'An electric hob runs at 230 V and draws 5 A. It takes 7 minutes to boil a pot of soup.',q:'Calculate the electrical energy used.',m:3,pts:['t = 7 × 60 = 420 s','E_e = VIt = 230 × 5 × 420','E_e = 483 000 J (483 kJ)'],zero:['Using 7 instead of 420 seconds'],seen:'Class worksheet: electrical energy'},
+{t:'energy',lv:'b',ctx:'A 50 kg crate falls freely from a height of 30 m.',q:'Calculate its velocity just before it hits the ground, assuming no energy losses.',m:3,pts:['E_p = mgh = 50 × 9.8 × 30 = 14 700 J','E_k = E_p, so 14 700 = ½ × 50 × v²','v = √588 = 24 m/s'],seen:'Class worksheet: energy transfers'},
+{t:'energy',lv:'b',ctx:'A coffee machine heats 0.15 kg of water from 20 °C to 85 °C in 15 s. The element runs from 230 V and draws 22 A. c for water = 4180 J/kg °C.',q:'Calculate the efficiency of the coffee machine.',m:4,pts:['E_e = VIt = 230 × 22 × 15 = 75 900 J','E_h = cmΔT = 4180 × 0.15 × 65 = 40 755 J','η = E_out ÷ E_in × 100 = 40 755 ÷ 75 900 × 100','η = 54%'],seen:'Class worksheet: efficiency and audits'},
+{t:'energy',lv:'b',ctx:'The coffee machine has an input of 75.9 kJ and a useful output of 40.8 kJ.',q:'Draw an energy audit for the coffee machine.',m:3,pts:['Electrical energy in: 75.9 kJ','Useful heat energy out: 40.8 kJ','Wasted energy (heat to surroundings / sound): 35.1 kJ'],seen:'Class worksheet: efficiency and audits'},
+{t:'drives',lv:'b',ctx:'A motorised winch is driven by a motor at 1200 revs min⁻¹. The drum must turn at 25 revs min⁻¹.',q:'Calculate the velocity ratio required.',m:2,pts:['VR = input speed ÷ output speed = 1200 ÷ 25','VR = 48 (48:1)'],seen:'Class worksheet: compound gear trains'},
+{t:'drives',lv:'b',ctx:'Gear A (20 teeth) drives gear B (60 teeth). Gear C (40 teeth) is on the same shaft as B and drives gear D (50 teeth). The motor turns A at 1000 revs min⁻¹.',q:'Calculate the output speed of gear D.',m:3,pts:['VR_AB = 60 ÷ 20 = 3; VR_CD = 50 ÷ 40 = 1.25','VR total = 3 × 1.25 = 3.75','Output speed = 1000 ÷ 3.75 = 267 revs min⁻¹'],seen:'Class worksheet: compound gear trains'},
+{t:'pneumatics',lv:'b',ctx:'A single-acting cylinder with a 40 mm diameter piston is supplied with air at 3 bar.',q:'Calculate the outstroke force.',m:3,pts:['P = 3 bar = 0.3 N/mm²','A = π × 20² = 1257 mm²','F = P × A = 0.3 × 1257 = 377 N'],zero:['Leaving the pressure in bar'],seen:'Class worksheet: pneumatics'},
+{t:'pneumatics',lv:'b',ctx:'A door needs a force of 400 N to slide it open. The single-acting cylinder is supplied at 5 bar.',q:'Calculate the minimum piston diameter required.',m:4,pts:['P = 0.5 N/mm²','A = F ÷ P = 400 ÷ 0.5 = 800 mm²','d² = 4A ÷ π = 1019','d = 32 mm'],seen:'Class worksheet: pneumatics'},
+{t:'pneumatics',lv:'b',ctx:'A double-acting cylinder has a 60 mm piston and a 10 mm rod. Air is supplied at 12 bar.',q:'Calculate the instroke force.',m:3,pts:['A = π × 30² − π × 5² = 2749 mm²','P = 12 bar = 1.2 N/mm²','F = 1.2 × 2749 = 3300 N'],seen:'Class worksheet: pneumatics'},
+{t:'pneumatics',lv:'b',ctx:'A pneumatic stamp isn\'t pressing the logo deeply enough.',q:'Describe two ways of increasing the force from the cylinder.',m:2,pts:['Increase the air pressure','Use a cylinder with a larger piston (larger area)']},
+{t:'materials',lv:'b',ctx:'A steel wire must support a load of 8.0 kN. The stress must not exceed 200 N/mm².',q:'Calculate the minimum diameter of the wire.',m:3,pts:['A = F ÷ σ = 8000 ÷ 200 = 40 mm²','d = √(4A ÷ π) = √50.9','d = 7.1 mm (round up for safety)'],seen:'Class worksheet: stress'},
+{t:'materials',lv:'b',ctx:'During a test, a steel rod stretches 0.6 mm. The strain was 0.0012.',q:'Calculate the original length of the rod.',m:2,pts:['L = ΔL ÷ ε = 0.6 ÷ 0.0012','L = 500 mm'],seen:'Class worksheet: strain'},
+{t:'structures',lv:'b',ctx:'A 95 kg soldier hangs from monkey bars 25 m long, 9 m from the left-hand support.',q:'Calculate the reactions at each support.',m:4,pts:['F = mg = 95 × 9.8 = 931 N','Moments about the left support: 931 × 9 = R_right × 25','R_right = 335 N','R_left = 931 − 335 = 596 N'],seen:'Class worksheet: moments and reactions'},
+{t:'circuits',lv:'b',ctx:'A 12 Ω and an 8 Ω resistor are connected in parallel across a 12 V supply.',q:'Calculate the total resistance and the supply current.',m:3,pts:['R_T = (12 × 8) ÷ (12 + 8) = 4.8 Ω','I = V ÷ R = 12 ÷ 4.8','I = 2.5 A'],seen:'Class worksheet: analogue electronics'},
+{t:'vdiv',lv:'b',ctx:'A voltage divider has a 24 V supply. R2 is 26 Ω and V1 across R1 must be 9 V.',q:'Calculate the resistance of R1.',m:3,pts:['V2 = 24 − 9 = 15 V','R1 = (V1 ÷ V2) × R2 = (9 ÷ 15) × 26','R1 = 15.6 Ω'],seen:'Class worksheet: voltage dividers'},
+{t:'systems',lv:'b',ctx:'A room heater keeps the room at the temperature set by the user. A thermistor measures the room temperature.',q:'Describe how the closed loop system controls the room temperature.',m:4,pts:['The user sets the required temperature (set value)','The thermistor measures the actual temperature and feeds it back to the control unit','The control unit compares the actual temperature with the set temperature','If it is too cold the heater is switched on; when the set temperature is reached it is switched off'],seen:'Class slides: describing systems'}
 ];
 
 /* Command words in Engineering Science */
@@ -5868,8 +5918,8 @@ const MODELS = [
   good:'There is no effect on the output speed; an idler only changes the direction of rotation (1).',
   weak:['It reverses the direction of gear C.','0 marks: the question asks about speed.']},
  {k:'Calculate the output speed.',
-  good:'VR1 = 45 ÷ 15 = 3 and VR2 = 50 ÷ 10 = 5 (1). Total VR = 3 × 5 = 15 (1). Output speed = 3000 ÷ 15 = 200 rpm (1).',
-  weak:['VR = (45 + 50) ÷ (15 + 10) = 3.8, output = 789 rpm','0 marks: compound ratios multiply, they don\'t add.']},
+  good:'VR1 = 45 ÷ 15 = 3 and VR2 = 50 ÷ 10 = 5 (1). Total VR = 3 × 5 = 15 (1). Output speed = 3000 ÷ 15 = 200 revs min⁻¹ (1).',
+  weak:['VR = (45 + 50) ÷ (15 + 10) = 3.8, output = 789 revs min⁻¹','0 marks: compound ratios multiply, they don\'t add.']},
  {k:'Describe the operation of the circuit.',
   good:'When the push button actuates the 3/2 valve, main air flows from port 1 to port 2 and the piston outstrokes (1). When the button is released, the spring returns the valve (1). Air in the cylinder exhausts through port 3 and the spring instrokes the piston (1).',
   weak:['Press the button, the valve opens, air goes in and pushes the piston out. Let go and it goes back.','1 mark at most: "opens", "pushes out" and "goes back" aren\'t the accepted terms.']},
@@ -5913,201 +5963,493 @@ pneumatics: FIG("A single-acting cylinder controlled by a push-button 3/2 valve 
 beam: FIG("A simply supported beam with two point loads", "Take moments about one support to remove its unknown reaction, then use upward forces = downward forces for the other.", 540, 336, "<defs><marker id=\"eh\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto-start-reverse\"><path d=\"M0,0 L10,5 L0,10 z\" class=\"mk\"/></marker></defs><rect x=\"60.0\" y=\"120.0\" width=\"440.0\" height=\"14.0\" rx=\"0\" class=\"soft ln\" stroke-width=\"2\"/><path d=\"M70.0,134.0 L90.0,134.0 L80.0,150.0 Z\" class=\"soft ln\" stroke-width=\"1.5\"/><path d=\"M470.0,134.0 L490.0,134.0 L480.0,150.0 Z\" class=\"soft ln\" stroke-width=\"1.5\"/><line x1=\"80.0\" y1=\"195.0\" x2=\"80.0\" y2=\"152.0\" class=\"ln\" stroke-width=\"2\" marker-end=\"url(#eh)\"/><text x=\"80.0\" y=\"212.0\" class=\"t b\" text-anchor=\"middle\">RA</text><line x1=\"480.0\" y1=\"195.0\" x2=\"480.0\" y2=\"152.0\" class=\"ln\" stroke-width=\"2\" marker-end=\"url(#eh)\"/><text x=\"480.0\" y=\"212.0\" class=\"t b\" text-anchor=\"middle\">RB</text><line x1=\"200.0\" y1=\"60.0\" x2=\"200.0\" y2=\"118.0\" class=\"ln\" stroke-width=\"2\" marker-end=\"url(#eh)\"/><text x=\"200.0\" y=\"52.0\" class=\"t b\" text-anchor=\"middle\">600 N</text><line x1=\"380.0\" y1=\"60.0\" x2=\"380.0\" y2=\"118.0\" class=\"ln\" stroke-width=\"2\" marker-end=\"url(#eh)\"/><text x=\"380.0\" y=\"52.0\" class=\"t b\" text-anchor=\"middle\">900 N</text><line x1=\"80.0\" y1=\"240.0\" x2=\"200.0\" y2=\"240.0\" class=\"ln\" stroke-width=\"1\"/><text x=\"140.0\" y=\"234.0\" class=\"t s\" text-anchor=\"middle\">1.5 m</text><line x1=\"80.0\" y1=\"258.0\" x2=\"380.0\" y2=\"258.0\" class=\"ln\" stroke-width=\"1\"/><text x=\"230.0\" y=\"252.0\" class=\"t s\" text-anchor=\"middle\">3.75 m</text><line x1=\"80.0\" y1=\"276.0\" x2=\"480.0\" y2=\"276.0\" class=\"ln\" stroke-width=\"1\"/><text x=\"280.0\" y=\"270.0\" class=\"t s\" text-anchor=\"middle\">5 m</text><line x1=\"80.0\" y1=\"226.0\" x2=\"80.0\" y2=\"282.0\" class=\"ln g\" stroke-width=\"0.8\" stroke-dasharray=\"3 3\"/><line x1=\"200.0\" y1=\"226.0\" x2=\"200.0\" y2=\"282.0\" class=\"ln g\" stroke-width=\"0.8\" stroke-dasharray=\"3 3\"/><line x1=\"380.0\" y1=\"226.0\" x2=\"380.0\" y2=\"282.0\" class=\"ln g\" stroke-width=\"0.8\" stroke-dasharray=\"3 3\"/><line x1=\"480.0\" y1=\"226.0\" x2=\"480.0\" y2=\"282.0\" class=\"ln g\" stroke-width=\"0.8\" stroke-dasharray=\"3 3\"/><text x=\"20.0\" y=\"306.0\" class=\"t s\" text-anchor=\"start\">Moments about A: (600 \u00d7 1.5) + (900 \u00d7 3.75) = RB \u00d7 5, so RB = 855 N</text><text x=\"20.0\" y=\"324.0\" class=\"t s\" text-anchor=\"start\">Vertical forces: RA + 855 = 600 + 900, so RA = 645 N</text>"),
 stressstrain: FIG("A stress\u2013strain graph for a ductile metal", "The straight section obeys E = stress \u00f7 strain. Beyond the yield point the material deforms permanently; the highest point is the ultimate tensile stress. A brittle material would follow the straight line and then break with almost no plastic region.", 560, 270, "<defs><marker id=\"ei\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto-start-reverse\"><path d=\"M0,0 L10,5 L0,10 z\" class=\"mk\"/></marker></defs><line x1=\"60.0\" y1=\"240.0\" x2=\"60.0\" y2=\"20.0\" class=\"ln\" stroke-width=\"1.5\" marker-end=\"url(#ei)\"/><line x1=\"60.0\" y1=\"240.0\" x2=\"520.0\" y2=\"240.0\" class=\"ln\" stroke-width=\"1.5\" marker-end=\"url(#ei)\"/><text x=\"70.0\" y=\"26.0\" class=\"t s\" text-anchor=\"start\">Stress</text><text x=\"500.0\" y=\"260.0\" class=\"t s\" text-anchor=\"start\">Strain</text><line x1=\"60.0\" y1=\"240.0\" x2=\"160.0\" y2=\"90.0\" class=\"ln\" stroke-width=\"2.2\"/><path d=\"M160,90 C175,75 185,80 195,82 C260,60 330,40 390,45 C430,50 450,70 470,110\" class=\"ln\" stroke-width=\"2.2\" fill=\"none\"/><circle cx=\"470.0\" cy=\"110.0\" r=\"4.0\" class=\"inkf\" stroke-width=\"0\"/><circle cx=\"160.0\" cy=\"90.0\" r=\"3.5\" class=\"inkf\" stroke-width=\"0\"/><circle cx=\"390.0\" cy=\"45.0\" r=\"3.5\" class=\"inkf\" stroke-width=\"0\"/><circle cx=\"195.0\" cy=\"82.0\" r=\"3.5\" class=\"inkf\" stroke-width=\"0\"/><text x=\"72.0\" y=\"58.0\" class=\"t s\" text-anchor=\"start\">limit of proportionality</text><line x1=\"128.0\" y1=\"63.0\" x2=\"157.0\" y2=\"87.0\" class=\"ln g\" stroke-width=\"0.8\" stroke-dasharray=\"2 2\"/><text x=\"205.0\" y=\"110.0\" class=\"t s\" text-anchor=\"start\">yield point</text><text x=\"370.0\" y=\"30.0\" class=\"t s\" text-anchor=\"middle\">UTS (maximum stress)</text><text x=\"478.0\" y=\"112.0\" class=\"t s\" text-anchor=\"start\">break</text><text x=\"96.0\" y=\"228.0\" class=\"t s\" text-anchor=\"start\">elastic</text><text x=\"270.0\" y=\"150.0\" class=\"t s\" text-anchor=\"middle\">plastic region</text><text x=\"122.0\" y=\"196.0\" class=\"t s\" text-anchor=\"start\">E = stress \u00f7 strain</text>"),
 };
+/* Diagrams from Mr Kelly's class slides (used with permission) */
+const IMGFIG = (src, alt, cap) => `<figure class="fig img-fig"><img src="img/${src}.png" alt="${alt}" loading="lazy"><figcaption>${cap}</figcaption></figure>`;
+Object.assign(FIGS, {
+ c_motion: IMGFIG('es-motion-symbols','British Standard symbols for motion','British Standard symbols for linear, rotary and reciprocating motion. Use them in system and mechanism diagrams.'),
+ c_pn_act: IMGFIG('es-pn-actuators','Pneumatic valve actuator symbols','Valve actuator symbols: plunger, push button, lever, roller, roller trip, solenoid, diaphragm, foot pedal, pilot air and spring.'),
+ c_pn_single: IMGFIG('es-pn-single','A single-acting cylinder controlled by a push-button 3/2 valve','A push-button, spring-return 3/2 valve controlling a single-acting cylinder.'),
+ c_pn_52: IMGFIG('es-pn-52valve','A 5/2 valve symbol with ports numbered','A 5/2 valve with pilot air at both ends. Port 1 is main air, 2 and 4 go to the cylinder, and 3 and 5 are exhausts.'),
+ c_pn_and: IMGFIG('es-pn-and','Two 3/2 valves in series controlling a cylinder','AND control: two 3/2 valves piped in series. Both must be actuated for the piston to outstroke.'),
+ c_pn_or: IMGFIG('es-pn-or','Two 3/2 valves joined by a shuttle valve','OR control: either valve A or valve B outstrokes cylinder C. The shuttle valve stops air escaping through the other valve.'),
+ c_pn_shuttle: IMGFIG('es-pn-shuttle','Shuttle valve symbol','Shuttle valve symbol: air from either input goes to the output.'),
+ c_pn_restrict: IMGFIG('es-pn-restrictor','Double-acting cylinder with a unidirectional restrictor','A 5/2 valve piloted by two 3/2 valves controls a double-acting cylinder. The unidirectional flow restrictor slows the piston in one direction.'),
+ c_el_vdiv: IMGFIG('es-el-vdiv','Voltage divider with V out between the resistors','A voltage divider: the supply voltage is shared between R1 and R2, and Vout is taken across R2.'),
+ c_el_tr: IMGFIG('es-el-transistor','Yenka transistor switching circuit','A transistor switching a lamp (Yenka). The base-emitter voltage is 0.75 V, so the transistor is switched on.'),
+ c_el_relay: IMGFIG('es-el-relay','Yenka transistor, relay and lamp circuit with a protection diode','A light-sensing circuit driving a relay. The diode across the relay coil protects the transistor.'),
+ c_el_therm: IMGFIG('es-el-thermistor-graph','Thermistor resistance against temperature graph','Thermistor graph: resistance falls as temperature rises. Read values off the line for the thermistor named in the question.'),
+ c_el_ldr: IMGFIG('es-el-ldr-graph','LDR resistance against light intensity graph','LDR graph: resistance falls as light intensity rises (both scales are logarithmic).'),
+ c_st_forces: IMGFIG('es-st-forces','Compression, tension, torsion and bending','The four ways a member can be loaded: compression, tension, torsion and bending.'),
+ c_st_strain: IMGFIG('es-st-strain','A bar stretched by a force showing original length and change in length','Strain compares the change in length (ΔL) with the original length (L).')
+});
 
 const PRINTABLES={
-"n5": [
-{
-"id": "systems",
-"title": "The systems approach & control",
-"area": "ctx",
-"file": "printables/es-n5-systems.pdf",
-"ans": "printables/es-n5-systems-answers.pdf"
-},
-{
-"id": "energy",
-"title": "Energy & efficiency",
-"area": "ctx",
-"file": "printables/es-n5-energy.pdf",
-"ans": "printables/es-n5-energy-answers.pdf"
-},
-{
-"id": "roles",
-"title": "Engineering roles & disciplines",
-"area": "ctx",
-"file": "printables/es-n5-roles.pdf",
-"ans": "printables/es-n5-roles-answers.pdf"
-},
-{
-"id": "impacts",
-"title": "Impacts of engineering & emerging technology",
-"area": "ctx",
-"file": "printables/es-n5-impacts.pdf",
-"ans": "printables/es-n5-impacts-answers.pdf"
-},
-{
-"id": "circuits",
-"title": "Components, Ohm's law & resistor networks",
-"area": "elec",
-"file": "printables/es-n5-circuits.pdf",
-"ans": "printables/es-n5-circuits-answers.pdf"
-},
-{
-"id": "vdiv",
-"title": "Voltage dividers & sensors",
-"area": "elec",
-"file": "printables/es-n5-vdiv.pdf",
-"ans": "printables/es-n5-vdiv-answers.pdf"
-},
-{
-"id": "transistors",
-"title": "Transistors, relays & MOSFETs",
-"area": "elec",
-"file": "printables/es-n5-transistors.pdf",
-"ans": "printables/es-n5-transistors-answers.pdf"
-},
-{
-"id": "logic",
-"title": "Digital logic",
-"area": "elec",
-"file": "printables/es-n5-logic.pdf",
-"ans": "printables/es-n5-logic-answers.pdf"
-},
-{
-"id": "programming",
-"title": "Microcontrollers, flowcharts & programming",
-"area": "elec",
-"file": "printables/es-n5-programming.pdf",
-"ans": "printables/es-n5-programming-answers.pdf"
-},
-{
-"id": "drives",
-"title": "Drive systems & mechanisms",
-"area": "mech",
-"file": "printables/es-n5-drives.pdf",
-"ans": "printables/es-n5-drives-answers.pdf"
-},
-{
-"id": "pneumatics",
-"title": "Pneumatics",
-"area": "mech",
-"file": "printables/es-n5-pneumatics.pdf",
-"ans": "printables/es-n5-pneumatics-answers.pdf"
-},
-{
-"id": "structures",
-"title": "Structures & forces",
-"area": "mech",
-"file": "printables/es-n5-structures.pdf",
-"ans": "printables/es-n5-structures-answers.pdf"
-},
-{
-"id": "materials",
-"title": "Materials, stress & strain",
-"area": "mech",
-"file": "printables/es-n5-materials.pdf",
-"ans": "printables/es-n5-materials-answers.pdf"
-}
-],
-"h": [
-{
-"id": "systems",
-"title": "The systems approach & control",
-"area": "ctx",
-"file": "printables/es-h-systems.pdf",
-"ans": "printables/es-h-systems-answers.pdf"
-},
-{
-"id": "energy",
-"title": "Energy & efficiency",
-"area": "ctx",
-"file": "printables/es-h-energy.pdf",
-"ans": "printables/es-h-energy-answers.pdf"
-},
-{
-"id": "roles",
-"title": "Engineering roles & disciplines",
-"area": "ctx",
-"file": "printables/es-h-roles.pdf",
-"ans": "printables/es-h-roles-answers.pdf"
-},
-{
-"id": "impacts",
-"title": "Impacts of engineering & emerging technology",
-"area": "ctx",
-"file": "printables/es-h-impacts.pdf",
-"ans": "printables/es-h-impacts-answers.pdf"
-},
-{
-"id": "circuits",
-"title": "Components, Ohm's law & resistor networks",
-"area": "elec",
-"file": "printables/es-h-circuits.pdf",
-"ans": "printables/es-h-circuits-answers.pdf"
-},
-{
-"id": "vdiv",
-"title": "Voltage dividers & sensors",
-"area": "elec",
-"file": "printables/es-h-vdiv.pdf",
-"ans": "printables/es-h-vdiv-answers.pdf"
-},
-{
-"id": "transistors",
-"title": "Transistors, relays & MOSFETs",
-"area": "elec",
-"file": "printables/es-h-transistors.pdf",
-"ans": "printables/es-h-transistors-answers.pdf"
-},
-{
-"id": "opamps",
-"title": "Operational amplifiers",
-"area": "elec",
-"file": "printables/es-h-opamps.pdf",
-"ans": "printables/es-h-opamps-answers.pdf"
-},
-{
-"id": "logic",
-"title": "Digital logic",
-"area": "elec",
-"file": "printables/es-h-logic.pdf",
-"ans": "printables/es-h-logic-answers.pdf"
-},
-{
-"id": "programming",
-"title": "Microcontrollers, flowcharts & programming",
-"area": "elec",
-"file": "printables/es-h-programming.pdf",
-"ans": "printables/es-h-programming-answers.pdf"
-},
-{
-"id": "drives",
-"title": "Drive systems & mechanisms",
-"area": "mech",
-"file": "printables/es-h-drives.pdf",
-"ans": "printables/es-h-drives-answers.pdf"
-},
-{
-"id": "pneumatics",
-"title": "Pneumatics",
-"area": "mech",
-"file": "printables/es-h-pneumatics.pdf",
-"ans": "printables/es-h-pneumatics-answers.pdf"
-},
-{
-"id": "structures",
-"title": "Structures & forces",
-"area": "mech",
-"file": "printables/es-h-structures.pdf",
-"ans": "printables/es-h-structures-answers.pdf"
-},
-{
-"id": "materials",
-"title": "Materials, stress & strain",
-"area": "mech",
-"file": "printables/es-h-materials.pdf",
-"ans": "printables/es-h-materials-answers.pdf"
-}
-]
+ "n5": [
+  {
+   "id": "systems",
+   "title": "The systems approach & control",
+   "area": "ctx",
+   "file": "printables/es-n5-systems.pdf",
+   "ans": "printables/es-n5-systems-answers.pdf"
+  },
+  {
+   "id": "energy",
+   "title": "Energy & efficiency",
+   "area": "ctx",
+   "file": "printables/es-n5-energy.pdf",
+   "ans": "printables/es-n5-energy-answers.pdf"
+  },
+  {
+   "id": "roles",
+   "title": "Engineering roles & disciplines",
+   "area": "ctx",
+   "file": "printables/es-n5-roles.pdf",
+   "ans": "printables/es-n5-roles-answers.pdf"
+  },
+  {
+   "id": "impacts",
+   "title": "Impacts of engineering & emerging technology",
+   "area": "ctx",
+   "file": "printables/es-n5-impacts.pdf",
+   "ans": "printables/es-n5-impacts-answers.pdf"
+  },
+  {
+   "id": "circuits",
+   "title": "Components, Ohm's law & resistor networks",
+   "area": "elec",
+   "file": "printables/es-n5-circuits.pdf",
+   "ans": "printables/es-n5-circuits-answers.pdf"
+  },
+  {
+   "id": "vdiv",
+   "title": "Voltage dividers & sensors",
+   "area": "elec",
+   "file": "printables/es-n5-vdiv.pdf",
+   "ans": "printables/es-n5-vdiv-answers.pdf"
+  },
+  {
+   "id": "transistors",
+   "title": "Transistors, relays & MOSFETs",
+   "area": "elec",
+   "file": "printables/es-n5-transistors.pdf",
+   "ans": "printables/es-n5-transistors-answers.pdf"
+  },
+  {
+   "id": "logic",
+   "title": "Digital logic",
+   "area": "elec",
+   "file": "printables/es-n5-logic.pdf",
+   "ans": "printables/es-n5-logic-answers.pdf"
+  },
+  {
+   "id": "programming",
+   "title": "Microcontrollers, flowcharts & programming",
+   "area": "elec",
+   "file": "printables/es-n5-programming.pdf",
+   "ans": "printables/es-n5-programming-answers.pdf"
+  },
+  {
+   "id": "drives",
+   "title": "Drive systems & mechanisms",
+   "area": "mech",
+   "file": "printables/es-n5-drives.pdf",
+   "ans": "printables/es-n5-drives-answers.pdf"
+  },
+  {
+   "id": "pneumatics",
+   "title": "Pneumatics",
+   "area": "mech",
+   "file": "printables/es-n5-pneumatics.pdf",
+   "ans": "printables/es-n5-pneumatics-answers.pdf"
+  },
+  {
+   "id": "structures",
+   "title": "Structures & forces",
+   "area": "mech",
+   "file": "printables/es-n5-structures.pdf",
+   "ans": "printables/es-n5-structures-answers.pdf"
+  },
+  {
+   "id": "materials",
+   "title": "Materials, stress & strain",
+   "area": "mech",
+   "file": "printables/es-n5-materials.pdf",
+   "ans": "printables/es-n5-materials-answers.pdf"
+  }
+ ],
+ "h": [
+  {
+   "id": "systems",
+   "title": "The systems approach & control",
+   "area": "ctx",
+   "file": "printables/es-h-systems.pdf",
+   "ans": "printables/es-h-systems-answers.pdf"
+  },
+  {
+   "id": "energy",
+   "title": "Energy & efficiency",
+   "area": "ctx",
+   "file": "printables/es-h-energy.pdf",
+   "ans": "printables/es-h-energy-answers.pdf"
+  },
+  {
+   "id": "roles",
+   "title": "Engineering roles & disciplines",
+   "area": "ctx",
+   "file": "printables/es-h-roles.pdf",
+   "ans": "printables/es-h-roles-answers.pdf"
+  },
+  {
+   "id": "impacts",
+   "title": "Impacts of engineering & emerging technology",
+   "area": "ctx",
+   "file": "printables/es-h-impacts.pdf",
+   "ans": "printables/es-h-impacts-answers.pdf"
+  },
+  {
+   "id": "circuits",
+   "title": "Components, Ohm's law & resistor networks",
+   "area": "elec",
+   "file": "printables/es-h-circuits.pdf",
+   "ans": "printables/es-h-circuits-answers.pdf"
+  },
+  {
+   "id": "vdiv",
+   "title": "Voltage dividers & sensors",
+   "area": "elec",
+   "file": "printables/es-h-vdiv.pdf",
+   "ans": "printables/es-h-vdiv-answers.pdf"
+  },
+  {
+   "id": "transistors",
+   "title": "Transistors, relays & MOSFETs",
+   "area": "elec",
+   "file": "printables/es-h-transistors.pdf",
+   "ans": "printables/es-h-transistors-answers.pdf"
+  },
+  {
+   "id": "opamps",
+   "title": "Operational amplifiers",
+   "area": "elec",
+   "file": "printables/es-h-opamps.pdf",
+   "ans": "printables/es-h-opamps-answers.pdf"
+  },
+  {
+   "id": "logic",
+   "title": "Digital logic",
+   "area": "elec",
+   "file": "printables/es-h-logic.pdf",
+   "ans": "printables/es-h-logic-answers.pdf"
+  },
+  {
+   "id": "programming",
+   "title": "Microcontrollers, flowcharts & programming",
+   "area": "elec",
+   "file": "printables/es-h-programming.pdf",
+   "ans": "printables/es-h-programming-answers.pdf"
+  },
+  {
+   "id": "drives",
+   "title": "Drive systems & mechanisms",
+   "area": "mech",
+   "file": "printables/es-h-drives.pdf",
+   "ans": "printables/es-h-drives-answers.pdf"
+  },
+  {
+   "id": "pneumatics",
+   "title": "Pneumatics",
+   "area": "mech",
+   "file": "printables/es-h-pneumatics.pdf",
+   "ans": "printables/es-h-pneumatics-answers.pdf"
+  },
+  {
+   "id": "structures",
+   "title": "Structures & forces",
+   "area": "mech",
+   "file": "printables/es-h-structures.pdf",
+   "ans": "printables/es-h-structures-answers.pdf"
+  },
+  {
+   "id": "materials",
+   "title": "Materials, stress & strain",
+   "area": "mech",
+   "file": "printables/es-h-materials.pdf",
+   "ans": "printables/es-h-materials-answers.pdf"
+  }
+ ],
+ "class": {
+  "n5": [
+   {
+    "topic": "systems",
+    "title": "Systems & control worksheet",
+    "file": "printables/class/es-class-n5-systems-control-worksheet.pdf"
+   },
+   {
+    "topic": "systems",
+    "title": "Tea & toast: systems and energy",
+    "file": "printables/class/es-class-n5-tea-toast-systems-and-energy.pdf"
+   },
+   {
+    "topic": "systems",
+    "title": "Assignment prep: systems-style question (2024)",
+    "file": "printables/class/es-class-n5-assignment-prep-systems-style-question-2024.pdf"
+   },
+   {
+    "topic": "energy",
+    "title": "1. Work done",
+    "file": "printables/class/es-class-n5-1-work-done.pdf",
+    "ans": "printables/class/es-class-n5-1-work-done-answers.pdf"
+   },
+   {
+    "topic": "energy",
+    "title": "2. Electrical energy",
+    "file": "printables/class/es-class-n5-2-electrical-energy.pdf",
+    "ans": "printables/class/es-class-n5-2-electrical-energy-answers.pdf"
+   },
+   {
+    "topic": "energy",
+    "title": "3. Kinetic energy",
+    "file": "printables/class/es-class-n5-3-kinetic-energy.pdf",
+    "ans": "printables/class/es-class-n5-3-kinetic-energy-answers.pdf"
+   },
+   {
+    "topic": "energy",
+    "title": "4. Potential energy",
+    "file": "printables/class/es-class-n5-4-potential-energy.pdf",
+    "ans": "printables/class/es-class-n5-4-potential-energy-answers.pdf"
+   },
+   {
+    "topic": "energy",
+    "title": "5. Heat energy",
+    "file": "printables/class/es-class-n5-5-heat-energy.pdf",
+    "ans": "printables/class/es-class-n5-5-heat-energy-answers.pdf"
+   },
+   {
+    "topic": "energy",
+    "title": "6. Energy transfers",
+    "file": "printables/class/es-class-n5-6-energy-transfers.pdf",
+    "ans": "printables/class/es-class-n5-6-energy-transfers-answers.pdf"
+   },
+   {
+    "topic": "energy",
+    "title": "7. Efficiency and audits",
+    "file": "printables/class/es-class-n5-7-efficiency-and-audits.pdf",
+    "ans": "printables/class/es-class-n5-7-efficiency-and-audits-answers.pdf"
+   },
+   {
+    "topic": "energy",
+    "title": "8. Extension questions",
+    "file": "printables/class/es-class-n5-8-extension-questions.pdf",
+    "ans": "printables/class/es-class-n5-8-extension-questions-answers.pdf"
+   },
+   {
+    "topic": "energy",
+    "title": "Energy skate park simulation",
+    "file": "printables/class/es-class-n5-energy-skate-park-simulation.pdf",
+    "ans": "printables/class/es-class-n5-energy-skate-park-simulation-answers.pdf"
+   },
+   {
+    "topic": "energy",
+    "title": "Energy revision sheet",
+    "file": "printables/class/es-class-n5-energy-revision-sheet.pdf"
+   },
+   {
+    "topic": "drives",
+    "title": "Simple gear trains",
+    "file": "printables/class/es-class-n5-simple-gear-trains.pdf",
+    "ans": "printables/class/es-class-n5-simple-gear-trains-answers.pdf"
+   },
+   {
+    "topic": "drives",
+    "title": "Compound gear trains",
+    "file": "printables/class/es-class-n5-compound-gear-trains.pdf",
+    "ans": "printables/class/es-class-n5-compound-gear-trains-answers.pdf"
+   },
+   {
+    "topic": "drives",
+    "title": "Simple and compound gear trains",
+    "file": "printables/class/es-class-n5-simple-and-compound-gear-trains.pdf",
+    "ans": "printables/class/es-class-n5-simple-and-compound-gear-trains-answers.pdf"
+   },
+   {
+    "topic": "pneumatics",
+    "title": "Pneumatics calculations",
+    "file": "printables/class/es-class-n5-pneumatics-calculations.pdf",
+    "ans": "printables/class/es-class-n5-pneumatics-calculations-answers.pdf"
+   },
+   {
+    "topic": "pneumatics",
+    "title": "Pneumatics revision mind map",
+    "file": "printables/class/es-class-n5-pneumatics-revision-mind-map.pdf"
+   },
+   {
+    "topic": "structures",
+    "title": "Moments and reactions",
+    "file": "printables/class/es-class-n5-moments-and-reactions.pdf"
+   },
+   {
+    "topic": "structures",
+    "title": "Geodesic dome task",
+    "file": "printables/class/es-class-n5-geodesic-dome-task.pdf"
+   },
+   {
+    "topic": "materials",
+    "title": "Stress",
+    "file": "printables/class/es-class-n5-stress.pdf",
+    "ans": "printables/class/es-class-n5-stress-answers.pdf"
+   },
+   {
+    "topic": "materials",
+    "title": "Strain",
+    "file": "printables/class/es-class-n5-strain.pdf",
+    "ans": "printables/class/es-class-n5-strain-answers.pdf"
+   },
+   {
+    "topic": "circuits",
+    "title": "1. Yenka tasks",
+    "file": "printables/class/es-class-n5-1-yenka-tasks.pdf",
+    "ans": "printables/class/es-class-n5-1-yenka-tasks-answers.pdf"
+   },
+   {
+    "topic": "circuits",
+    "title": "2. Ohm's law, series and parallel",
+    "file": "printables/class/es-class-n5-2-ohm-s-law-series-and-parallel.pdf",
+    "ans": "printables/class/es-class-n5-2-ohm-s-law-series-and-parallel-answers.pdf"
+   },
+   {
+    "topic": "circuits",
+    "title": "3. Mixed analogue questions",
+    "file": "printables/class/es-class-n5-3-mixed-analogue-questions.pdf",
+    "ans": "printables/class/es-class-n5-3-mixed-analogue-questions-answers.pdf"
+   },
+   {
+    "topic": "transistors",
+    "title": "4. SQA-style analogue questions",
+    "file": "printables/class/es-class-n5-4-sqa-style-analogue-questions.pdf",
+    "ans": "printables/class/es-class-n5-4-sqa-style-analogue-questions-answers.pdf"
+   },
+   {
+    "topic": "vdiv",
+    "title": "5. Voltage dividers",
+    "file": "printables/class/es-class-n5-5-voltage-dividers.pdf",
+    "ans": "printables/class/es-class-n5-5-voltage-dividers-answers.pdf"
+   },
+   {
+    "topic": "vdiv",
+    "title": "Analogue past paper questions",
+    "file": "printables/class/es-class-n5-analogue-past-paper-questions.pdf",
+    "ans": "printables/class/es-class-n5-analogue-past-paper-questions-answers.pdf"
+   },
+   {
+    "topic": "circuits",
+    "title": "Analogue electronics revision mind map",
+    "file": "printables/class/es-class-n5-analogue-electronics-revision-mind-map.pdf"
+   }
+  ],
+  "h": [
+   {
+    "topic": "roles",
+    "title": "Unit 1.1 Roles of engineers",
+    "file": "printables/class/es-class-h-unit-1-1-roles-of-engineers.pdf"
+   },
+   {
+    "topic": "systems",
+    "title": "Unit 1.2 Systems and control",
+    "file": "printables/class/es-class-h-unit-1-2-systems-and-control.pdf"
+   },
+   {
+    "topic": "energy",
+    "title": "Unit 1.3 Energy audits",
+    "file": "printables/class/es-class-h-unit-1-3-energy-audits.pdf",
+    "ans": "printables/class/es-class-h-unit-1-3-energy-audits-answers.pdf"
+   },
+   {
+    "topic": "logic",
+    "title": "Unit 2.1 Digital electronics",
+    "file": "printables/class/es-class-h-unit-2-1-digital-electronics.pdf",
+    "ans": "printables/class/es-class-h-unit-2-1-digital-electronics-answers.pdf"
+   },
+   {
+    "topic": "circuits",
+    "title": "Unit 2.2 Analogue electronics",
+    "file": "printables/class/es-class-h-unit-2-2-analogue-electronics.pdf",
+    "ans": "printables/class/es-class-h-unit-2-2-analogue-electronics-answers.pdf"
+   },
+   {
+    "topic": "programming",
+    "title": "Unit 2.3 Programming",
+    "file": "printables/class/es-class-h-unit-2-3-programming.pdf",
+    "ans": "printables/class/es-class-h-unit-2-3-programming-answers.pdf"
+   },
+   {
+    "topic": "drives",
+    "title": "Unit 3.1 Friction and drive systems",
+    "file": "printables/class/es-class-h-unit-3-1-friction-and-drive-systems.pdf"
+   },
+   {
+    "topic": "pneumatics",
+    "title": "Unit 3.2 Pneumatics",
+    "file": "printables/class/es-class-h-unit-3-2-pneumatics.pdf"
+   },
+   {
+    "topic": "materials",
+    "title": "Unit 3.3 Materials and factors of safety",
+    "file": "printables/class/es-class-h-unit-3-3-materials-and-factors-of-safety.pdf"
+   },
+   {
+    "topic": "structures",
+    "title": "Unit 3.4 Structures",
+    "file": "printables/class/es-class-h-unit-3-4-structures.pdf"
+   }
+  ],
+  "n5book": [
+   {
+    "topic": "impacts",
+    "title": "Context and challenges",
+    "file": "printables/class/es-book-n5-context-and-challenges.pdf"
+   },
+   {
+    "topic": "systems",
+    "title": "Energy, systems and control",
+    "file": "printables/class/es-book-n5-energy-systems-and-control.pdf"
+   },
+   {
+    "topic": "energy",
+    "title": "Energy calculations",
+    "file": "printables/class/es-book-n5-energy-calculations.pdf"
+   },
+   {
+    "topic": "circuits",
+    "title": "Analogue electronics",
+    "file": "printables/class/es-book-n5-analogue-electronics.pdf"
+   },
+   {
+    "topic": "logic",
+    "title": "Digital logic",
+    "file": "printables/class/es-book-n5-digital-logic.pdf"
+   },
+   {
+    "topic": "programming",
+    "title": "Programming and flowcharts",
+    "file": "printables/class/es-book-n5-programming-and-flowcharts.pdf"
+   },
+   {
+    "topic": "drives",
+    "title": "Motion, forces, pulleys and gears",
+    "file": "printables/class/es-book-n5-motion-forces-pulleys-gears.pdf"
+   },
+   {
+    "topic": "structures",
+    "title": "Levers, structures, vectors and materials",
+    "file": "printables/class/es-book-n5-levers-structures-vectors-materials.pdf"
+   },
+   {
+    "topic": "pneumatics",
+    "title": "Pneumatics",
+    "file": "printables/class/es-book-n5-pneumatics.pdf"
+   }
+  ]
+ }
 };
 
 return {AREAS,TOPICS,CHECK,REPORT_HEADLINES,REPORTS,SEQ,SCORE,FOLIO,RESEARCH_TECH,RESEARCH_PLAN,RESEARCH_STEPS,EXAM,BANDS,COMMANDS,ZERO_TRAPS,MODELS,FIGS,PRINTABLES};
@@ -8553,6 +8895,18 @@ function renderPrintables(){
   if(PRINTABLES.cases&&PRINTABLES.cases.length){
     html+=`<h2 class="ck-area">Case study practice</h2><p class="muted">Ten-mark case studies like the one in the practical activity: a product drawing and four questions on joints, materials, fixings, sustainability, tools and finishes. Open book, just like the real one.</p><div class="pr-grid">`+PRINTABLES.cases.map(x=>`<div class="pr-item"><h3>${esc(x.title)}</h3>
       <div class="row">${prBtn(x.file,'Case study',1)}${prBtn(x.ans,'Answers')}</div></div>`).join('')+'</div><h2 class="ck-area" style="margin-top:28px">Topic worksheets</h2>';
+  }
+  const cls=PRINTABLES.class&&PRINTABLES.class[level==='n5'?'n5':'h'];
+  const bks=level==='n5'&&PRINTABLES.class&&PRINTABLES.class.n5book;
+  if(bks&&bks.length){
+    const tt=id=>{const t=TOPICS.find(x=>x.id===id);return t?t.short:''};
+    html+=`<h2 class="ck-area">Mr Kelly's course booklets</h2><p class="muted">The pupil booklets we work through in class, one for each part of the course.</p><div class="pr-grid">`+bks.map(x=>`<div class="pr-item"><span class="eyebrow">${esc(tt(x.topic))}</span><h3>${esc(x.title)}</h3>
+      <div class="row">${prBtn(x.file,'Booklet',1)}</div></div>`).join('')+'</div>';
+  }
+  if(cls&&cls.length){
+    const tt=id=>{const t=TOPICS.find(x=>x.id===id);return t?t.short:''};
+    html+=`<h2 class="ck-area">Mr Kelly's class ${level==='n5'?'worksheets':'booklets'}</h2><p class="muted">The ${level==='n5'?'worksheets':'course booklets'} we use in class, with answers where they're available.</p><div class="pr-grid">`+cls.map(x=>`<div class="pr-item"><span class="eyebrow">${esc(tt(x.topic))}</span><h3>${esc(x.title)}</h3>
+      <div class="row">${prBtn(x.file,level==='n5'?'Worksheet':'Booklet',1)}${x.ans?prBtn(x.ans,'Answers'):''}</div></div>`).join('')+'</div><h2 class="ck-area" style="margin-top:28px">Topic worksheets</h2>';
   }
   AREAS.forEach(a=>{
     const it=list.filter(x=>x.area===a.id); if(!it.length) return;
