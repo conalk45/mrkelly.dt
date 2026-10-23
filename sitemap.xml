@@ -48,7 +48,7 @@
   <url><loc>https://mrkellydt.co.uk/graphic-communication/national-5/line-types-dimensioning-and-scale/</loc><lastmod>2026-10-23</lastmod></url>
   <url><loc>https://mrkellydt.co.uk/graphic-communication/national-5/sectional-assembly-and-exploded-views/</loc><lastmod>2026-10-23</lastmod></url>
   <url><loc>https://mrkellydt.co.uk/graphic-communication/national-5/pictorial-drawing-and-perspective/</loc><lastmod>2026-10-23</lastmod></url>
-  <url><loc>https://mrkellydt.co.uk/graphic-communication/national-5/surface-developments-true-shapes-intersections/</loc><lastmod>2026-10-23</lastmod></url>
+  <url><loc>https://mrkellydt.co.uk/graphic-communication/national-5/surface-developments-true-shapes-and-intersections/</loc><lastmod>2026-10-23</lastmod></url>
   <url><loc>https://mrkellydt.co.uk/graphic-communication/national-5/building-drawings-and-symbols/</loc><lastmod>2026-10-23</lastmod></url>
   <url><loc>https://mrkellydt.co.uk/graphic-communication/national-5/sketching-and-illustration/</loc><lastmod>2026-10-23</lastmod></url>
   <url><loc>https://mrkellydt.co.uk/graphic-communication/national-5/2d-cad-tools-and-sketching/</loc><lastmod>2026-10-23</lastmod></url>
@@ -67,7 +67,7 @@
   <url><loc>https://mrkellydt.co.uk/graphic-communication/higher/line-types-dimensioning-and-scale/</loc><lastmod>2026-10-23</lastmod></url>
   <url><loc>https://mrkellydt.co.uk/graphic-communication/higher/sectional-assembly-and-exploded-views/</loc><lastmod>2026-10-23</lastmod></url>
   <url><loc>https://mrkellydt.co.uk/graphic-communication/higher/pictorial-drawing-and-perspective/</loc><lastmod>2026-10-23</lastmod></url>
-  <url><loc>https://mrkellydt.co.uk/graphic-communication/higher/surface-developments-true-shapes-intersections/</loc><lastmod>2026-10-23</lastmod></url>
+  <url><loc>https://mrkellydt.co.uk/graphic-communication/higher/surface-developments-true-shapes-and-intersections/</loc><lastmod>2026-10-23</lastmod></url>
   <url><loc>https://mrkellydt.co.uk/graphic-communication/higher/building-drawings-and-symbols/</loc><lastmod>2026-10-23</lastmod></url>
   <url><loc>https://mrkellydt.co.uk/graphic-communication/higher/sketching-and-illustration/</loc><lastmod>2026-10-23</lastmod></url>
   <url><loc>https://mrkellydt.co.uk/graphic-communication/higher/2d-cad-tools-and-sketching/</loc><lastmod>2026-10-23</lastmod></url>
@@ -156,6 +156,45 @@
   <url><loc>https://mrkellydt.co.uk/creative-thinking/level-6/creative-careers-and-metaskills/</loc><lastmod>2026-10-23</lastmod></url>
   <url><loc>https://mrkellydt.co.uk/creative-thinking/level-6/</loc><lastmod>2026-10-23</lastmod></url>
   <url><loc>https://mrkellydt.co.uk/creative-thinking/</loc><lastmod>2026-10-23</lastmod></url>
+  <url><loc>https://mrkellydt.co.uk/careers/</loc><lastmod>2026-10-23</lastmod></url>
+  <url><loc>https://mrkellydt.co.uk/careers/product-designer/</loc><lastmod>2026-10-23</lastmod></url>
+  <url><loc>https://mrkellydt.co.uk/careers/product-design-engineer/</loc><lastmod>2026-10-23</lastmod></url>
+  <url><loc>https://mrkellydt.co.uk/careers/graphic-designer/</loc><lastmod>2026-10-23</lastmod></url>
+  <url><loc>https://mrkellydt.co.uk/careers/ux-ui-designer/</loc><lastmod>2026-10-23</lastmod></url>
+  <url><loc>https://mrkellydt.co.uk/careers/furniture-designer-maker/</loc><lastmod>2026-10-23</lastmod></url>
+  <url><loc>https://mrkellydt.co.uk/careers/interior-exhibition-designer/</loc><lastmod>2026-10-23</lastmod></url>
+  <url><loc>https://mrkellydt.co.uk/careers/jewellery-designer/</loc><lastmod>2026-10-23</lastmod></url>
+  <url><loc>https://mrkellydt.co.uk/careers/cad-technician-design-engineer/</loc><lastmod>2026-10-23</lastmod></url>
+  <url><loc>https://mrkellydt.co.uk/careers/mechanical-engineer/</loc><lastmod>2026-10-23</lastmod></url>
+  <url><loc>https://mrkellydt.co.uk/careers/civil-engineer/</loc><lastmod>2026-10-23</lastmod></url>
+  <url><loc>https://mrkellydt.co.uk/careers/structural-engineer/</loc><lastmod>2026-10-23</lastmod></url>
+  <url><loc>https://mrkellydt.co.uk/careers/electrical-electronic-engineer/</loc><lastmod>2026-10-23</lastmod></url>
+  <url><loc>https://mrkellydt.co.uk/careers/robotics-mechatronics-engineer/</loc><lastmod>2026-10-23</lastmod></url>
+  <url><loc>https://mrkellydt.co.uk/careers/aerospace-engineer/</loc><lastmod>2026-10-23</lastmod></url>
+  <url><loc>https://mrkellydt.co.uk/careers/renewable-energy-engineer/</loc><lastmod>2026-10-23</lastmod></url>
+  <url><loc>https://mrkellydt.co.uk/careers/manufacturing-engineer/</loc><lastmod>2026-10-23</lastmod></url>
+  <url><loc>https://mrkellydt.co.uk/careers/environmental-engineer/</loc><lastmod>2026-10-23</lastmod></url>
+  <url><loc>https://mrkellydt.co.uk/careers/architect/</loc><lastmod>2026-10-23</lastmod></url>
+  <url><loc>https://mrkellydt.co.uk/careers/architectural-technologist/</loc><lastmod>2026-10-23</lastmod></url>
+  <url><loc>https://mrkellydt.co.uk/careers/quantity-surveyor/</loc><lastmod>2026-10-23</lastmod></url>
+  <url><loc>https://mrkellydt.co.uk/careers/construction-project-manager/</loc><lastmod>2026-10-23</lastmod></url>
+  <url><loc>https://mrkellydt.co.uk/careers/joiner-carpenter/</loc><lastmod>2026-10-23</lastmod></url>
+  <url><loc>https://mrkellydt.co.uk/careers/fabricator-welder/</loc><lastmod>2026-10-23</lastmod></url>
+  <url><loc>https://mrkellydt.co.uk/careers/cnc-machinist-engineering-technician/</loc><lastmod>2026-10-23</lastmod></url>
+  <url><loc>https://mrkellydt.co.uk/careers/model-maker-prop-maker/</loc><lastmod>2026-10-23</lastmod></url>
+  <url><loc>https://mrkellydt.co.uk/careers/technological-education-teacher/</loc><lastmod>2026-10-23</lastmod></url>
+  <url><loc>https://mrkellydt.co.uk/careers/routes/</loc><lastmod>2026-10-23</lastmod></url>
+  <url><loc>https://mrkellydt.co.uk/careers/courses/</loc><lastmod>2026-10-23</lastmod></url>
+  <url><loc>https://mrkellydt.co.uk/careers/courses/product-and-industrial-design/</loc><lastmod>2026-10-23</lastmod></url>
+  <url><loc>https://mrkellydt.co.uk/careers/courses/graphic-and-communication-design/</loc><lastmod>2026-10-23</lastmod></url>
+  <url><loc>https://mrkellydt.co.uk/careers/courses/architecture-and-architectural-technology/</loc><lastmod>2026-10-23</lastmod></url>
+  <url><loc>https://mrkellydt.co.uk/careers/courses/mechanical-design-and-robotics-engineering/</loc><lastmod>2026-10-23</lastmod></url>
+  <url><loc>https://mrkellydt.co.uk/careers/courses/civil-and-structural-engineering/</loc><lastmod>2026-10-23</lastmod></url>
+  <url><loc>https://mrkellydt.co.uk/careers/courses/electrical-and-electronic-engineering/</loc><lastmod>2026-10-23</lastmod></url>
+  <url><loc>https://mrkellydt.co.uk/careers/courses/construction-and-surveying/</loc><lastmod>2026-10-23</lastmod></url>
+  <url><loc>https://mrkellydt.co.uk/careers/courses/teaching-technological-education/</loc><lastmod>2026-10-23</lastmod></url>
+  <url><loc>https://mrkellydt.co.uk/careers/applying/</loc><lastmod>2026-10-23</lastmod></url>
+  <url><loc>https://mrkellydt.co.uk/careers/personal-statement/</loc><lastmod>2026-10-23</lastmod></url>
   <url><loc>https://mrkellydt.co.uk/learn/</loc><lastmod>2026-10-23</lastmod></url>
   <url><loc>https://mrkellydt.co.uk/printables/n5-research.pdf</loc><lastmod>2026-10-23</lastmod></url>
   <url><loc>https://mrkellydt.co.uk/printables/n5-spec.pdf</loc><lastmod>2026-10-23</lastmod></url>
