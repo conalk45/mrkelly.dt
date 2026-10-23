@@ -1,5 +1,5 @@
 /* Mr Kelly DT offline support. VERSION is replaced at build time. */
-const VERSION='1792715851';
+const VERSION='1792718659';
 const SHELL='mkdt-shell-'+VERSION, RUNTIME='mkdt-runtime';
 const PRECACHE=['/','/manifest.webmanifest','/icon-192.png','/icon-512.png'];
 self.addEventListener('install',e=>{ e.waitUntil(caches.open(SHELL).then(c=>c.addAll(PRECACHE)).then(()=>self.skipWaiting())); });
