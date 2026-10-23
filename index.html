@@ -938,7 +938,7 @@ html.readable .sec p,html.readable .sec li{max-width:65ch}
       </dialog>
     </div>
   </section>
-  <footer class="site-foot"><span>Mr Kelly DT · not an official SQA site</span><button type="button" class="linkbtn" id="pv-btn">Privacy</button></footer>
+  <footer class="site-foot"><span>Mr Kelly DT · not an official SQA site</span><a class="linkbtn" href="https://mrkellydt.co.uk/learn/">All topics</a><button type="button" class="linkbtn" id="pv-btn">Privacy</button></footer>
 </main>
 <dialog class="ck-sheet" id="sr-dlg" aria-label="Search">
   <div class="ck-sheet-in">
@@ -10268,6 +10268,15 @@ a11yApply();
 })();
 
 brandUpdate(); renderAll(); setTab(tab);
+/* deep links from the topic pages: #go=subject/level/topic */
+(function(){ const m=(location.hash||'').match(/^#go=([a-z]+)(?:\/(n5|h))?(?:\/([\w-]+))?/); if(!m||!SUBJ[m[1]]) return;
+  try{ history.replaceState(null,'',location.pathname+location.search); }catch(e){}
+  if(m[2]){ level=m[2]; store.set('level',level); document.body.dataset.level=level; document.querySelectorAll('.level button').forEach(b=>b.setAttribute('aria-pressed', b.dataset.lv===level)); }
+  curSubj=m[1]; if(m[3]) store.set('topic',m[3]); store.set('tab','notes');
+  loadSubject(m[1]);
+  if(m[3] && visibleTopics().some(x=>x.id===m[3])){ topicId=m[3]; store.set('topic',topicId); renderNotes(); }
+  setTab('notes'); window.scrollTo({top:0});
+})();
 
 (async()=>{
   try{
