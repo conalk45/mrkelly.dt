@@ -3,11 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="Mr Kelly DT: SQA National 5 and Higher revision for Design & Manufacture and Graphic Communication.">
+<meta name="description" content="Mr Kelly DT: SQA National 5 and Higher revision for Design & Technology subjects.">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#1B2630">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="icon" href="/icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Mr Kelly DT">
 <title>Mr Kelly DT</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@500;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@500;600;700&family=Lexend:wght@400;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
 /* Layout: workshop worksheet — a sticky bench-top header with level switch and tabs, a topic rail on the left, content as numbered sheets. */
 :root{
@@ -579,6 +585,87 @@ table.cmp th,table.res th{letter-spacing:0}
 .tabs button[data-tab="print"]{--ic:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 9V3h10v6'/%3E%3Crect x='3' y='9' width='18' height='8' rx='2'/%3E%3Cpath d='M7 14h10v7H7z'/%3E%3C/svg%3E")}
 .tabs button[data-tab="folio"]{--ic:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 6a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z'/%3E%3C/svg%3E")}
 .tabs button[data-tab="results"]{--ic:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 20V10M10 20V4M16 20v-7M22 20H2'/%3E%3C/svg%3E")}
+
+/* ---- features: tools, search, reading options, countdown, planner, calc, report ---- */
+body{font-size:1rem}
+html.ts-1{font-size:112.5%} html.ts-2{font-size:125%}
+html.readable{--f-body:"Lexend","Segoe UI",system-ui,sans-serif;--f-display:"Lexend","Segoe UI",system-ui,sans-serif;--f-meta:"Lexend","Segoe UI",system-ui,sans-serif}
+html.readable body{line-height:1.75;letter-spacing:.01em;word-spacing:.06em}
+html.readable .sec p,html.readable .sec li{max-width:65ch}
+.top-tools{display:flex;gap:6px}
+.tool-btn{width:40px;height:40px;min-height:40px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;border:1.5px solid rgba(255,255,255,.35);background:none;color:inherit;font:inherit;font-weight:700;font-size:1rem;cursor:pointer}
+.tool-btn:hover{background:rgba(255,255,255,.12)}
+@media (max-width:640px){.tool-btn{width:36px;height:36px;min-height:36px}.top-tools{gap:4px;flex:none}}
+.sr-top{display:flex;gap:8px;margin-bottom:10px}
+.sr-top input{flex:1;min-width:0;font-size:1.05rem;min-height:46px;border:1.5px solid var(--line);border-radius:var(--r);padding:8px 12px;background:var(--bg);color:var(--ink)}
+#sr-dlg{width:min(680px,calc(100vw - 24px));margin-top:8vh;max-height:84vh}
+#sr-out{max-height:62vh;overflow:auto;display:grid;gap:6px}
+.sr-hit{display:flex;flex-direction:column;gap:2px;text-align:left;border:1.5px solid var(--line);border-radius:10px;background:var(--bg);color:inherit;font:inherit;padding:9px 12px;cursor:pointer}
+.sr-hit:hover{border-color:var(--steel)}
+.sr-hit[data-s="dm"]{--acc:#1F6F68}.sr-hit[data-s="gc"]{--acc:#6A4C93}.sr-hit[data-s="es"]{--acc:#2F7FA3}.sr-hit[data-s="pw"]{--acc:#A86B32}.sr-hit[data-s="ct"]{--acc:#D9661F}
+.sr-hit{border-left:5px solid var(--acc)}
+.sr-meta{font-size:.8rem;color:var(--muted)}.sr-sub{font-weight:700;color:var(--ink)}
+.sr-snip{font-size:.9rem;color:var(--muted)}
+.sr-snip mark{background:var(--warn-bg);color:var(--ink);padding:0 1px;border-radius:2px}
+.sec.sr-flash{animation:srf 2.2s}
+@keyframes srf{0%,40%{background:var(--warn-bg)}100%{background:transparent}}
+.a11y-row{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:12px 0;border-top:1px solid var(--line);cursor:pointer}
+.a11y-row small{display:block;color:var(--muted);font-size:.86rem}
+.a11y-row input{width:24px;height:24px;flex:none;accent-color:var(--steel)}
+.a11y-seg{display:inline-flex;border:1.5px solid var(--line);border-radius:999px;overflow:hidden}
+.a11y-seg button{border:0;background:none;color:inherit;font:inherit;font-weight:700;width:46px;min-height:40px;cursor:pointer}
+.a11y-seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.say{margin-left:auto;border:1.5px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:2px 12px;font:inherit;font-size:.82rem;font-weight:600;min-height:32px;cursor:pointer}
+.say.on{background:var(--steel);border-color:var(--steel);color:var(--steel-ink)}
+.home-install{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--tag);border-radius:var(--r);padding:10px 14px;margin:6px 0 4px}
+.ex-cd-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px;margin-bottom:6px}
+.ex-cd{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--line);border-left:5px solid var(--acc);border-radius:10px;padding:10px 14px}
+.ex-cd[data-s="dm"]{--acc:#1F6F68}.ex-cd[data-s="gc"]{--acc:#6A4C93}.ex-cd[data-s="es"]{--acc:#2F7FA3}
+.ex-cd-n{font-family:var(--f-display);font-size:2.2rem;font-weight:700;line-height:1;min-width:2.2ch;text-align:center}
+.ex-cd-t small,.pl-cd small{display:block;color:var(--muted);font-size:.85rem}
+@media (max-width:560px){.ex-cd{padding:7px 12px}.ex-cd-n{font-size:1.7rem}.ex-cd-row{gap:6px}}
+.ck-rep{margin-top:8px}
+.pl{display:grid;grid-template-columns:minmax(0,220px) minmax(0,1fr);gap:14px;background:var(--bg);border:1px solid var(--line);border-left:5px solid var(--steel);border-radius:10px;padding:14px 16px;margin:4px 0 14px}
+@media (max-width:720px){.pl{grid-template-columns:minmax(0,1fr)}}
+.pl-cd{display:flex;align-items:center;gap:12px;align-self:start}
+.pl-h0{font-size:1.3rem;margin-bottom:2px}
+.pl-h{font-size:1rem;margin:10px 0 4px;color:var(--muted);font-family:var(--f-body);text-transform:uppercase;letter-spacing:.06em}
+.pl-list{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.pl-list li{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:6px 12px;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:8px 10px}
+.pl-t{display:flex;flex-direction:column}
+.pl-c{font-size:.85rem;color:var(--muted)}.pl-u{font-size:.85rem}
+.pl-b{display:flex;gap:6px;flex-wrap:wrap}.pl-b .btn{padding:4px 12px;min-height:38px;font-size:.9rem}
+.pl-more summary{cursor:pointer;font-weight:600;color:var(--steel);margin-top:10px;min-height:32px}
+.calc-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.calc-row input{font-size:1.2rem;width:12ch;min-height:48px;border:1.5px solid var(--line);border-radius:var(--r);padding:6px 10px;background:var(--card);color:var(--ink)}
+.calc-unit{font-weight:700;min-width:2ch}
+.calc-steps{margin:.4em 0 0;padding-left:1.3em}.calc-steps li{margin:.2em 0}
+.rp-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:12px;border-bottom:2px solid var(--steel);padding-bottom:10px}
+.rp-top h2{font-size:1.9rem}
+.rp-name input{min-width:220px}
+.rp-stats{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px;margin:14px 0}
+.rp-stats div{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:8px 10px}
+.rp-stats b{display:block;font-family:var(--f-display);font-size:1.6rem;line-height:1.1}.rp-stats small{color:var(--muted);font-size:.8rem}
+.rp-t{width:100%;border-collapse:collapse;font-size:.92rem}
+.rp-t th,.rp-t td{border-bottom:1px solid var(--line);padding:7px 6px;text-align:left;vertical-align:top}
+.rp-t td:first-child{width:34%;font-weight:600}.rp-q{text-align:center!important;width:12%;font-weight:700}
+.rp-bar{margin:3px 0 2px}.rp-t small{color:var(--muted)}
+.rp-foot{font-size:.82rem;margin-top:12px}
+.rp-actions{margin-bottom:14px}
+@media print{
+  .top,.tabs,#subnav,.rp-actions,.toast,.ck-dock{display:none!important}
+  body{background:#fff}main{padding:0}
+  .rp{border:0;padding:0}
+  .ck-bar i{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .rp-stats div,.ck-bar{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+.fo-hol,.fo-whole{display:inline-block;margin-top:4px;font-size:.72rem;font-weight:700;letter-spacing:.03em;padding:1px 7px;border-radius:999px}
+.fo-hol{background:var(--tag);color:var(--tag-ink)}
+.fo-whole{background:var(--soft);color:var(--ink);border:1px solid var(--line)}
+.fo-map button[aria-current] .fo-whole{background:transparent;color:inherit;border-color:currentColor}
+.fo-markline{margin:6px 0 0;padding:6px 10px;border-radius:6px;font-size:.93rem;background:var(--soft);max-width:70ch}
+.fo-markline.fo-mk-holistic{background:var(--warn-bg);border-left:4px solid var(--tag)}
+.fo-legend{font-size:.88rem;color:var(--muted);margin:-4px 0 10px}.fo-legend:empty{display:none}
 </style>
 
 </head>
@@ -587,6 +674,7 @@ table.cmp th,table.res th{letter-spacing:0}
   <div class="wrap">
     <div class="top-row">
       <button class="brand" id="brand-home" aria-label="All subjects"><h1 id="brand-name">Mr Kelly DT</h1><span id="brand-sub">Design &amp; technology revision</span></button>
+      <div class="top-tools"><button class="tool-btn" id="sr-btn" aria-label="Search the notes" title="Search (/)"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></button><button class="tool-btn" id="a11y-btn" aria-label="Reading options" title="Reading options"><span aria-hidden="true">Aa</span></button></div>
       <div class="level" role="group" aria-label="Course level">
         <button id="lv-n5" aria-pressed="true" data-lv="n5">National 5</button>
         <button id="lv-h" aria-pressed="false" data-lv="h">Higher</button>
@@ -613,7 +701,9 @@ table.cmp th,table.res th{letter-spacing:0}
       <h2>Revision for every DT subject</h2>
       <p>Notes, practice, exam skills, checklists and worksheets for SQA National 5 and Higher, plus help with careers, college and university. Choose a subject to start.</p>
     </div>
+    <div class="home-install" id="home-install" hidden></div>
     <div class="home-resume" id="home-resume" hidden></div>
+    <div id="home-exams"></div>
     <div class="home-grid" id="home-cards"></div>
   </section>
   <nav class="subnav" id="subnav" hidden aria-label="Activities"></nav>
@@ -644,6 +734,24 @@ table.cmp th,table.res th{letter-spacing:0}
   <!-- DAILY 5 -->
   <section class="view" id="view-daily" hidden>
     <div class="panel"><div id="daily-box" class="q-box"></div></div>
+  </section>
+
+  <!-- CALC -->
+  <section class="view" id="view-calc" hidden>
+    <div class="panel">
+      <div class="panel-head"><div><div class="eyebrow">Endless practice</div><h2>Calculation practice</h2></div>
+        <div class="row"><label class="field">Topic<select id="calc-topic"></select></label></div></div>
+      <p class="muted" style="margin-top:-6px">New numbers every time. Answers within 2% count, so rounding is fine. You can type 4.7k for 4700.</p>
+      <div class="q-box" id="calc-box"></div>
+      <p class="tally" id="calc-stats" style="margin-top:14px"></p>
+    </div>
+  </section>
+  <!-- REPORT -->
+  <section class="view" id="view-report" hidden>
+    <div class="panel rp">
+      <div class="row rp-actions"><button class="btn" id="rp-back">← Checklist</button><span style="flex:1"></span><button class="btn" id="rp-copy">Share or copy</button><button class="btn primary" id="rp-print">Print or save as PDF</button></div>
+      <div id="rp-body"></div>
+    </div>
   </section>
 
   <!-- ORDER -->
@@ -748,7 +856,7 @@ table.cmp th,table.res th{letter-spacing:0}
       <div class="panel-head"><div><div class="eyebrow">For class or home · <span id="pr-level"></span></div><h2>Printable worksheets</h2></div></div>
       <p>One worksheet for every topic, in three steps. Each one opens as a PDF in a new tab, ready to print or save. Answers are separate, so you can hand out worksheets without them.</p>
       <div class="pr-how">
-        <div><span class="pr-tag s">I DO</span><b>Worked example</b><small>A practice question with a full-mark answer, each mark ticked, and an answer that loses marks.</small></div>
+        <div><span class="pr-tag s">I DO</span><b>Worked example</b><small>A practice question with a full-mark answer, each mark ticked, and an answer that is not awarded full marks.</small></div>
         <div><span class="pr-tag y">WE DO</span><b>Guided practice</b><small>A similar question with sentence starters and a word bank.</small></div>
         <div><span class="pr-tag k">YOU DO</span><b>On your own</b><small>A quick check, a key-terms match and practice questions with answer lines.</small></div>
       </div>
@@ -763,6 +871,7 @@ table.cmp th,table.res th{letter-spacing:0}
       <div class="fo-note" id="fo-note"><b>For practice folios only.</b> SQA doesn't allow layouts, templates or exemplars to be used during the real assignment, so close this page when your assignment starts.</div>
       <p id="fo-intro"></p>
       <nav class="fo-map" id="fo-map" aria-label="Folio pages"></nav>
+      <p class="fo-legend" id="fo-legend"></p>
       <div id="fo-step"></div>
     </div>
     <dialog class="fo-zoom" id="fo-zoom"><div class="fo-zoom-top"><span id="fo-zoom-cap"></span><button class="btn" id="fo-zoom-close" aria-label="Close">✕</button></div><div class="fo-zoom-in"><img id="fo-zoom-img" alt="Full-size folio page"></div></dialog>
@@ -771,7 +880,7 @@ table.cmp th,table.res th{letter-spacing:0}
   <section class="view" id="view-mistakes" hidden>
     <div class="panel">
       <div class="panel-head"><div><div class="eyebrow">From SQA course reports</div><h2>Common mistakes</h2></div></div>
-      <p>Each year SQA's examiners report where candidates lost marks. These are the headlines from the reports for the current course, with what to do instead.</p>
+      <p>Each year SQA's examiners report where candidates were not awarded marks. These are the headlines from the reports for the current course, with what to do instead.</p>
       <div class="mk-grid" id="mk-head"></div>
       <h2 class="ck-area">By topic</h2>
       <div id="mk-list"></div>
@@ -781,8 +890,9 @@ table.cmp th,table.res th{letter-spacing:0}
   <!-- CHECKLIST -->
   <section class="view" id="view-check" hidden>
     <div class="panel">
-      <div class="panel-head"><div><div class="eyebrow">From the SQA course specification</div><h2>Revision checklist</h2></div>
+      <div class="panel-head"><div><div class="eyebrow">From the SQA course specification</div><h2>Revision checklist</h2><button class="btn ck-rep" id="ck-report">Progress report</button></div>
         <div class="level" id="ck-filter" role="group" aria-label="Show"><button data-f="all" aria-pressed="true">All</button><button data-f="todo" aria-pressed="false">Not confident yet</button><button data-f="red" aria-pressed="false">Need to revise</button></div></div>
+      <div id="ck-plan"></div>
       <ol class="ck-steps">
         <li><b>Rate yourself</b> on each “I can” statement. Be honest: tap a rating again to clear it.</li>
         <li><b>Your list builds itself.</b> Any topic you rate <span class="ck-dot r1"></span>red or <span class="ck-dot r2"></span>amber is added. Tap <b>＋ Add to list</b> on a topic to add it yourself.</li>
@@ -814,6 +924,21 @@ table.cmp th,table.res th{letter-spacing:0}
     </div>
   </section>
 </main>
+<dialog class="ck-sheet" id="sr-dlg" aria-label="Search">
+  <div class="ck-sheet-in">
+    <div class="sr-top"><input type="search" id="sr-in" placeholder="Search every subject: tenon, MOSFET, kerning…" autocomplete="off" aria-label="Search"><button class="btn" id="sr-close">Close</button></div>
+    <div id="sr-out"></div>
+  </div>
+</dialog>
+<dialog class="ck-sheet" id="a11y-dlg" aria-label="Reading options">
+  <div class="ck-sheet-in">
+    <div class="ck-sheet-top"><h3>Reading options</h3><button class="btn" id="a11y-close">Done</button></div>
+    <p class="muted" style="margin:6px 0 10px">Saved on this device.</p>
+    <div class="a11y-row"><span><b>Text size</b></span><span class="a11y-seg" role="group" aria-label="Text size"><button data-size="0" aria-pressed="true">A</button><button data-size="1" aria-pressed="false" style="font-size:1.15em">A</button><button data-size="2" aria-pressed="false" style="font-size:1.3em">A</button></span></div>
+    <label class="a11y-row"><span><b>Easy-read font</b><small>Wider letters and more space between lines</small></span><input type="checkbox" id="a11y-read"></label>
+    <label class="a11y-row"><span><b>Read aloud</b><small>Adds a 🔊 Listen button to every section of the notes</small></span><input type="checkbox" id="a11y-speak"></label>
+  </div>
+</dialog>
 <div class="toast" id="toast" hidden></div>
 
 <script>
@@ -1913,7 +2038,7 @@ const REPORT_HEADLINES = {
 n5:[
  ['Unqualified "quick", "easy" or "cheap"','Every year the examiners repeat that these earn nothing unless you say why or compared with what.','2019, 2022, 2023, 2024, 2025'],
  ['One-word answers to describe/explain','Single words only work for "name" and "state". Outline, describe and explain need sentences.','2019, 2022, 2023, 2024, 2025'],
- ['Not knowing the workshop processes in the spec','Centre lathe processes (parallel, step, taper turning, facing, knurling), Forstner bits, outside callipers, threading and countersinking are dropped marks year after year.','2019, 2023, 2024, 2025'],
+ ['Not knowing the workshop processes in the spec','Centre lathe processes (parallel, step, taper turning, facing, knurling), Forstner bits, outside callipers, threading and countersinking: candidates are not awarded these marks year after year.','2019, 2023, 2024, 2025'],
  ['Rotational moulding, sand casting and vacuum forming features','Many can give one feature but not a second, or don\'t recognise the process at all.','2019, 2022, 2023, 2024, 2025'],
  ['Answering a different question','Manufacturer steps given when the question asks the designer; general benefits instead of benefits to the manufacturer; environmental impacts when social impacts are asked.','2019, 2023, 2025'],
  ['Repeating a point','Reasons already in the question stem, or used in an earlier part, earn nothing the second time.','2023, 2025']
@@ -1953,7 +2078,7 @@ const REPORTS = [
  ['n','impact','Described what manufacturers do when the question asked about designers.','Designers decide materials, number of parts, labelling, disassembly and lifespan.','N5 2025'],
  ['n','impact','Generic environmental answers when asked how to extend product life.','Durable materials, protective finishes, replaceable parts, easy repair.','N5 2023'],
  ['h','metals','Stated properties without saying why they suit the product, or repeated the same property.','Property + why it matters for that part, six different points.','Higher 2022, 2023, 2025'],
- ['h','processes','Lost marks by not explaining why a process suits a part.','Explanations score even if the process is wrong, so always explain.','Higher 2022, 2023'],
+ ['h','processes','Marks not awarded because the answer did not explain why a process suits a part.','Explanations score even if the process is wrong, so always explain.','Higher 2022, 2023'],
  ['h','ergonomics','Anthropometrics not linked to a body part; physiology as "easy to use"; physiology points under the anthropometrics heading.','Body part + product part + effect. Physiology = force, effort, strain, posture.','Higher 2022, 2023, 2024, 2025'],
  ['h','market','Defined market pull or technology push instead of describing their influence.','Give a real product and what changed because of it.','Higher 2023, 2025'],
  ['h','market','Couldn\'t discuss aesthetics in depth.','Use four different aspects, each linked to a feature of the products.','Higher 2022, 2023'],
@@ -2236,7 +2361,7 @@ n5:{
  intro:'The design assignment is 55 of the 180 course marks, on a maximum of seven A3 sheets: the research pro forma is double-sided (pages 1 and 2), and the other six sheets are single-sided. Only these 8 pages are sent to SQA for marking. Your evaluation is written after you have made your proposal and is marked by your teacher with the rest of the practical assignment (45 marks). Every page needs your name, candidate number and page number.',
  total:'8 A3 pages · design 55 marks + practical 45 marks',
  steps:[
- {id:'research', pages:'1–2', title:'Research pro forma and specification', skills:[['Analysing a brief',8]],
+ {mark:'proforma', id:'research', pages:'1–2', title:'Research pro forma and specification', skills:[['Analysing a brief',8]],
   purpose:'Research a range of issues for your chosen brief using suitable techniques, then complete the specification on the pro forma from what you found. You can use both sides of the research pro forma.',
   need:['Your chosen brief and a clear target market','Research aimed at your brief, using a range of techniques','Findings recorded as sketches, notes, graphs, tables or pictures','A detailed specification on the pro forma, built from your research'],
   c:['A few techniques; some research is general rather than about this brief','Specification mostly repeats the brief, with some vague points'],
@@ -2245,7 +2370,7 @@ n5:{
   pitfalls:['Research not aimed at your brief (general facts copied from the internet)','Specification points that only repeat the brief, or are personal opinion'],
   research:true,
   layout:[]},
- {id:'ideas', pages:'3', title:'Idea generation', skills:[['Generating ideas',9]],
+ {mark:'folio', id:'ideas', pages:'3', title:'Idea generation', skills:[['Generating ideas',9]],
   tip:'Look for different ways to carry out the same function. If the brief says it must hold three items, one idea might use slots, another hooks, another a rotating carousel. Examiners reward ideas that work differently, not the same idea in a new shape.',
   purpose:'Show a range of creative, clearly different ideas aimed at the specification. About six ideas on one page.',
   need:['About six genuinely different ideas','Different ways of carrying out the same function: if the product must hold, rotate or display something, show several ways it could do that','Quick sketches or photos of sketch models','Annotations linking each idea to specification points','The theme in the brief visible in the ideas'],
@@ -2254,7 +2379,7 @@ n5:{
   prompts:['This idea meets the spec point ___ because ___.','Another way to ___ would be to ___.','The theme influenced the ___ of this idea.','A problem with this idea is ___.'],
   pitfalls:['Copies of existing products stay in the bottom band','Six versions of one idea count as one idea'],
   layout:[]},
- {id:'explore', pages:'4–5', title:'Development: exploring', skills:[['Exploring ideas',6],['Applying design knowledge',4],['Using graphics',6]],
+ {mark:'folio', id:'explore', pages:'4–5', title:'Development: exploring', skills:[['Exploring ideas',6],['Applying design knowledge',4],['Using graphics',6]],
   purpose:'Take your best idea or ideas and explore alternatives for each feature. Two sheets that move your idea on, not just tidy it up.',
   need:['Alternatives for several features: form, layout, joints, how it holds items','Notes that review and justify every decision','Design knowledge linked to the brief: ergonomics, function, aesthetics','A range of graphics: 3D sketches, part views, exploded or sectional views'],
   c:['Some changes, but small ones (rounded corners, a new colour)','Notes describe what was drawn, not why'],
@@ -2262,7 +2387,7 @@ n5:{
   prompts:['I tried ___ and ___. I chose ___ because the spec says ___.','This would be uncomfortable because ___, so I changed ___.','The ___ percentile ___ is ___ mm, so ___.'],
   pitfalls:['Generic statements ("ergonomics is important") earn nothing','Simple changes are not exploration'],
   layout:[]},
- {id:'model', pages:'6', title:'Development: modelling and testing', skills:[['Using models',6],['Applying materials and manufacture',4]],
+ {mark:'folio', id:'model', pages:'6', title:'Development: modelling and testing', skills:[['Using models',6],['Applying materials and manufacture',4]],
   purpose:'Use models to test, evaluate and solve problems. Say what each model taught you and what you decided.',
   need:['Photos of models with a steel rule for scale','For each model: why you made it, what you learned, what you changed','Materials, joints and processes chosen and justified','Tests against spec points (fits the items? stable? comfortable?)'],
   c:['Photos of models with little or no comment','Material named without a reason'],
@@ -2270,7 +2395,7 @@ n5:{
   prompts:['I made this model to test ___.','It showed that ___, so I changed ___.','___ is suitable for ___ because it is ___, which means ___.'],
   pitfalls:['Presentation models only: bottom band','Making a model scores nothing on its own: what it told you is what counts'],
   layout:[]},
- {id:'refine', pages:'7', title:'Development: refining the proposal', skills:[['Refining ideas',6],['Using graphics',6]],
+ {mark:'folio', id:'refine', pages:'7', title:'Development: refining the proposal', skills:[['Refining ideas',6],['Using graphics',6]],
   purpose:'Bring it together: a proposal detailed enough to make, with sizes, materials, joints and finish decided.',
   need:['A pictorial or rendered view of the final proposal','Main sizes on the drawing','Materials, joints and finish for each part','An exploded view showing how it goes together'],
   c:['A final drawing with some sizes','Materials named but joints or finish missing'],
@@ -2278,25 +2403,15 @@ n5:{
   prompts:['Final size ___ × ___ × ___ mm, because ___.','Part ___ is ___ joined with a ___ joint because ___.','Finish: ___, because ___.'],
   pitfalls:['A pretty render with no detail cannot be made','New ideas at this stage belong earlier'],
   layout:[]},
- {id:'plan', pages:'8', title:'Planning for manufacture pro forma', skills:[['Planning for manufacture',6]],
+ {mark:'holistic', id:'plan', pages:'8', title:'Planning for manufacture pro forma', skills:[['Planning for manufacture',6]],
   purpose:'Plan how you will make it in the workshop. Must be finished before you start making.',
   need:['A dimensioned drawing','A cutting list: part, quantity, material, sizes','A sequence of operations with tools and equipment, in order'],
   c:['Some sizes missing; sequence missing steps or tools'],
   a:['Every part has material and sizes','The sequence would let someone else make it accurately and safely','Correct tools named at every stage'],
   prompts:['Mark out ___ with a ___.','Cut ___ with a ___.','Join ___ to ___ with ___, checking it is square with a ___.'],
-  pitfalls:['Filled in after making: zero marks','Tools that would not give an accurate result lose marks'],
+  pitfalls:['Filled in after making: zero marks','Tools that would not give an accurate result are not awarded marks'],
   layout:[]},
- {id:'evaluate', pages:'After making', title:'Evaluation', skills:[['Evaluating',4]],
-  purpose:'After you have made your proposal, evaluate it using evaluation techniques. Your evaluation is marked by your teacher as part of the practical assignment. It is not one of the 8 design pages sent to SQA.',
-  tip:'Your evaluation must be based on evidence, not just your opinion. Test the product against each specification point and get other people to try it: that is what moves you out of the bottom band.',
-  need:['Each specification point checked: does the product meet it? How do you know?','Results of tests (measuring, loading, fitting the items it must hold)','Other people\'s opinions from a user trial, questionnaire or interview','Clear conclusions and improvements based on the evidence'],
-  c:['Comments are mostly your own opinion ("I think it looks good")','A few spec points mentioned without evidence'],
-  a:['Every judgement backed by valid evidence: test results and other people\'s views','Several evaluation techniques used','Improvements follow from what the evidence showed'],
-  prompts:['Spec point: ___. Test: ___. Result: ___. So it does / does not meet the point.','In a user trial, ___ out of ___ users could ___.','___ said ___, so an improvement would be ___.'],
-  pitfalls:['Evaluation based only on personal opinion stays in the bottom band (1 mark)','Describing how you made it is not evaluating it'],
-  bands:[['Evaluating',4,[['1','Limited evaluation, based on personal opinion'],['2–3','Adequate evaluation, generally based on valid evidence'],['4','Effective evaluation based on valid evidence such as testing and the opinions of others']]]],
-  layout:[]},
- {id:'practical', pages:'Workshop', title:'How the practical is marked', skills:[['Measuring and marking out',9],['Using hand and machine tools',18],['Assembling components',5],['Finishing',9]],
+ {mark:'making', id:'practical', pages:'Workshop', title:'How the practical is marked', skills:[['Measuring and marking out',9],['Using hand and machine tools',18],['Assembling components',5],['Finishing',9]],
   purpose:'You make your proposal in the workshop using your planning for manufacture pro forma. Your teacher assesses it as you work and when it is finished, and SQA checks a sample of the marking.',
   tip:'Discuss your planning for manufacture pro forma with your teacher before you start. You can ask for help, but any help you are given is recorded and taken into account in your marks.',
   need:['Mark out accurately with the correct tools: accuracy is judged against the dimensioned drawing on your pro forma','Cut, shape and form accurately, with joints that fit','Select your tools and resources before assembly and check for accuracy as you go','Prepare surfaces (remove glue and marking-out marks) before applying an even finish'],
@@ -2309,6 +2424,16 @@ n5:{
    ['Using hand and machine tools',18,[['1–4','Limited skill in using tools to cut, remove and form materials; limited accuracy'],['5–9','Fair skill and fair evidence of accuracy'],['10–14','Good skill and good evidence of accuracy'],['15–18','High skill and strong evidence of accuracy in shaping, fit of joints or forming']]],
    ['Assembling components',5,[['1–2','Resources prepared and used with guidance; limited evidence of accurate, sound assembly'],['3–4','Resources prepared and used with some guidance; good evidence of accurate, sound assembly'],['5','Resources prepared and used with minimal guidance; strong evidence of accurate, sound assembly']]],
    ['Finishing',9,[['1–3','Limited surface preparation, application skill and final finish'],['4–6','Good surface preparation, application skill and final finish'],['7–9','Strong surface preparation, high application skill and a high-quality final finish']]]],
+  layout:[]},
+ {mark:'written', id:'evaluate', pages:'After making', title:'Evaluation', skills:[['Evaluating',4]],
+  purpose:'After you have made your proposal, evaluate it using evaluation techniques. Your evaluation is marked by your teacher as part of the practical assignment. It is not one of the 8 design pages sent to SQA.',
+  tip:'Your evaluation must be based on evidence, not just your opinion. Test the product against each specification point and get other people to try it: that is what moves you out of the bottom band.',
+  need:['Each specification point checked: does the product meet it? How do you know?','Results of tests (measuring, loading, fitting the items it must hold)','Other people\'s opinions from a user trial, questionnaire or interview','Clear conclusions and improvements based on the evidence'],
+  c:['Comments are mostly your own opinion ("I think it looks good")','A few spec points mentioned without evidence'],
+  a:['Every judgement backed by valid evidence: test results and other people\'s views','Several evaluation techniques used','Improvements follow from what the evidence showed'],
+  prompts:['Spec point: ___. Test: ___. Result: ___. So it does / does not meet the point.','In a user trial, ___ out of ___ users could ___.','___ said ___, so an improvement would be ___.'],
+  pitfalls:['Evaluation based only on personal opinion stays in the bottom band (1 mark)','Describing how you made it is not evaluating it'],
+  bands:[['Evaluating',4,[['1','Limited evaluation, based on personal opinion'],['2–3','Adequate evaluation, generally based on valid evidence'],['4','Effective evaluation based on valid evidence such as testing and the opinions of others']]]],
   layout:[]}
  ]},
 h:{
@@ -2333,7 +2458,7 @@ h:{
   prompts:['This addresses ___ in the brief by ___.','Instead of ___, this idea ___ by ___.','The theme influenced ___.','This would not work because ___.'],
   pitfalls:['Iterations of one idea earn no extra credit','Copies or slight changes of existing products stay in the bottom band','Random shapes that don\'t address the brief earn nothing'],
   layout:[]},
- {id:'explore', pages:'5–7', title:'Development: exploring', skills:[['Explore ideas',12],['Apply design knowledge',12],['Apply graphic techniques',12]],
+ {mark:'folio', id:'explore', pages:'5–7', title:'Development: exploring', skills:[['Explore ideas',12],['Apply design knowledge',12],['Apply graphic techniques',12]],
   purpose:'Develop your ideas in a divergent way: consider alternatives for function, safety, ergonomics, assembly and aesthetics, and let each one lead to an improvement.',
   need:['Alternatives for each feature, with a decision each time','Annotations that review and justify, linked to specification points','Design knowledge applied: anthropometrics with data, function, aesthetics','A range of graphic types: 3D sketches, exploded, sectional, orthographic'],
   c:['Some exploration, but changes are small','Annotations describe rather than justify'],
@@ -2365,7 +2490,7 @@ h:{
   prompts:['Model of ___ made from ___ to test ___.'],
   pitfalls:['CAD models earn nothing here'],
   layout:[]},
- {id:'plan', pages:'12', title:'Planning for commercial manufacture pro forma', skills:[['Plan for commercial manufacture',6]],
+ {mark:'proforma', id:'plan', pages:'12', title:'Planning for commercial manufacture pro forma', skills:[['Plan for commercial manufacture',6]],
   purpose:'Show how the proposal would be manufactured commercially: a product part table plus graphics showing key sizes and assembly.',
   need:['Product part table: part, quantity, material, process','Graphics showing every part with key sizes','How the parts assemble'],
   c:['Part table with some gaps; few sizes'],
@@ -2812,7 +2937,7 @@ const ZERO_TRAPS = [
 
 /* Model answers, keyed by a unique phrase from the question. Written to the standard shown in SQA Understanding Standards
    commentaries (N5 2019, 2022, 2023) and marking instructions. good = full-mark answer with (1) after each credited point;
-   weak = a typical answer that loses marks, with why. */
+   weak = a typical answer that is not awarded full marks, with why. */
 const MODELS = [
 {k:'housing joint would be marked out and cut', good:'Measure the position of the shelf from the bottom of the side with a steel rule and mark it in pencil (1). Square both lines across the face with a try square and a marking knife (1). Clamp a straight guide block along the line with a G-clamp and saw down to the depth line with a tenon saw (1). Remove the waste with a bevel-edged chisel and mallet and level the bottom with a hand router (1).',
  weak:['I would measure it, mark it out, then cut it out with a saw and chisel and sand it.','0–1 marks: no specific tools for marking out, "saw" is not named, and sanding is not part of making the joint.']},
@@ -3626,9 +3751,9 @@ notes:[
  {lv:'b', h:'Modelling features', html:`<ul><li><b>Extrude</b>: a 2D profile pulled out to a set distance to make a solid.</li><li><b>Revolve</b>: a profile rotated around an axis. State the axis and the angle: 360° for a full solid, or e.g. 90° for a quarter.</li><li><b>Loft</b>: joins two or more different profiles on offset work planes, e.g. a circle to a smaller circle 80 mm above it.</li></ul>{{fig:cad3d}}`},
  {lv:'h', h:'Higher modelling features', html:`<ul><li><b>Extrude (sweep) along a path</b>: a profile on a work plane perpendicular to the start of a path, swept along it. Give the path with <b>all</b> its dimensions and the profile size.</li><li><b>Helix</b>: a profile offset from an axis (the offset is the helix radius) swept round in a spiral. Give any two of <b>pitch</b> (distance per turn), <b>revolutions</b> and <b>height</b>: e.g. 11 revolutions at pitch 20 gives a height of 220. The 2025 report noted many candidates mixed up pitch and revolutions.</li><li><b>Loft</b> at Higher often combines with shell and offset work planes.</li></ul>`},
  {lv:'b', h:'Modelling edits', html:`<ul><li><b>Subtract</b> (extrude subtract / cut): removes material, e.g. a hole or slot.</li><li><b>Add</b> (union): joins solids.</li><li><b>Shell</b>: hollows a solid to a wall thickness, removing chosen faces. State the thickness and the faces removed.</li><li><b>Fillet</b>: rounds edges to a radius. <b>Chamfer</b>: bevels edges.</li><li>Higher adds <b>intersect</b> (keeps only the overlapping volume), <b>mirror</b> and <b>array</b> (linear, box, radial), and regular or irregular (variable) fillets and chamfers.</li></ul>`},
- {lv:'b', h:'How to answer a "describe how to model" question', html:`<p>These are worth 4–7 marks and are where many marks are won or lost. For each stage, write:</p><ol><li>the <b>2D profile</b> (sketch) with its key sizes, and where it is drawn (which face or work plane);</li><li>the <b>feature command</b> (extrude, revolve, loft…) with the distance, angle or axis;</li><li>any <b>edit</b> (subtract, shell, fillet, chamfer) with the size and which edges or faces.</li></ol>
+ {lv:'b', h:'How to answer a "describe how to model" question', html:`<p>These are worth 4–7 marks and are where most of the marks are awarded. For each stage, write:</p><ol><li>the <b>2D profile</b> (sketch) with its key sizes, and where it is drawn (which face or work plane);</li><li>the <b>feature command</b> (extrude, revolve, loft…) with the distance, angle or axis;</li><li>any <b>edit</b> (subtract, shell, fillet, chamfer) with the size and which edges or faces.</li></ol>
  <p>Example: "Sketch a Ø50 circle and extrude 50. On the top face sketch a Ø35 circle and extrude-subtract 40. Fillet the bottom edge R2 and chamfer the top edge 2.5 × 45°."</p>
- <ul><li>Use the correct terms from the course specification: "cut out" or "pull up" lose marks.</li><li>Include every relevant dimension; read them carefully off the drawing.</li><li>Get the order right: shell before adding internal features (in 2025 N5, shelling at the end lost marks); shell before a radial array of holes.</li><li>At Higher you don't need to describe the 2D commands used to draw a profile; the profile with all its sizes is enough.</li><li>For a revolve, name the centre axis <b>and</b> the angle: both carry marks.</li></ul>`},
+ <ul><li>Use the correct terms from the course specification: "cut out" or "pull up" are not awarded marks.</li><li>Include every relevant dimension; read them carefully off the drawing.</li><li>Get the order right: shell before adding internal features (in 2025 N5, shelling at the end was not awarded marks); shell before a radial array of holes.</li><li>At Higher you don't need to describe the 2D commands used to draw a profile; the profile with all its sizes is enough.</li><li>For a revolve, name the centre axis <b>and</b> the angle: both carry marks.</li></ul>`},
  {lv:'h', h:'Modelling terms and concepts', html:`<ul><li><b>Sketch / profile</b>: the 2D shape a feature is made from. <b>Work plane</b>: a flat plane to sketch on, which can be offset from a face. <b>Axis</b>: a line to revolve around. <b>Face, edge, vertex</b>: the surfaces, lines and corners of a solid.</li><li><b>Feature</b>: each operation in the model. <b>Datum</b>: a reference plane, axis or point. <b>Suppress</b>: temporarily switch a feature off.</li><li><b>Modelling tree (history)</b>: the ordered list of features. To change a model, edit the sketch or feature in the tree; the model updates. In 2024 a candidate who remodelled from scratch instead of editing the tree scored 0.</li><li><b>Modelling plan</b>: the planned order of features before you start.</li></ul>`}
 ],
 cards:[
@@ -4019,7 +4144,7 @@ const REPORT_HEADLINES = {
 n5:[
  ['Generic layout answers','For unity, alignment, contrast and depth, refer to two or more specific items in the graphic. Name the type of alignment (left, central): "they are aligned" scores nothing.','2024, 2025'],
  ['Wrong CAD terms','Use the course specification terms. Say "centre axis", "mate" and "align"; for a revolve, name the centre axis and the angle.','2024, 2025'],
- ['3D modelling: order and sizes','State every relevant dimension at each stage, and get the order right: shelling at the end lost marks in 2025.','2024, 2025'],
+ ['3D modelling: order and sizes','State every relevant dimension at each stage, and get the order right: shelling at the end was not awarded marks in 2025.','2024, 2025'],
  ['Rendering techniques','At N5 only materials, textures and light source are accepted. Colour, highlights and shadows are not.','2024, 2025'],
  ['"Cheap" and "quick"','Benefits of 3D printing need real knowledge: "it is cheap" or "it is quick" are wrong on their own.','2024'],
  ['Answer in ink','Papers are scanned: use blue or black ink. Pencil and highlighter may not show.','2025']
@@ -4041,7 +4166,7 @@ const REPORTS = [
  ['n','dtp','Couldn\'t name DTP techniques used in a layout.','Learn the list: text wrap, reverse, drop shadow, bleed, transparency, cropping, flow text along a path.','N5 2024'],
  ['n','render','Gave "colour", "highlights" or "shadows" as CAD rendering techniques.','Materials, surface texture, light source (decals accepted).','N5 2024, 2025'],
  ['n','cad3d','Didn\'t describe a 360° revolve around an axis, or forgot to subtract material.','Revolve = profile + centre axis + angle. Holes and slots = sketch + extrude-subtract.','N5 2024'],
- ['n','cad3d','Lost marks for the wrong order (shell last) or a wrong fillet size.','Plan the order: shell before adding internal features; read every size off the drawing.','N5 2025'],
+ ['n','cad3d','Not awarded marks for the wrong order (shell last) or a wrong fillet size.','Plan the order: shell before adding internal features; read every size off the drawing.','N5 2025'],
  ['n','assembly','Didn\'t give "centre axis" as a constraint.','Centre axis lines up round features; mate brings faces together; align makes faces flush.','N5 2024'],
  ['n','lines','Couldn\'t name chain and parallel dimensions.','Chain = end to end; parallel = all from one datum.','N5 2024'],
  ['n','lines','Didn\'t annotate the drawing when spotting British Standards errors.','Number each error on the drawing, then list them.','N5 2025'],
@@ -4511,7 +4636,7 @@ const MODELS = [
  {k:'Describe how the knob could be modelled using 3D CAD',
   good:'Sketch the half profile of the knob with all sizes (Ø100 base, Ø60 top, 80 high) (1), identify the vertical centre axis and revolve the profile 360° (1). On the top face sketch a Ø20 circle and extrude it 12 (1). Sketch the 4 wide slot across the top of the boss and extrude-subtract it through the boss (1).',
   weak:['Revolve the shape, add the top bit and cut the slot.','0–1 marks: no profile sizes, no axis or angle for the revolve, no sizes for the boss or slot.'],
-  note:'In 2024 many candidates lost marks by not naming the centre axis and the 360° angle for a revolve.'},
+  note:'In 2024 many candidates were not awarded marks because they did not name the centre axis and the 360° angle for a revolve.'},
  {k:'Describe how the box would be modelled, in a sensible order',
   good:'Sketch a 120 × 80 rectangle and extrude it 60 (1). Fillet the four vertical edges R10 (1). Shell the solid to a 3 mm wall thickness (1), removing the top face (1).',
   weak:['Extrude a rectangle, shell it to 3 mm and then fillet the corners.','2 marks: no sizes for the block, and filleting after shelling only rounds the outside edges, so the order is wrong.']},
@@ -4913,7 +5038,7 @@ notes:[
  <tr><td>Efficiency</td><td>η = E<sub>out</sub> / E<sub>in</sub> = P<sub>out</sub> / P<sub>in</sub></td><td>no units (or ×100 for %)</td></tr></table></div>
  <p>These are in the data booklet; you must be able to <b>rearrange</b> them and use the answer from one in the next.</p>`},
  {lv:'b', h:'Calculation technique', html:`<ol><li>Write the formula.</li><li>Convert units first: hours to seconds (7.5 h = 27 000 s), kJ to J, mm to m where needed.</li><li>Substitute, then rearrange (transpose).</li><li>Give the answer to 2 significant figures <b>with a unit</b>.</li><li>Don't round in the middle of a calculation; round only the final answer.</li></ol>
- <p>Each step usually carries a mark: substitution, transposition and answer with unit. Follow-on marks mean a wrong earlier value doesn't lose you every later mark.</p>`},
+ <p>Each step usually carries a mark: substitution, transposition and answer with unit. Follow-on marks mean a wrong earlier value doesn't stop you being awarded the later marks.</p>`},
  {lv:'b', h:'Worked examples: energy changing form', html:`<p><b>Potential to kinetic.</b> A 50 kg object falls freely from 30 m. E<sub>p</sub> = mgh = 50 × 9.8 × 30 = 14 700 J. All of it becomes kinetic energy at impact: 14 700 = ½ × 50 × v², so v² = 588 and <b>v = 24 m/s</b>.</p><p><b>Electrical to heat.</b> A kettle uses 24 kJ to heat 2 kg of water to 100 °C (no losses). 24 000 = 4180 × 2 × ΔT, so ΔT = 2.87 °C and the water started at <b>97 °C</b>.</p><p><b>Efficiency in three steps.</b> A coffee machine (230 V, 22 A) heats 0.15 kg of water from 20 °C to 85 °C in 15 s.</p><ol><li>Energy in: E<sub>e</sub> = VIt = 230 × 22 × 15 = 75 900 J</li><li>Useful energy out: E<sub>h</sub> = cmΔT = 4180 × 0.15 × 65 = 40 755 J</li><li>Efficiency: η = 40 755 ÷ 75 900 × 100 = <b>54%</b></li></ol><p>The other 46% (35.1 kJ) is wasted, as heat to the casing and air, and sound. Efficiency can never be more than 100%.</p>`},
  {lv:'b', h:'Energy audits', html:`<p>An <b>energy audit</b> lists all the energy going into and coming out of a system, so you can see where energy is wasted. Total energy in = useful energy out + wasted energy. Show it as a diagram: the input on the left, the useful output on the right, and the waste (heat, sound) coming off the side, each labelled with its value.</p>`},
  {lv:'b', h:'Improving efficiency', html:`<p>Explain with a cause linked to the context and its effect: "Lubricate the gears (cause) to reduce friction, so less energy is lost as heat (effect)." Other examples: bearings, streamlining, insulation, reducing weight.</p>`},
@@ -5484,7 +5609,7 @@ materials:[
 const REPORT_HEADLINES = {
 n5:[
  ['"Explain" means cause and effect','Give one cause and a related effect. Two causes, or a cause with an unrelated effect, will not get full marks. Extra points earn nothing extra.','2024, 2025'],
- ['Pneumatic terms','3/2 valves actuate. 5/2 valves change state. Pistons outstroke and instroke. Vague words like "pushes out" or "the valve opens" lose marks.','2024, 2025'],
+ ['Pneumatic terms','3/2 valves actuate. 5/2 valves change state. Pistons outstroke and instroke. Vague words like "pushes out" or "the valve opens" are not awarded marks.','2024, 2025'],
  ['Pressure in N/mm²','Work out the piston area first (πr²), then pressure = force ÷ area in N/mm². Don\'t convert to m² unless asked.','2024, 2025'],
  ['Emerging technology','It must be new and not yet used commercially. AI, electric vehicles and self-driving cars won\'t get full marks.','2024'],
  ['Describing sensing circuits','Refer to the sensor\'s resistance and Vout. "The LDR detects light" isn\'t enough.','2024, 2025'],
@@ -6134,377 +6259,377 @@ Object.assign(FIGS, {
 });
 
 const PRINTABLES={
- "n5": [
-  {
-   "id": "systems",
-   "title": "The systems approach & control",
-   "area": "ctx",
-   "file": "printables/es-n5-systems.pdf",
-   "ans": "printables/es-n5-systems-answers.pdf"
-  },
-  {
-   "id": "energy",
-   "title": "Energy & efficiency",
-   "area": "ctx",
-   "file": "printables/es-n5-energy.pdf",
-   "ans": "printables/es-n5-energy-answers.pdf"
-  },
-  {
-   "id": "roles",
-   "title": "Engineering roles & disciplines",
-   "area": "ctx",
-   "file": "printables/es-n5-roles.pdf",
-   "ans": "printables/es-n5-roles-answers.pdf"
-  },
-  {
-   "id": "impacts",
-   "title": "Impacts of engineering & emerging technology",
-   "area": "ctx",
-   "file": "printables/es-n5-impacts.pdf",
-   "ans": "printables/es-n5-impacts-answers.pdf"
-  },
-  {
-   "id": "circuits",
-   "title": "Components, Ohm's law & resistor networks",
-   "area": "elec",
-   "file": "printables/es-n5-circuits.pdf",
-   "ans": "printables/es-n5-circuits-answers.pdf"
-  },
-  {
-   "id": "vdiv",
-   "title": "Voltage dividers & sensors",
-   "area": "elec",
-   "file": "printables/es-n5-vdiv.pdf",
-   "ans": "printables/es-n5-vdiv-answers.pdf"
-  },
-  {
-   "id": "transistors",
-   "title": "Transistors, relays & MOSFETs",
-   "area": "elec",
-   "file": "printables/es-n5-transistors.pdf",
-   "ans": "printables/es-n5-transistors-answers.pdf"
-  },
-  {
-   "id": "logic",
-   "title": "Digital logic",
-   "area": "elec",
-   "file": "printables/es-n5-logic.pdf",
-   "ans": "printables/es-n5-logic-answers.pdf"
-  },
-  {
-   "id": "programming",
-   "title": "Microcontrollers, flowcharts & programming",
-   "area": "elec",
-   "file": "printables/es-n5-programming.pdf",
-   "ans": "printables/es-n5-programming-answers.pdf"
-  },
-  {
-   "id": "drives",
-   "title": "Drive systems & mechanisms",
-   "area": "mech",
-   "file": "printables/es-n5-drives.pdf",
-   "ans": "printables/es-n5-drives-answers.pdf"
-  },
-  {
-   "id": "pneumatics",
-   "title": "Pneumatics",
-   "area": "mech",
-   "file": "printables/es-n5-pneumatics.pdf",
-   "ans": "printables/es-n5-pneumatics-answers.pdf"
-  },
-  {
-   "id": "structures",
-   "title": "Structures & forces",
-   "area": "mech",
-   "file": "printables/es-n5-structures.pdf",
-   "ans": "printables/es-n5-structures-answers.pdf"
-  },
-  {
-   "id": "materials",
-   "title": "Materials, stress & strain",
-   "area": "mech",
-   "file": "printables/es-n5-materials.pdf",
-   "ans": "printables/es-n5-materials-answers.pdf"
-  }
- ],
- "h": [
-  {
-   "id": "systems",
-   "title": "The systems approach & control",
-   "area": "ctx",
-   "file": "printables/es-h-systems.pdf",
-   "ans": "printables/es-h-systems-answers.pdf"
-  },
-  {
-   "id": "energy",
-   "title": "Energy & efficiency",
-   "area": "ctx",
-   "file": "printables/es-h-energy.pdf",
-   "ans": "printables/es-h-energy-answers.pdf"
-  },
-  {
-   "id": "roles",
-   "title": "Engineering roles & disciplines",
-   "area": "ctx",
-   "file": "printables/es-h-roles.pdf",
-   "ans": "printables/es-h-roles-answers.pdf"
-  },
-  {
-   "id": "impacts",
-   "title": "Impacts of engineering & emerging technology",
-   "area": "ctx",
-   "file": "printables/es-h-impacts.pdf",
-   "ans": "printables/es-h-impacts-answers.pdf"
-  },
-  {
-   "id": "circuits",
-   "title": "Components, Ohm's law & resistor networks",
-   "area": "elec",
-   "file": "printables/es-h-circuits.pdf",
-   "ans": "printables/es-h-circuits-answers.pdf"
-  },
-  {
-   "id": "vdiv",
-   "title": "Voltage dividers & sensors",
-   "area": "elec",
-   "file": "printables/es-h-vdiv.pdf",
-   "ans": "printables/es-h-vdiv-answers.pdf"
-  },
-  {
-   "id": "transistors",
-   "title": "Transistors, relays & MOSFETs",
-   "area": "elec",
-   "file": "printables/es-h-transistors.pdf",
-   "ans": "printables/es-h-transistors-answers.pdf"
-  },
-  {
-   "id": "opamps",
-   "title": "Operational amplifiers",
-   "area": "elec",
-   "file": "printables/es-h-opamps.pdf",
-   "ans": "printables/es-h-opamps-answers.pdf"
-  },
-  {
-   "id": "logic",
-   "title": "Digital logic",
-   "area": "elec",
-   "file": "printables/es-h-logic.pdf",
-   "ans": "printables/es-h-logic-answers.pdf"
-  },
-  {
-   "id": "programming",
-   "title": "Microcontrollers, flowcharts & programming",
-   "area": "elec",
-   "file": "printables/es-h-programming.pdf",
-   "ans": "printables/es-h-programming-answers.pdf"
-  },
-  {
-   "id": "drives",
-   "title": "Drive systems & mechanisms",
-   "area": "mech",
-   "file": "printables/es-h-drives.pdf",
-   "ans": "printables/es-h-drives-answers.pdf"
-  },
-  {
-   "id": "pneumatics",
-   "title": "Pneumatics",
-   "area": "mech",
-   "file": "printables/es-h-pneumatics.pdf",
-   "ans": "printables/es-h-pneumatics-answers.pdf"
-  },
-  {
-   "id": "structures",
-   "title": "Structures & forces",
-   "area": "mech",
-   "file": "printables/es-h-structures.pdf",
-   "ans": "printables/es-h-structures-answers.pdf"
-  },
-  {
-   "id": "materials",
-   "title": "Materials, stress & strain",
-   "area": "mech",
-   "file": "printables/es-h-materials.pdf",
-   "ans": "printables/es-h-materials-answers.pdf"
-  }
- ],
- "class": {
-  "n5": [
-   {
-    "topic": "systems",
-    "title": "Systems & control: past paper practice",
-    "file": "printables/class/es-class-n5-systems-control-worksheet.pdf",
-    "ans": "printables/class/es-class-n5-systems-control-worksheet-answers.pdf"
-   },
-   {
-    "topic": "systems",
-    "title": "Tea & toast: systems and energy",
-    "file": "printables/class/es-class-n5-tea-toast-systems-and-energy.pdf",
-    "ans": "printables/class/es-class-n5-tea-toast-systems-and-energy-answers.pdf"
-   },
-   {
-    "topic": "systems",
-    "title": "Assignment prep: pool heating system",
-    "file": "printables/class/es-class-n5-assignment-prep-systems-style-question-2024.pdf",
-    "ans": "printables/class/es-class-n5-assignment-prep-systems-style-question-2024-answers.pdf"
-   },
-   {
-    "topic": "energy",
-    "title": "1. Work done",
-    "file": "printables/class/es-class-n5-1-work-done.pdf",
-    "ans": "printables/class/es-class-n5-1-work-done-answers.pdf"
-   },
-   {
-    "topic": "energy",
-    "title": "2. Electrical energy",
-    "file": "printables/class/es-class-n5-2-electrical-energy.pdf",
-    "ans": "printables/class/es-class-n5-2-electrical-energy-answers.pdf"
-   },
-   {
-    "topic": "energy",
-    "title": "3. Kinetic energy",
-    "file": "printables/class/es-class-n5-3-kinetic-energy.pdf",
-    "ans": "printables/class/es-class-n5-3-kinetic-energy-answers.pdf"
-   },
-   {
-    "topic": "energy",
-    "title": "4. Potential energy",
-    "file": "printables/class/es-class-n5-4-potential-energy.pdf",
-    "ans": "printables/class/es-class-n5-4-potential-energy-answers.pdf"
-   },
-   {
-    "topic": "energy",
-    "title": "5. Heat energy",
-    "file": "printables/class/es-class-n5-5-heat-energy.pdf",
-    "ans": "printables/class/es-class-n5-5-heat-energy-answers.pdf"
-   },
-   {
-    "topic": "energy",
-    "title": "6. Energy transfers",
-    "file": "printables/class/es-class-n5-6-energy-transfers.pdf",
-    "ans": "printables/class/es-class-n5-6-energy-transfers-answers.pdf"
-   },
-   {
-    "topic": "energy",
-    "title": "7. Efficiency and audits",
-    "file": "printables/class/es-class-n5-7-efficiency-and-audits.pdf",
-    "ans": "printables/class/es-class-n5-7-efficiency-and-audits-answers.pdf"
-   },
-   {
-    "topic": "energy",
-    "title": "8. Extension questions",
-    "file": "printables/class/es-class-n5-8-extension-questions.pdf",
-    "ans": "printables/class/es-class-n5-8-extension-questions-answers.pdf"
-   },
-   {
-    "topic": "energy",
-    "title": "Energy skate park simulation",
-    "file": "printables/class/es-class-n5-energy-skate-park-simulation.pdf",
-    "ans": "printables/class/es-class-n5-energy-skate-park-simulation-answers.pdf"
-   },
-   {
-    "topic": "energy",
-    "title": "Energy revision sheet",
-    "file": "printables/class/es-class-n5-energy-revision-sheet.pdf",
-    "ans": "printables/class/es-class-n5-energy-revision-sheet-answers.pdf"
-   },
-   {
-    "topic": "drives",
-    "title": "Simple gear trains",
-    "file": "printables/class/es-class-n5-simple-gear-trains.pdf",
-    "ans": "printables/class/es-class-n5-simple-gear-trains-answers.pdf"
-   },
-   {
-    "topic": "drives",
-    "title": "Compound gear trains",
-    "file": "printables/class/es-class-n5-compound-gear-trains.pdf",
-    "ans": "printables/class/es-class-n5-compound-gear-trains-answers.pdf"
-   },
-   {
-    "topic": "drives",
-    "title": "Simple and compound gear trains",
-    "file": "printables/class/es-class-n5-simple-and-compound-gear-trains.pdf",
-    "ans": "printables/class/es-class-n5-simple-and-compound-gear-trains-answers.pdf"
-   },
-   {
-    "topic": "pneumatics",
-    "title": "Pneumatics calculations",
-    "file": "printables/class/es-class-n5-pneumatics-calculations.pdf",
-    "ans": "printables/class/es-class-n5-pneumatics-calculations-answers.pdf"
-   },
-   {
-    "topic": "pneumatics",
-    "title": "Pneumatics revision summary",
-    "file": "printables/class/es-class-n5-pneumatics-revision-mind-map.pdf",
-    "ans": "printables/class/es-class-n5-pneumatics-revision-mind-map-answers.pdf"
-   },
-   {
-    "topic": "structures",
-    "title": "Moments and reactions",
-    "file": "printables/class/es-class-n5-moments-and-reactions.pdf",
-    "ans": "printables/class/es-class-n5-moments-and-reactions-answers.pdf"
-   },
-   {
-    "topic": "structures",
-    "title": "Geodesic dome task",
-    "file": "printables/class/es-class-n5-geodesic-dome-task.pdf"
-   },
-   {
-    "topic": "materials",
-    "title": "Stress",
-    "file": "printables/class/es-class-n5-stress.pdf",
-    "ans": "printables/class/es-class-n5-stress-answers.pdf"
-   },
-   {
-    "topic": "materials",
-    "title": "Strain",
-    "file": "printables/class/es-class-n5-strain.pdf",
-    "ans": "printables/class/es-class-n5-strain-answers.pdf"
-   },
-   {
-    "topic": "circuits",
-    "title": "1. Yenka tasks",
-    "file": "printables/class/es-class-n5-1-yenka-tasks.pdf",
-    "ans": "printables/class/es-class-n5-1-yenka-tasks-answers.pdf"
-   },
-   {
-    "topic": "circuits",
-    "title": "2. Ohm's law, series and parallel",
-    "file": "printables/class/es-class-n5-2-ohm-s-law-series-and-parallel.pdf",
-    "ans": "printables/class/es-class-n5-2-ohm-s-law-series-and-parallel-answers.pdf"
-   },
-   {
-    "topic": "circuits",
-    "title": "3. Mixed analogue questions",
-    "file": "printables/class/es-class-n5-3-mixed-analogue-questions.pdf",
-    "ans": "printables/class/es-class-n5-3-mixed-analogue-questions-answers.pdf"
-   },
-   {
-    "topic": "transistors",
-    "title": "4. SQA-style analogue questions",
-    "file": "printables/class/es-class-n5-4-sqa-style-analogue-questions.pdf",
-    "ans": "printables/class/es-class-n5-4-sqa-style-analogue-questions-answers.pdf"
-   },
-   {
-    "topic": "vdiv",
-    "title": "5. Voltage dividers",
-    "file": "printables/class/es-class-n5-5-voltage-dividers.pdf",
-    "ans": "printables/class/es-class-n5-5-voltage-dividers-answers.pdf"
-   },
-   {
-    "topic": "vdiv",
-    "title": "Analogue past paper questions",
-    "file": "printables/class/es-class-n5-analogue-past-paper-questions.pdf",
-    "ans": "printables/class/es-class-n5-analogue-past-paper-questions-answers.pdf"
-   },
-   {
-    "topic": "circuits",
-    "title": "Analogue electronics revision summary",
-    "file": "printables/class/es-class-n5-analogue-electronics-revision-mind-map.pdf",
-    "ans": "printables/class/es-class-n5-analogue-electronics-revision-mind-map-answers.pdf"
-   }
-  ],
-  "h": []
- }
+"n5": [
+{
+"id": "systems",
+"title": "The systems approach & control",
+"area": "ctx",
+"file": "printables/es-n5-systems.pdf",
+"ans": "printables/es-n5-systems-answers.pdf"
+},
+{
+"id": "energy",
+"title": "Energy & efficiency",
+"area": "ctx",
+"file": "printables/es-n5-energy.pdf",
+"ans": "printables/es-n5-energy-answers.pdf"
+},
+{
+"id": "roles",
+"title": "Engineering roles & disciplines",
+"area": "ctx",
+"file": "printables/es-n5-roles.pdf",
+"ans": "printables/es-n5-roles-answers.pdf"
+},
+{
+"id": "impacts",
+"title": "Impacts of engineering & emerging technology",
+"area": "ctx",
+"file": "printables/es-n5-impacts.pdf",
+"ans": "printables/es-n5-impacts-answers.pdf"
+},
+{
+"id": "circuits",
+"title": "Components, Ohm's law & resistor networks",
+"area": "elec",
+"file": "printables/es-n5-circuits.pdf",
+"ans": "printables/es-n5-circuits-answers.pdf"
+},
+{
+"id": "vdiv",
+"title": "Voltage dividers & sensors",
+"area": "elec",
+"file": "printables/es-n5-vdiv.pdf",
+"ans": "printables/es-n5-vdiv-answers.pdf"
+},
+{
+"id": "transistors",
+"title": "Transistors, relays & MOSFETs",
+"area": "elec",
+"file": "printables/es-n5-transistors.pdf",
+"ans": "printables/es-n5-transistors-answers.pdf"
+},
+{
+"id": "logic",
+"title": "Digital logic",
+"area": "elec",
+"file": "printables/es-n5-logic.pdf",
+"ans": "printables/es-n5-logic-answers.pdf"
+},
+{
+"id": "programming",
+"title": "Microcontrollers, flowcharts & programming",
+"area": "elec",
+"file": "printables/es-n5-programming.pdf",
+"ans": "printables/es-n5-programming-answers.pdf"
+},
+{
+"id": "drives",
+"title": "Drive systems & mechanisms",
+"area": "mech",
+"file": "printables/es-n5-drives.pdf",
+"ans": "printables/es-n5-drives-answers.pdf"
+},
+{
+"id": "pneumatics",
+"title": "Pneumatics",
+"area": "mech",
+"file": "printables/es-n5-pneumatics.pdf",
+"ans": "printables/es-n5-pneumatics-answers.pdf"
+},
+{
+"id": "structures",
+"title": "Structures & forces",
+"area": "mech",
+"file": "printables/es-n5-structures.pdf",
+"ans": "printables/es-n5-structures-answers.pdf"
+},
+{
+"id": "materials",
+"title": "Materials, stress & strain",
+"area": "mech",
+"file": "printables/es-n5-materials.pdf",
+"ans": "printables/es-n5-materials-answers.pdf"
+}
+],
+"h": [
+{
+"id": "systems",
+"title": "The systems approach & control",
+"area": "ctx",
+"file": "printables/es-h-systems.pdf",
+"ans": "printables/es-h-systems-answers.pdf"
+},
+{
+"id": "energy",
+"title": "Energy & efficiency",
+"area": "ctx",
+"file": "printables/es-h-energy.pdf",
+"ans": "printables/es-h-energy-answers.pdf"
+},
+{
+"id": "roles",
+"title": "Engineering roles & disciplines",
+"area": "ctx",
+"file": "printables/es-h-roles.pdf",
+"ans": "printables/es-h-roles-answers.pdf"
+},
+{
+"id": "impacts",
+"title": "Impacts of engineering & emerging technology",
+"area": "ctx",
+"file": "printables/es-h-impacts.pdf",
+"ans": "printables/es-h-impacts-answers.pdf"
+},
+{
+"id": "circuits",
+"title": "Components, Ohm's law & resistor networks",
+"area": "elec",
+"file": "printables/es-h-circuits.pdf",
+"ans": "printables/es-h-circuits-answers.pdf"
+},
+{
+"id": "vdiv",
+"title": "Voltage dividers & sensors",
+"area": "elec",
+"file": "printables/es-h-vdiv.pdf",
+"ans": "printables/es-h-vdiv-answers.pdf"
+},
+{
+"id": "transistors",
+"title": "Transistors, relays & MOSFETs",
+"area": "elec",
+"file": "printables/es-h-transistors.pdf",
+"ans": "printables/es-h-transistors-answers.pdf"
+},
+{
+"id": "opamps",
+"title": "Operational amplifiers",
+"area": "elec",
+"file": "printables/es-h-opamps.pdf",
+"ans": "printables/es-h-opamps-answers.pdf"
+},
+{
+"id": "logic",
+"title": "Digital logic",
+"area": "elec",
+"file": "printables/es-h-logic.pdf",
+"ans": "printables/es-h-logic-answers.pdf"
+},
+{
+"id": "programming",
+"title": "Microcontrollers, flowcharts & programming",
+"area": "elec",
+"file": "printables/es-h-programming.pdf",
+"ans": "printables/es-h-programming-answers.pdf"
+},
+{
+"id": "drives",
+"title": "Drive systems & mechanisms",
+"area": "mech",
+"file": "printables/es-h-drives.pdf",
+"ans": "printables/es-h-drives-answers.pdf"
+},
+{
+"id": "pneumatics",
+"title": "Pneumatics",
+"area": "mech",
+"file": "printables/es-h-pneumatics.pdf",
+"ans": "printables/es-h-pneumatics-answers.pdf"
+},
+{
+"id": "structures",
+"title": "Structures & forces",
+"area": "mech",
+"file": "printables/es-h-structures.pdf",
+"ans": "printables/es-h-structures-answers.pdf"
+},
+{
+"id": "materials",
+"title": "Materials, stress & strain",
+"area": "mech",
+"file": "printables/es-h-materials.pdf",
+"ans": "printables/es-h-materials-answers.pdf"
+}
+],
+"class": {
+"n5": [
+{
+"topic": "systems",
+"title": "Systems & control: past paper practice",
+"file": "printables/class/es-class-n5-systems-control-worksheet.pdf",
+"ans": "printables/class/es-class-n5-systems-control-worksheet-answers.pdf"
+},
+{
+"topic": "systems",
+"title": "Tea & toast: systems and energy",
+"file": "printables/class/es-class-n5-tea-toast-systems-and-energy.pdf",
+"ans": "printables/class/es-class-n5-tea-toast-systems-and-energy-answers.pdf"
+},
+{
+"topic": "systems",
+"title": "Assignment prep: pool heating system",
+"file": "printables/class/es-class-n5-assignment-prep-systems-style-question-2024.pdf",
+"ans": "printables/class/es-class-n5-assignment-prep-systems-style-question-2024-answers.pdf"
+},
+{
+"topic": "energy",
+"title": "1. Work done",
+"file": "printables/class/es-class-n5-1-work-done.pdf",
+"ans": "printables/class/es-class-n5-1-work-done-answers.pdf"
+},
+{
+"topic": "energy",
+"title": "2. Electrical energy",
+"file": "printables/class/es-class-n5-2-electrical-energy.pdf",
+"ans": "printables/class/es-class-n5-2-electrical-energy-answers.pdf"
+},
+{
+"topic": "energy",
+"title": "3. Kinetic energy",
+"file": "printables/class/es-class-n5-3-kinetic-energy.pdf",
+"ans": "printables/class/es-class-n5-3-kinetic-energy-answers.pdf"
+},
+{
+"topic": "energy",
+"title": "4. Potential energy",
+"file": "printables/class/es-class-n5-4-potential-energy.pdf",
+"ans": "printables/class/es-class-n5-4-potential-energy-answers.pdf"
+},
+{
+"topic": "energy",
+"title": "5. Heat energy",
+"file": "printables/class/es-class-n5-5-heat-energy.pdf",
+"ans": "printables/class/es-class-n5-5-heat-energy-answers.pdf"
+},
+{
+"topic": "energy",
+"title": "6. Energy transfers",
+"file": "printables/class/es-class-n5-6-energy-transfers.pdf",
+"ans": "printables/class/es-class-n5-6-energy-transfers-answers.pdf"
+},
+{
+"topic": "energy",
+"title": "7. Efficiency and audits",
+"file": "printables/class/es-class-n5-7-efficiency-and-audits.pdf",
+"ans": "printables/class/es-class-n5-7-efficiency-and-audits-answers.pdf"
+},
+{
+"topic": "energy",
+"title": "8. Extension questions",
+"file": "printables/class/es-class-n5-8-extension-questions.pdf",
+"ans": "printables/class/es-class-n5-8-extension-questions-answers.pdf"
+},
+{
+"topic": "energy",
+"title": "Energy skate park simulation",
+"file": "printables/class/es-class-n5-energy-skate-park-simulation.pdf",
+"ans": "printables/class/es-class-n5-energy-skate-park-simulation-answers.pdf"
+},
+{
+"topic": "energy",
+"title": "Energy revision sheet",
+"file": "printables/class/es-class-n5-energy-revision-sheet.pdf",
+"ans": "printables/class/es-class-n5-energy-revision-sheet-answers.pdf"
+},
+{
+"topic": "drives",
+"title": "Simple gear trains",
+"file": "printables/class/es-class-n5-simple-gear-trains.pdf",
+"ans": "printables/class/es-class-n5-simple-gear-trains-answers.pdf"
+},
+{
+"topic": "drives",
+"title": "Compound gear trains",
+"file": "printables/class/es-class-n5-compound-gear-trains.pdf",
+"ans": "printables/class/es-class-n5-compound-gear-trains-answers.pdf"
+},
+{
+"topic": "drives",
+"title": "Simple and compound gear trains",
+"file": "printables/class/es-class-n5-simple-and-compound-gear-trains.pdf",
+"ans": "printables/class/es-class-n5-simple-and-compound-gear-trains-answers.pdf"
+},
+{
+"topic": "pneumatics",
+"title": "Pneumatics calculations",
+"file": "printables/class/es-class-n5-pneumatics-calculations.pdf",
+"ans": "printables/class/es-class-n5-pneumatics-calculations-answers.pdf"
+},
+{
+"topic": "pneumatics",
+"title": "Pneumatics revision summary",
+"file": "printables/class/es-class-n5-pneumatics-revision-mind-map.pdf",
+"ans": "printables/class/es-class-n5-pneumatics-revision-mind-map-answers.pdf"
+},
+{
+"topic": "structures",
+"title": "Moments and reactions",
+"file": "printables/class/es-class-n5-moments-and-reactions.pdf",
+"ans": "printables/class/es-class-n5-moments-and-reactions-answers.pdf"
+},
+{
+"topic": "structures",
+"title": "Geodesic dome task",
+"file": "printables/class/es-class-n5-geodesic-dome-task.pdf"
+},
+{
+"topic": "materials",
+"title": "Stress",
+"file": "printables/class/es-class-n5-stress.pdf",
+"ans": "printables/class/es-class-n5-stress-answers.pdf"
+},
+{
+"topic": "materials",
+"title": "Strain",
+"file": "printables/class/es-class-n5-strain.pdf",
+"ans": "printables/class/es-class-n5-strain-answers.pdf"
+},
+{
+"topic": "circuits",
+"title": "1. Yenka tasks",
+"file": "printables/class/es-class-n5-1-yenka-tasks.pdf",
+"ans": "printables/class/es-class-n5-1-yenka-tasks-answers.pdf"
+},
+{
+"topic": "circuits",
+"title": "2. Ohm's law, series and parallel",
+"file": "printables/class/es-class-n5-2-ohm-s-law-series-and-parallel.pdf",
+"ans": "printables/class/es-class-n5-2-ohm-s-law-series-and-parallel-answers.pdf"
+},
+{
+"topic": "circuits",
+"title": "3. Mixed analogue questions",
+"file": "printables/class/es-class-n5-3-mixed-analogue-questions.pdf",
+"ans": "printables/class/es-class-n5-3-mixed-analogue-questions-answers.pdf"
+},
+{
+"topic": "transistors",
+"title": "4. SQA-style analogue questions",
+"file": "printables/class/es-class-n5-4-sqa-style-analogue-questions.pdf",
+"ans": "printables/class/es-class-n5-4-sqa-style-analogue-questions-answers.pdf"
+},
+{
+"topic": "vdiv",
+"title": "5. Voltage dividers",
+"file": "printables/class/es-class-n5-5-voltage-dividers.pdf",
+"ans": "printables/class/es-class-n5-5-voltage-dividers-answers.pdf"
+},
+{
+"topic": "vdiv",
+"title": "Analogue past paper questions",
+"file": "printables/class/es-class-n5-analogue-past-paper-questions.pdf",
+"ans": "printables/class/es-class-n5-analogue-past-paper-questions-answers.pdf"
+},
+{
+"topic": "circuits",
+"title": "Analogue electronics revision summary",
+"file": "printables/class/es-class-n5-analogue-electronics-revision-mind-map.pdf",
+"ans": "printables/class/es-class-n5-analogue-electronics-revision-mind-map-answers.pdf"
+}
+],
+"h": []
+}
 };
 
 return {AREAS,TOPICS,CHECK,REPORT_HEADLINES,REPORTS,SEQ,SCORE,FOLIO,RESEARCH_TECH,RESEARCH_PLAN,RESEARCH_STEPS,EXAM,BANDS,COMMANDS,ZERO_TRAPS,MODELS,FIGS,PRINTABLES};
@@ -7143,7 +7268,7 @@ const REPORTS = [
  ['n','sustain','Couldn\'t give benefits of sustainably sourced wood.','Trees are replanted, habitats protected, a long-term supply.','N5 2024 paper'],
  ['n','drawings','Couldn\'t identify a centre line or the diameter symbol.','Centre line: thin chain. Ø means diameter.','N5 2024 paper'],
  ['n','safety','Log book statements copied or from a comment bank.','Write your own detailed descriptions, using a different tool for each procedure.','QVSR 2025'],
- ['n','drawings','Used a different thickness of wood without amending the drawings.','If the thickness changes, the drawings must be amended or measuring and marking marks are lost.','QVSR 2025'],
+ ['n','drawings','Used a different thickness of wood without amending the drawings.','If the thickness changes, the drawings must be amended or measuring and marking marks are not awarded.','QVSR 2025'],
  ['n','finishing','Applied filler or finish over joints before verification.','Leave joints visible until they have been verified.','QVSR 2025']
 ];
 
@@ -8554,7 +8679,7 @@ const SUBJECTS=[
   {id:'gc',name:'Graphic Communication',brand:'Graphics with Mr Kelly',levels:'N5 · Higher',folio:'Assignment help',desc:'Drawing standards, CAD modelling, DTP layouts and the assignment.'},
   {id:'es',name:'Engineering Science',brand:'Engineering with Mr Kelly',levels:'N5 · Higher',folio:'Assignment help',desc:'Systems, energy, electronics, mechanisms and structures.'},
   {id:'pw',name:'Practical Woodworking',brand:'Woodwork with Mr Kelly',levels:'N5',folio:'Practical activity',n5only:true,examTab:'Case study',examTitle:'Case study practice',examItem:['Case study questions','Case-study style questions by topic, with marking guidance and model answers.'],desc:'Tools, joints, materials, finishes, the log book and the case study.'},
-  {id:'ct',name:'Creative Thinking',brand:'Creative Thinking with Mr Kelly',levels:'Daydream Believers',sub:'SCQF levels 5 & 6 · Daydream Believers',folio:'Portfolio help',lvNames:['Level 5','Level 6','L5','L6'],examTab:'Portfolio skills',examTitle:'Portfolio challenges',examItem:['Portfolio challenges','Short tasks that build each part of your portfolio, with what a strong response includes.'],noExaminer:true,scoreItem:['Strong or weak?','Quick-fire: is this a strong or weak piece of portfolio work?'],mistakesItem:['Common pitfalls','Where portfolios lose credit, element by element, and what to do instead.'],reportsLabel:'From: ',mistakesHead:['Portfolio guidance','Common pitfalls','Where portfolios most often lose credit, linked to the five elements, with what to do instead.'],desc:'Research, ideas, Fail & Fix, communicating and evaluating: the Daydream Believers qualification.'},
+  {id:'ct',name:'Creative Thinking',brand:'Creative Thinking with Mr Kelly',levels:'Daydream Believers',sub:'SCQF levels 5 & 6 · Daydream Believers',folio:'Portfolio help',lvNames:['Level 5','Level 6','L5','L6'],examTab:'Portfolio skills',examTitle:'Portfolio challenges',examItem:['Portfolio challenges','Short tasks that build each part of your portfolio, with what a strong response includes.'],noExaminer:true,scoreItem:['Strong or weak?','Quick-fire: is this a strong or weak piece of portfolio work?'],mistakesItem:['Common pitfalls','Where portfolios are not awarded credit, element by element, and what to do instead.'],reportsLabel:'From: ',mistakesHead:['Portfolio guidance','Common pitfalls','Where portfolios are most often not awarded credit, linked to the five elements, with what to do instead.'],desc:'Research, ideas, Fail & Fix, communicating and evaluating: the Daydream Believers qualification.'},
   {id:'cu',name:'Careers & University',brand:'Careers with Mr Kelly',levels:'Next steps',desc:'Career finder, routes after school, Scottish courses and help with applying.'}
 ];
 const subjMeta = id => SUBJECTS.find(s=>s.id===id)||SUBJECTS[0];
@@ -8568,7 +8693,7 @@ const exLabel = () => { const m=curSubj&&SUBJECTS.find(x=>x.id===curSubj); retur
 function enforceLevel(){ const m=curSubj&&SUBJECTS.find(x=>x.id===curSubj); const want = m&&m.n5only ? 'n5' : store.get('level','n5'); if(level!==want){ level=want; document.body.dataset.level=level; document.querySelectorAll('.level button').forEach(b=>b.setAttribute('aria-pressed', b.dataset.lv===level)); } }
 enforceLevel();
 let tab = store.get('tab','notes'); if(!RESULTS && tab==='results') tab='notes'; if(tab==='mock') tab='ehub';
-let topicId = store.get('topic','research'); if(!curSubj) tab='home';
+let topicId = store.get('topic','research'); if(!curSubj) tab='home'; if(tab==='calc'&&curSubj!=='es') tab='phub';
 
 const fits = lv => lv==='b' || (level==='n5' ? lv==='n' : lv==='h'); if(store.get('subject',null)==='cu') tab='careers';
 const visibleTopics = () => TOPICS.filter(t => !(t.nOnly && level==='h') && !(t.hOnly && level==='n5'));
@@ -8586,6 +8711,7 @@ function setLevel(lv){
   if(!visibleTopics().some(t=>t.id===topicId)) topicId=visibleTopics()[0].id;
   qz=null;
   renderAll();
+  if(tab==='home') featHome();
 }
 function setTab(t){
   if(t==='careers'){ document.body.classList.remove('home'); document.body.classList.add('cu'); tab='careers'; store.set('tab','careers'); curSubj='cu';
@@ -8615,6 +8741,8 @@ function setTab(t){
   if(t==='mistakes') renderMistakes();
   if(t==='print') renderPrintables();
   if(t==='folio') renderFolio();
+  if(t==='calc') renderCalc();
+  if(t==='report') renderReport();
   window.scrollTo({top:0});
 }
 document.querySelectorAll('.level button').forEach(b=>b.onclick=()=>setLevel(b.dataset.lv));
@@ -8672,6 +8800,7 @@ function renderNotes(){
   });
   const nx=$('#sheet').querySelector('[data-next]');
   if(nx) nx.onclick=()=>{topicId=nx.dataset.next;store.set('topic',topicId);renderNotes();window.scrollTo({top:0})};
+  featNotes();
 }
 
 /* ── FLASHCARDS ── */
@@ -8743,6 +8872,7 @@ function answer(i){
 }
 async function finish(){
   const n=qz.qs.length, pct=Math.round(qz.score/n*100);
+  { const qb=store.get('qzBest',{}), k=level+':'+qz.key; qb[k]=Math.max(qb[k]||0,pct); store.set('qzBest',qb); }
   const label = qz.key==='mixed' ? 'Mixed quiz' : topicById(qz.key).title;
   const misses=qz.answers.filter(a=>!a.ok);
   $('#quiz-run').innerHTML=`
@@ -8792,7 +8922,7 @@ function renderExam(){
       ${true?`<div class="ex-timer" data-tk="${k}" data-m="${x.m}"><button class="ex-tbtn" data-tk="${k}" aria-label="Start or pause the timer"><span class="ex-tic">▶</span><span class="ex-tt">0:00</span></button><span class="ex-tgoal">Guide: about ${x.m} min</span><button class="ex-treset" data-tk="${k}" aria-label="Reset timer">Reset</button></div>`:''}
       <textarea id="ex-a-${x.t}-${k}" data-tk="${k}" aria-label="Your answer" placeholder="Write your answer here…"></textarea>
       <div class="row"><button class="btn" data-mi="${k}">Show marking guidance</button>${md?`<button class="btn" data-md="${k}">Show model answer</button>`:''}${x.seen?`<span class="seen">Similar in: ${esc(x.seen)}</span>`:''}</div>
-      ${md?`<div class="model" id="md-${k}" hidden><h4>Full-mark answer</h4><p class="good">${esc(md.good).replace(/\((\d)\)/g,'<b class="tick">✓$1</b>')}</p>${md.band?`<p class="eyebrow">${esc(md.band)}</p>`:''}${md.note?`<p class="why"><b>Examiner tip:</b> ${esc(md.note)}</p>`:''}${md.weak?`<h4 class="z">Answer that loses marks</h4><p class="weak">"${esc(md.weak[0])}"</p><p class="why">${esc(md.weak[1])}</p>`:''}</div>`:''}
+      ${md?`<div class="model" id="md-${k}" hidden><h4>Full-mark answer</h4><p class="good">${esc(md.good).replace(/\((\d)\)/g,'<b class="tick">✓$1</b>')}</p>${md.band?`<p class="eyebrow">${esc(md.band)}</p>`:''}${md.note?`<p class="why"><b>Examiner tip:</b> ${esc(md.note)}</p>`:''}${md.weak?`<h4 class="z">Answer that is not awarded full marks</h4><p class="weak">"${esc(md.weak[0])}"</p><p class="why">${esc(md.weak[1])}</p>`:''}</div>`:''}
       <div class="mi" id="mi-${k}" hidden><h4>Award marks for</h4><ul>${x.pts.map(p=>`<li>${esc(p)}</li>`).join('')}</ul>
       ${x.zero&&x.zero.length?`<h4 class="z">Scores 0 / watch out</h4><ul>${x.zero.map(p=>`<li>${esc(p)}</li>`).join('')}</ul>`:''}
       ${x.bands?`<h4>Marked holistically in bands</h4><div class="tbl"><table class="cmp"><tr><th>Marks</th><th>Band</th><th>What it looks like</th></tr>${BANDS.map(b=>`<tr><td>${b[0]}</td><td>${b[1]}</td><td>${esc(b[2])}</td></tr>`).join('')}</table></div>`:''}</div></div>`;
@@ -8809,7 +8939,7 @@ function renderExam(){
   $('#ex-type').querySelector('[value="ext"]').hidden = level!=='h';
 }
 $('#ex-topic').onchange=renderExam; $('#ex-type').onchange=renderExam;
-function renderExTips(){ $('#ex-tips').innerHTML = `<summary>Command words and how marks are lost</summary><div class="tips-grid"><div><h4>Command words</h4><dl>${COMMANDS.map(c=>`<dt>${esc(c[0])}</dt><dd>${esc(c[1])}</dd>`).join('')}</dl></div><div><h4>Common ways answers score 0</h4><ul>${ZERO_TRAPS.map(z=>`<li>${esc(z)}</li>`).join('')}</ul></div></div>`; }
+function renderExTips(){ $('#ex-tips').innerHTML = `<summary>Command words and why marks are not awarded</summary><div class="tips-grid"><div><h4>Command words</h4><dl>${COMMANDS.map(c=>`<dt>${esc(c[0])}</dt><dd>${esc(c[1])}</dd>`).join('')}</dl></div><div><h4>Common ways answers score 0</h4><ul>${ZERO_TRAPS.map(z=>`<li>${esc(z)}</li>`).join('')}</ul></div></div>`; }
 renderExTips();
 
 /* ── COMMON MISTAKES ── */
@@ -8868,6 +8998,7 @@ function renderChecklist(){
     store.set('check',ckState); renderChecklist(); queueCheckSave();
   });
   box.querySelectorAll('.ck-go').forEach(b=>b.onclick=()=>{topicId=b.dataset.t;store.set('topic',topicId);renderNotes();setTab('notes')});
+  featChecklist();
 }
 function ckDock(){
   const incT=ckTopics().filter(isInc), n=incT.length;
@@ -9341,6 +9472,12 @@ function folioLayout(zones,pageLabel){
   }).join('');
   return `<svg viewBox="0 0 420 297" role="img" aria-label="Layout of a pass-level page"><rect class="fpage" x="0.5" y="0.5" width="419" height="296" rx="4"/><text class="fh" x="10" y="12">Name · Candidate no.</text><text class="fh" x="410" y="12" text-anchor="end">${esc(pageLabel)}</text><line class="fl" x1="0" x2="420" y1="16" y2="16"/>${z}</svg>`;
 }
+const FO_MARK={
+  holistic:['Marked holistically','All three parts of this pro forma (cutting list, sequence of operations and dimensioned drawing) are judged together: the marks are awarded for the plan as a whole, not part by part.'],
+  folio:['Marked across the whole folio','Evidence for this skill can be credited wherever it appears in your folio, not only on these pages.'],
+  proforma:['Marked on the pro forma only','Only evidence on this pro forma is marked.'],
+  making:['Marked as you make it','Your teacher assesses each skill while you work and on the finished proposal.'],
+  written:['Marked on your written evaluation','Written after making, and marked by your teacher with the practical.']};
 function renderFolio(){
   const F=FOLIO[fKey()], n=F.steps.length;
   let i=Math.min(fStep[fKey()]||0,n-1);
@@ -9350,7 +9487,9 @@ function renderFolio(){
   $('#fo-intro').textContent=F.intro;
   $('#fo-note').innerHTML = FOLIO.note || FO_NOTE_DEFAULT;
   $('#fo-title').textContent = subjMeta(curSubj||'dm').folio || 'Folio help';
-  $('#fo-map').innerHTML=F.steps.map((x,k)=>`<button data-k="${k}" ${k===i?'aria-current="step"':''}><span class="fo-p">${/^\d/.test(x.pages)?'p'+x.pages:x.pages}</span><span class="fo-t">${esc(x.title.replace(/ pro forma$/,''))}</span><span class="fo-m">${FOLIO.equal?'equal weight':x.skills.reduce((a,b)=>a+b[1],0)+' marks'}</span></button>`).join('');
+  $('#fo-map').innerHTML=F.steps.map((x,k)=>`<button data-k="${k}" ${k===i?'aria-current="step"':''}><span class="fo-p">${/^\d/.test(x.pages)?'p'+x.pages:x.pages}</span><span class="fo-t">${esc(x.title.replace(/ pro forma$/,''))}</span><span class="fo-m">${FOLIO.equal?'equal weight':x.skills.reduce((a,b)=>a+b[1],0)+' marks'}</span>${x.mark==='holistic'?'<span class="fo-hol">Holistic</span>':x.mark==='folio'?'<span class="fo-whole">Whole folio</span>':''}</button>`).join('');
+  { const hol=F.steps.some(x=>x.mark==='holistic'), wf=F.steps.some(x=>x.mark==='folio');
+    $('#fo-legend').innerHTML = (hol||wf) ? [hol?'<span class="fo-hol">Holistic</span> the parts of that section are marked together, as one piece of work':'', wf?'<span class="fo-whole">Whole folio</span> evidence for that skill can be credited from any page of the folio':''].filter(Boolean).join(' &nbsp;·&nbsp; ') : ''; }
   const li=a=>`<ul>${a.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`;
   const pageLabel=/^\d/.test(s.pages)?`Page ${s.pages.split('–')[0]} of ${last}`:'';
   let research='';
@@ -9367,7 +9506,7 @@ function renderFolio(){
       <div class="fo-ex">${s.ex.map(p=>`<button class="fo-thumb" data-p="${p}" aria-label="Open page ${p} full size"><img src="folio/h-${String(p).padStart(2,'0')}-t.jpg" alt="Page ${p} of a full-mark Higher folio" loading="lazy"><span>Page ${p}</span></button>`).join('')}</div>
       <p class="muted" style="font-size:.86rem">Shared with permission and anonymised. Tap a page to zoom.</p></section>` : '';
   $('#fo-step').innerHTML=`
-    <div class="fo-head"><div><div class="eyebrow">${/^\d/.test(s.pages)?'Page'+(s.pages.includes('–')?'s':'')+' '+s.pages+' of '+last:s.pages}${FOLIO.equal?'':' · '+marks+' marks'}</div><h3 class="fo-title">${esc(s.title)}</h3></div>
+    <div class="fo-head"><div><div class="eyebrow">${/^\d/.test(s.pages)?'Page'+(s.pages.includes('–')?'s':'')+' '+s.pages+' of '+last:s.pages}${FOLIO.equal?'':' · '+marks+' marks'}</div><h3 class="fo-title">${esc(s.title)}</h3>${s.mark&&FO_MARK[s.mark]?`<p class="fo-markline fo-mk-${s.mark}"><b>${FO_MARK[s.mark][0]}.</b> ${FO_MARK[s.mark][1]}</p>`:''}</div>
       ${FOLIO.equal?'':`<div class="fo-skills">${s.skills.map(k=>`<span class="chip">${esc(k[0])} <b>${k[1]}</b></span>`).join('')}</div>`}</div>
     ${s.lo5?`<p class="fo-lo"><b>Learning outcome:</b> ${esc(level==='n5'?s.lo5:s.lo6)}</p>`:''}
     <p class="fo-purpose">${esc(s.purpose)}</p>
@@ -9409,18 +9548,19 @@ function brandUpdate(){
   const sI=ex.items.find(x=>x[0]==='score'); if(sI&&mm.scoreItem){sI[1]=mm.scoreItem[0];sI[2]=mm.scoreItem[1];}
   const mI=ex.items.find(x=>x[0]==='mistakes'); if(mI&&mm.mistakesItem){mI[1]=mm.mistakesItem[0];mI[2]=mm.mistakesItem[1];}
   const ln=mm.lvNames||['National 5','Higher']; $('#lv-n5').textContent=ln[0]; $('#lv-h').textContent=ln[1];
-  const mh=mm.mistakesHead||['From SQA course reports','Common mistakes','Each year SQA\'s examiners report where candidates lost marks. These are the headlines from the reports for the current course, with what to do instead.'];
+  const mh=mm.mistakesHead||['From SQA course reports','Common mistakes','Each year SQA\'s examiners report where candidates were not awarded marks. These are the headlines from the reports for the current course, with what to do instead.'];
   const mv=document.querySelector('#view-mistakes .panel-head'); if(mv){ mv.querySelector('.eyebrow').textContent=mh[0]; mv.querySelector('h2').textContent=mh[1]; const pp=mv.parentElement.querySelector(':scope > p'); if(pp) pp.textContent=mh[2]; }
   ex.label = mm.examTab||'Exam skills';
   ex.items[0][1] = mm.examItem?mm.examItem[0]:'Exam questions'; ex.items[0][2] = mm.examItem?mm.examItem[1]:'Exam-style questions by topic, with marking guidance and model answers.';
   const et=document.querySelector('.tabs button[data-tab="ehub"]'); if(et) et.textContent=ex.label;
   const eh=document.querySelector('#view-ehub h2'); if(eh) eh.textContent=ex.label==='Exam skills'?'Exam skills':ex.label+' skills';
   const xh=document.querySelector('#view-exam h2'); if(xh) xh.textContent=mm.examTitle||'Exam practice';
+  featBrand();
 }
 function loadSubject(id){
   if(!SUBJ[id]) return;
   curSubj=id; store.set('subject',id); store.set('lastSubj',id); useData(id); enforceLevel();
-  tab=store.get('tab','notes'); if(tab==='home'||tab==='results'||tab==='mock'||tab==='careers') tab='notes';
+  tab=store.get('tab','notes'); if(tab==='home'||tab==='results'||tab==='mock'||tab==='careers') tab='notes'; if(tab==='calc'&&id!=='es') tab='phub';
   topicId=store.get('topic',TOPICS[0].id); if(!visibleTopics().some(x=>x.id===topicId)) topicId=visibleTopics()[0].id;
   ckState=store.get('check',{}); ckInc=store.get('ckInc',{}); fStep=store.get('folio',{n5:0,h:0});
   qz=null; dy=null; sc=null; xm=null; orCur=null; fcI=0;
@@ -9432,6 +9572,7 @@ function renderHome(){
     return `<button class="home-card${ready?'':' soon'}" data-s="${s.id}" ${ready?'':'aria-disabled="true"'}><span class="home-ico"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ic[s.id]||''}</svg></span><span class="home-lv">${esc(s.levels)}</span><h3>${esc(s.name)}</h3><p>${esc(s.desc)}</p>${ready?'':'<span class="home-go">Coming soon</span>'}</button>`;}).join('');
   { const ls=store.get('lastSubj',null), box=$('#home-resume'); const sm=ls&&SUBJ[ls]&&SUBJECTS.find(x=>x.id===ls);
     if(box){ box.hidden=!sm; box.innerHTML=sm?`<button class="btn primary" id="home-go-on">Carry on with ${esc(sm.name)} →</button><span class="muted">or choose a subject below</span>`:''; if(sm) $('#home-go-on').onclick=()=>loadSubject(ls); } }
+  featHome(); featInstall();
   $('#home-cards').querySelectorAll('.home-card').forEach(b=>b.onclick=()=>{ if(b.dataset.s==='cu') openCareers(); else if(SUBJ[b.dataset.s]) loadSubject(b.dataset.s); else toast('Coming soon'); });
 }
 $('#brand-home').onclick=()=>setTab('home');
@@ -9818,6 +9959,259 @@ function cuPS(el){
 }
 /* keep sticky bars below the header */
 (function(){ const t=document.querySelector('.top'); if(!t) return; const set=()=>document.documentElement.style.setProperty('--toph',t.offsetHeight+'px'); set(); try{ new ResizeObserver(set).observe(t); }catch(e){ window.addEventListener('resize',set); } })();
+
+/* ════════ FEATURES: calc practice (ES), exam countdown + planner, search, accessibility, progress report, app install ════════ */
+
+/* ---------- shared helpers ---------- */
+const gstore = {get(k,d){try{const v=localStorage.getItem('mkdt:'+k);return v==null?d:JSON.parse(v)}catch(e){return d}},
+                set(k,v){try{localStorage.setItem('mkdt:'+k,JSON.stringify(v))}catch(e){}}};
+const SUBJ_NAME = id => (SUBJECTS.find(s=>s.id===id)||{}).name||id;
+const fmtN = (x,sf=3) => { if(!isFinite(x)) return String(x); if(x===0) return '0';
+  const v=Number(Number(x).toPrecision(sf)); const s=Math.abs(v)<1e-6||Math.abs(v)>=1e15?String(v):v.toLocaleString('en-GB',{maximumSignificantDigits:21,useGrouping:false});
+  const [a,b]=s.split('.'); return a.replace(/\B(?=(\d{3})+(?!\d))/g,'\u202F')+(b?'.'+b:''); };
+const ri = (a,b,step=1) => a + step*Math.floor(Math.random()*(Math.floor((b-a)/step)+1));
+const pickOne = a => a[Math.floor(Math.random()*a.length)];
+
+/* ---------- 1. ES calculation practice ---------- */
+const G=9.8, PI=Math.PI;
+const CALC_TOPICS=[['all','All topics'],['energy','Energy and efficiency'],['circuits','Ohm\'s law and resistors'],['vdiv','Voltage dividers'],['drives','Gear trains'],['pneumatics','Pneumatics'],['structures','Moments, stress and strain'],['h','Higher only']];
+const CALC_GENS=[
+ // energy (both levels)
+ {t:'energy',lv:'b',f(){const m=ri(20,900,10),d=ri(2,40);const F=m*G;return {ctx:`A winch lifts a ${m} kg load through a height of ${d} m.`,q:'Calculate the work done.',ans:F*d,unit:'J',steps:[`F = mg = ${m} × 9.8 = ${fmtN(F,4)} N`,`E_w = F × d = ${fmtN(F,4)} × ${d}`,`E_w = ${fmtN(F*d)} J`]};}},
+ {t:'energy',lv:'b',f(){const m=ri(2,120),h=ri(3,60);return {ctx:`A ${m} kg mass is raised to a height of ${h} m.`,q:'Calculate its potential energy.',ans:m*G*h,unit:'J',steps:['E_p = mgh',`E_p = ${m} × 9.8 × ${h}`,`E_p = ${fmtN(m*G*h)} J`]};}},
+ {t:'energy',lv:'b',f(){const m=ri(1,1500,pickOne([1,10,50])),v=ri(2,30);return {ctx:`A ${m} kg object moves at ${v} m/s.`,q:'Calculate its kinetic energy.',ans:0.5*m*v*v,unit:'J',steps:['E_k = ½mv²',`E_k = 0.5 × ${m} × ${v}²  (${v}² = ${v*v})`,`E_k = ${fmtN(0.5*m*v*v)} J`]};}},
+ {t:'energy',lv:'b',f(){const V=pickOne([12,24,110,230]),I=pickOne([0.5,1.5,2,3,4,5,8,10,13]),mins=ri(1,15);const t=mins*60;return {ctx:`A ${V} V appliance draws ${I} A for ${mins} minutes.`,q:'Calculate the electrical energy used.',ans:V*I*t,unit:'J',steps:[`t = ${mins} × 60 = ${t} s`,`E_e = VIt = ${V} × ${I} × ${t}`,`E_e = ${fmtN(V*I*t)} J`],tip:'Change the time into seconds first.'};}},
+ {t:'energy',lv:'b',f(){const L=pickOne([0.5,1,1.5,1.7,2,5,20,150]),T1=ri(5,25),T2=ri(40,95,5);const dT=T2-T1;return {ctx:`${L} litres of water is heated from ${T1} °C to ${T2} °C. (c = 4180 J/kg K, 1 litre = 1 kg)`,q:'Calculate the heat energy needed.',ans:4180*L*dT,unit:'J',steps:[`ΔT = ${T2} − ${T1} = ${dT} °C`,`E_h = cmΔT = 4180 × ${L} × ${dT}`,`E_h = ${fmtN(4180*L*dT)} J`]};}},
+ {t:'energy',lv:'b',f(){const E=ri(6,900,6),t=pickOne([10,15,20,30,40,60,120]);return {ctx:`A motor transfers ${E} kJ of energy in ${t} s.`,q:'Calculate its power.',ans:E*1000/t,unit:'W',steps:[`E = ${E} kJ = ${E*1000} J`,`P = E ÷ t = ${E*1000} ÷ ${t}`,`P = ${fmtN(E*1000/t)} W`]};}},
+ {t:'energy',lv:'b',f(){const Ein=ri(200,5000,50),eff=ri(20,92);const Eout=Math.round(Ein*eff/100);return {ctx:`A machine is supplied with ${Ein} J and gives ${Eout} J of useful energy.`,q:'Calculate its efficiency as a percentage.',ans:Eout/Ein*100,unit:'%',steps:['η = E_out ÷ E_in',`η = ${Eout} ÷ ${Ein} = ${fmtN(Eout/Ein)}`,`Efficiency = ${fmtN(Eout/Ein*100)}%`]};}},
+ {t:'energy',lv:'b',f(){const h=ri(2,45);const v=Math.sqrt(2*G*h);return {ctx:`An object falls from rest through ${h} m. Assume no energy is lost.`,q:'Calculate its speed at the bottom.',ans:v,unit:'m/s',steps:['E_p lost = E_k gained, so mgh = ½mv² and the mass cancels',`v² = 2gh = 2 × 9.8 × ${h} = ${fmtN(2*G*h,4)}`,`v = ${fmtN(v)} m/s`]};}},
+ // circuits
+ {t:'circuits',lv:'b',f(){const R=pickOne([10,22,47,100,220,330,470,680,1000,1500,2200,4700]),V=pickOne([3,5,6,9,12,24]);const Rs=R>=1000?`${R/1000} kΩ`:`${R} Ω`;return {ctx:`A ${Rs} resistor is connected to a ${V} V supply.`,q:'Calculate the current.',ans:V/R,unit:'A',steps:[`R = ${R} Ω`,`I = V ÷ R = ${V} ÷ ${R}`,`I = ${fmtN(V/R)} A`]};}},
+ {t:'circuits',lv:'b',f(){const I=pickOne([0.02,0.05,0.1,0.25,0.5,1.2,2]),V=pickOne([3,6,9,12,24]);return {ctx:`A current of ${I} A flows through a resistor with ${V} V across it.`,q:'Calculate the resistance.',ans:V/I,unit:'Ω',steps:[`R = V ÷ I = ${V} ÷ ${I}`,`R = ${fmtN(V/I)} Ω`]};}},
+ {t:'circuits',lv:'b',f(){const a=pickOne([10,22,47,100,150,220,330]),b=pickOne([15,33,68,120,270,470,560]),V=pickOne([6,9,12]);const RT=a+b,I=V/RT;return {ctx:`${a} Ω and ${b} Ω resistors are connected in series to a ${V} V supply.`,q:`Calculate the voltage across the ${b} Ω resistor.`,ans:I*b,unit:'V',steps:[`R_T = ${a} + ${b} = ${RT} Ω`,`I = ${V} ÷ ${RT} = ${fmtN(I,4)} A`,`V = IR = ${fmtN(I,4)} × ${b} = ${fmtN(I*b)} V`]};}},
+ {t:'circuits',lv:'b',f(){const a=pickOne([10,12,20,30,47,100,220]),b=pickOne([15,8,40,60,68,150,330]);const RT=a*b/(a+b);return {ctx:`${a} Ω and ${b} Ω resistors are connected in parallel.`,q:'Calculate their total resistance.',ans:RT,unit:'Ω',steps:['R_T = (R_1 × R_2) ÷ (R_1 + R_2)',`R_T = (${a} × ${b}) ÷ (${a} + ${b}) = ${a*b} ÷ ${a+b}`,`R_T = ${fmtN(RT)} Ω`]};}},
+ {t:'circuits',lv:'b',f(){const V=pickOne([5,6,9,12,230]),I=pickOne([0.05,0.2,0.5,1.5,3,8]);return {ctx:`A device runs from ${V} V and draws ${I} A.`,q:'Calculate its power.',ans:V*I,unit:'W',steps:[`P = VI = ${V} × ${I}`,`P = ${fmtN(V*I)} W`]};}},
+ // voltage dividers
+ {t:'vdiv',lv:'b',f(){const R1=pickOne([1000,2200,3300,4700,10000]),R2=pickOne([1000,1500,2200,6800,10000]),Vs=pickOne([5,6,9,12]);const V2=Vs*R2/(R1+R2);const k=r=>r>=1000?`${r/1000} kΩ`:`${r} Ω`;return {ctx:`A voltage divider has R_1 = ${k(R1)} at the top and R_2 = ${k(R2)} at the bottom, on a ${Vs} V supply.`,q:'Calculate V_out across R_2.',ans:V2,unit:'V',steps:['V_2 = R_2 ÷ (R_1 + R_2) × V_s',`V_2 = ${R2} ÷ ${R1+R2} × ${Vs}`,`V_2 = ${fmtN(V2)} V`]};}},
+ {t:'vdiv',lv:'b',f(){const Vs=pickOne([5,6,9,12]),V2=pickOne([0.7,1.4,2,2.5,3]),R2=pickOne([1000,2000,4800,10000]);const V1=Vs-V2,R1=R2*V1/V2;return {ctx:`On a ${Vs} V supply, the bottom resistor of a divider is ${R2} Ω and must have ${V2} V across it.`,q:'Calculate the top resistor R_1.',ans:R1,unit:'Ω',steps:[`V_1 = ${Vs} − ${V2} = ${fmtN(V1,3)} V`,'R_1 ÷ R_2 = V_1 ÷ V_2',`R_1 = ${R2} × ${fmtN(V1,3)} ÷ ${V2} = ${fmtN(R1)} Ω`]};}},
+ // gears
+ {t:'drives',lv:'b',f(){const a=pickOne([10,12,15,20,24]),b=pickOne([30,36,40,45,60,72]),n=pickOne([300,500,600,900,1200,1500]);const VR=b/a;return {ctx:`A ${a}-tooth driver gear turns a ${b}-tooth driven gear. The driver turns at ${n} revs min⁻¹.`,q:'Calculate the output speed.',ans:n/VR,unit:'revs min⁻¹',steps:[`VR = driven ÷ driver = ${b} ÷ ${a} = ${fmtN(VR)}`,`Output speed = ${n} ÷ ${fmtN(VR)}`,`= ${fmtN(n/VR)} revs min⁻¹`]};}},
+ {t:'drives',lv:'b',f(){const A=pickOne([10,12,15,20]),B=pickOne([40,45,50,60]),C=pickOne([10,15,18,20]),D=pickOne([45,54,60,80]),n=pickOne([750,1000,1200,1500,2250]);const VR=(B/A)*(D/C);return {ctx:`A compound gear train: A = ${A}, B = ${B}, C = ${C}, D = ${D} teeth (B and C share a shaft). A turns at ${n} revs min⁻¹.`,q:'Calculate the output speed of D.',ans:n/VR,unit:'revs min⁻¹',steps:[`VR_1 = ${B} ÷ ${A} = ${fmtN(B/A)}; VR_2 = ${D} ÷ ${C} = ${fmtN(D/C)}`,`Total VR = ${fmtN(B/A)} × ${fmtN(D/C)} = ${fmtN(VR)}`,`Output = ${n} ÷ ${fmtN(VR)} = ${fmtN(n/VR)} revs min⁻¹`]};}},
+ // pneumatics
+ {t:'pneumatics',lv:'b',f(){const d=pickOne([10,16,20,25,32,40,50,63]),bar=pickOne([2,3,4,5,6]);const A=PI*(d/2)**2,P=bar/10;return {ctx:`A ${d} mm diameter single-acting cylinder is supplied at ${bar} bar.`,q:'Calculate the outstroke force.',ans:P*A,unit:'N',steps:[`P = ${bar} bar = ${P} N/mm²`,`A = πr² = π × ${d/2}² = ${fmtN(A,4)} mm²`,`F = P × A = ${P} × ${fmtN(A,4)} = ${fmtN(P*A)} N`],tip:'Halve the diameter to get the radius. 1 bar = 0.1 N/mm².'};}},
+ {t:'pneumatics',lv:'b',f(){const d=pickOne([20,25,32,40,50]),F=ri(100,900,10);const A=PI*(d/2)**2;return {ctx:`A ${d} mm diameter cylinder must produce a force of ${F} N.`,q:'Calculate the pressure needed in N/mm².',ans:F/A,unit:'N/mm²',steps:[`A = π × ${d/2}² = ${fmtN(A,4)} mm²`,`P = F ÷ A = ${F} ÷ ${fmtN(A,4)}`,`P = ${fmtN(F/A)} N/mm² (${fmtN(F/A*10)} bar)`]};}},
+ {t:'pneumatics',lv:'b',f(){const D=pickOne([25,32,40,50,60]),d=pickOne([8,10,12,16]),P=pickOne([0.3,0.4,0.5,0.6]);const A=PI*(D/2)**2-PI*(d/2)**2;return {ctx:`A double-acting cylinder has a ${D} mm piston and a ${d} mm rod, at ${P} N/mm².`,q:'Calculate the instroke force.',ans:P*A,unit:'N',steps:[`Piston area = π × ${D/2}² = ${fmtN(PI*(D/2)**2,4)} mm²`,`Rod area = π × ${d/2}² = ${fmtN(PI*(d/2)**2,4)} mm²`,`Effective area = ${fmtN(A,4)} mm²`,`F = ${P} × ${fmtN(A,4)} = ${fmtN(P*A)} N`]};}},
+ {t:'pneumatics',lv:'b',f(){const F=ri(100,600,20),bar=pickOne([4,5,6]);const P=bar/10,A=F/P,d=Math.sqrt(4*A/PI);return {ctx:`A cylinder must give ${F} N at ${bar} bar.`,q:'Calculate the piston diameter needed (in mm).',ans:d,unit:'mm',steps:[`P = ${P} N/mm²; A = F ÷ P = ${F} ÷ ${P} = ${fmtN(A,4)} mm²`,`d = √(4A ÷ π) = √(${fmtN(4*A,4)} ÷ π)`,`d = ${fmtN(d)} mm`]};}},
+ // structures and materials
+ {t:'structures',lv:'b',f(){const L=pickOne([2,3,4,5,6,8]),a=Math.min(L-0.5,pickOne([0.5,1,1.5,2,2.5,3])),W=ri(100,2000,50);const RB=W*a/L;return {ctx:`A simply supported beam ${L} m long carries a ${W} N load ${a} m from support A.`,q:'Taking moments about A, calculate the reaction at B.',ans:RB,unit:'N',steps:[`Clockwise moment about A = ${W} × ${a} = ${fmtN(W*a,4)} N m`,`Anticlockwise moment = R_B × ${L}`,`R_B = ${fmtN(W*a,4)} ÷ ${L} = ${fmtN(RB)} N`]};}},
+ {t:'structures',lv:'b',f(){const d=pickOne([4,5,6,8,10,12,20]),F=ri(200,20000,100);const A=PI*(d/2)**2;return {ctx:`A round bar ${d} mm in diameter carries a tensile force of ${F} N.`,q:'Calculate the stress.',ans:F/A,unit:'N/mm²',steps:[`A = π × ${d/2}² = ${fmtN(A,4)} mm²`,`σ = F ÷ A = ${F} ÷ ${fmtN(A,4)}`,`σ = ${fmtN(F/A)} N/mm²`]};}},
+ {t:'structures',lv:'b',f(){const L=pickOne([0.5,1,1.2,2,2.5,4]),dL=pickOne([0.2,0.5,0.6,1.2,1.5,2.5,3]);return {ctx:`A ${L} m wire stretches by ${dL} mm under load.`,q:'Calculate the strain.',ans:dL/(L*1000),unit:'',steps:[`L = ${L} m = ${L*1000} mm`,`ε = ΔL ÷ L = ${dL} ÷ ${L*1000}`,`ε = ${fmtN(dL/(L*1000))} (no units)`]};}},
+ // Higher
+ {t:'h',lv:'h',f(){const Vin=pickOne([5,6,9,12]),Rb=pickOne([1000,2200,4700,10000,22000]),h=pickOne([50,100,150,200,300]);const Ib=(Vin-0.7)/Rb;return {ctx:`A BJT with h_FE = ${h} has a ${Rb} Ω base resistor and ${Vin} V at the input.`,q:'Calculate the collector current (in A).',ans:h*Ib,unit:'A',steps:[`Voltage across R_b = ${Vin} − 0.7 = ${fmtN(Vin-0.7)} V`,`I_b = ${fmtN(Vin-0.7)} ÷ ${Rb} = ${fmtN(Ib)} A`,`I_c = h_FE × I_b = ${h} × ${fmtN(Ib)} = ${fmtN(h*Ib)} A`]};}},
+ {t:'h',lv:'h',f(){const s=ri(40,300,5),e=pickOne([0.0002,0.0005,0.001,0.0015,0.002]);return {ctx:`A test piece has a stress of ${s} N/mm² and a strain of ${e}.`,q:'Calculate Young\'s modulus.',ans:s/e,unit:'N/mm²',steps:['E = σ ÷ ε',`E = ${s} ÷ ${e}`,`E = ${fmtN(s/e)} N/mm²`]};}},
+ {t:'h',lv:'h',f(){const F=ri(50,400,10),r=pickOne([0.1,0.15,0.2,0.25,0.3]),n=pickOne([2,3,5,10,25]);const T=F*r;return {ctx:`A force of ${F} N acts at a radius of ${r} m on a shaft turning at ${n} rev/s.`,q:'Calculate the power transmitted.',ans:2*PI*n*T,unit:'W',steps:[`T = F × r = ${F} × ${r} = ${fmtN(T)} N m`,`P = 2πnT = 2 × π × ${n} × ${fmtN(T)}`,`P = ${fmtN(2*PI*n*T)} W`]};}},
+ {t:'h',lv:'h',f(){const uts=pickOne([250,300,400,430,500]),fos=pickOne([2,3,4,5]);return {ctx:`A steel has a UTS of ${uts} N/mm². The design needs a factor of safety of ${fos}.`,q:'Calculate the maximum working stress.',ans:uts/fos,unit:'N/mm²',steps:['Working stress = UTS ÷ FoS',`= ${uts} ÷ ${fos}`,`= ${fmtN(uts/fos)} N/mm²`]};}},
+];
+let calc=null;
+const calcStats = () => store.get('calc',{right:0,tried:0,streak:0,best:0});
+function calcPool(){ const sel=$('#calc-topic')?$('#calc-topic').value:'all';
+  return CALC_GENS.filter(g=> (g.lv==='b'||(g.lv==='h'&&level==='h')) && (sel==='all'||g.t===sel)); }
+function sub(s){ return esc(s).replace(/_([A-Za-z]{1,3})/g,'<sub>$1</sub>'); }
+function calcNew(){
+  const pool=calcPool(); if(!pool.length){ $('#calc-box').innerHTML='<p class="empty">Higher-only questions: switch to Higher at the top to use these.</p>'; return; }
+  const g=pickOne(pool); calc=Object.assign({tries:0,done:false},g.f());
+  $('#calc-box').innerHTML=`<p class="eq-ctx" style="font-style:normal;color:var(--ink);font-size:1.08rem">${sub(calc.ctx)}</p><p class="q-text">${sub(calc.q)}</p>
+   <div class="calc-row"><input id="calc-in" type="text" inputmode="decimal" autocomplete="off" aria-label="Your answer"><span class="calc-unit">${esc(calc.unit)}</span><button class="btn primary" id="calc-check">Check</button></div>
+   <div id="calc-fb"></div>
+   <div class="row" style="margin-top:12px"><button class="btn" id="calc-show">Show working</button><button class="btn" id="calc-next">New question →</button></div>`;
+  $('#calc-check').onclick=calcCheck; $('#calc-in').onkeydown=e=>{if(e.key==='Enter')calcCheck()};
+  $('#calc-show').onclick=()=>calcReveal(false); $('#calc-next').onclick=calcNew;
+  calcPaintStats();
+}
+function calcParse(s){ s=String(s).replace(/[\s\u202F,]/g,'').replace(/×10\^?/i,'e'); const m=s.match(/^(-?\d*\.?\d+(e-?\d+)?)(k|m|µ|u)?/i); if(!m) return NaN; let v=parseFloat(m[1]); const p=(m[3]||'').toLowerCase(); if(p==='k')v*=1e3; if(p==='µ'||p==='u')v*=1e-6; return v; }
+function calcCheck(){
+  if(!calc||calc.done) return; const v=calcParse($('#calc-in').value); if(isNaN(v)){toast('Type a number');return;}
+  const ok=Math.abs(v-calc.ans)<=Math.abs(calc.ans)*0.02+1e-12; calc.tries++;
+  const st=calcStats();
+  if(ok){ st.right++; st.tried++; st.streak = calc.tries===1 ? st.streak+1 : 0; st.best=Math.max(st.best,st.streak); store.set('calc',st); calcReveal(true); }
+  else if(calc.tries===1){ $('#calc-fb').innerHTML=`<div class="feedback no"><b>Not quite.</b> Check your units and working, then try once more.${calc.tip?' Tip: '+esc(calc.tip):''}</div>`; }
+  else { st.tried++; st.streak=0; store.set('calc',st); calcReveal(false); }
+  calcPaintStats();
+}
+function calcReveal(ok){
+  if(!calc) return; if(!calc.done && !ok){ const st=calcStats(); if(calc.tries<2){ st.tried++; st.streak=0; store.set('calc',st);} }
+  calc.done=true;
+  $('#calc-fb').innerHTML=`<div class="feedback ${ok?'':'no'}"><b>${ok?(calc.tries===1?'Correct first time.':'Correct.'):'Here\'s the working.'}</b><ol class="calc-steps">${calc.steps.map(s=>`<li>${sub(s)}</li>`).join('')}</ol>${ok?'':`<p style="margin:.3em 0 0">Answer: <b>${fmtN(calc.ans)} ${esc(calc.unit)}</b></p>`}</div>`;
+  $('#calc-in').disabled=true; $('#calc-check').disabled=true; $('#calc-next').classList.add('primary'); $('#calc-next').focus({preventScroll:true}); calcPaintStats();
+}
+function calcPaintStats(){ const s=calcStats(); $('#calc-stats').textContent=`${s.right} correct of ${s.tried} · streak ${s.streak} · best ${s.best}`; }
+function renderCalc(){
+  const sel=$('#calc-topic'); if(!sel.options.length){ sel.innerHTML=CALC_TOPICS.map(([v,l])=>`<option value="${v}">${esc(l)}</option>`).join(''); sel.onchange=calcNew; }
+  sel.querySelector('option[value="h"]').hidden = level!=='h'; if(level!=='h'&&sel.value==='h') sel.value='all';
+  if(!calc||calc.done) calcNew(); else calcPaintStats();
+}
+
+/* ---------- 2. Exam countdown + revision planner ---------- */
+const EXAM_DATES={ gc:{n5:'2027-05-05T09:00',h:'2027-05-05T09:00',label:'Wednesday 5 May 2027, 9:00'},
+                   dm:{n5:'2027-05-20T13:30',h:'2027-05-20T13:30',label:'Thursday 20 May 2027, 1:30pm'},
+                   es:{n5:'2027-05-28T13:00',h:'2027-05-28T13:00',label:'Friday 28 May 2027, 1:00pm'} };
+const NO_EXAM={pw:'No exam: your grade comes from the practical activity and case study.', ct:'No exam: your grade comes from your portfolio.'};
+function daysTo(iso){ const d=new Date(iso), now=new Date(); return Math.ceil((d - now)/86400000); }
+function examLine(id){ const e=EXAM_DATES[id]; if(!e) return null; const n=daysTo(e[level==='n5'?'n5':'h']); return {days:n,label:e.label}; }
+function featHome(){
+  const box=$('#home-exams'); if(!box) return;
+  const items=['gc','dm','es'].map(id=>{const x=examLine(id); return x&&x.days>-1?`<div class="ex-cd" data-s="${id}"><span class="ex-cd-n">${x.days}</span><span class="ex-cd-t"><b>${esc(SUBJ_NAME(id))}</b><small>${esc(x.label)}</small></span></div>`:'';}).join('');
+  box.innerHTML = items ? `<h2 class="ck-area" style="margin-top:6px">Days until your ${level==='n5'?'National 5':'Higher'} exams</h2><div class="ex-cd-row">${items}</div>` : '';
+}
+function planTopics(){
+  return ckTopics().map(t=>{ const c=ckCounts(ckItems(t),t); return {t, c, score:c[1]*3+c[2]*2+c[0]*1}; })
+    .filter(x=>x.score>0).sort((a,b)=>b.score-a.score || (b.c[1]-a.c[1]));
+}
+function featChecklist(){
+  const box=$('#ck-plan'); if(!box||!curSubj) return;
+  const e=examLine(curSubj); const noEx=NO_EXAM[curSubj];
+  const tops=planTopics(), rated=ckTopics().some(t=>ckCounts(ckItems(t),t).slice(1).some(n=>n>0));
+  let weeks = e ? Math.max(1, Math.floor((e.days-7)/7)) : 8;
+  const per = Math.max(1, Math.min(3, Math.ceil(tops.length/weeks)));
+  const plan=[]; for(let i=0;i<tops.length;i+=per) plan.push(tops.slice(i,i+per));
+  const head = e ? (e.days>0 ? `<div class="pl-cd"><span class="ex-cd-n">${e.days}</span><span><b>days until your ${esc(levelName())} exam</b><small>${esc(e.label)}</small></span></div>` : `<div class="pl-cd"><b>Your exam date has passed. Good luck with your results!</b></div>`)
+                 : `<div class="pl-cd"><b>${esc(noEx||'')}</b></div>`;
+  const chip=x=>`<span class="pl-c">${[x.c[1]?`<span class="ck-dot r1"></span>${x.c[1]} need to revise`:'',x.c[2]?`<span class="ck-dot r2"></span>${x.c[2]} getting there`:'',x.c[0]?`${x.c[0]} not rated`:''].filter(Boolean).join(' · ')}</span>`;
+  const row=x=>`<li><span class="pl-t"><b>${esc(x.t.title)}</b>${chip(x)}</span><span class="pl-b"><button class="btn" data-pl="notes" data-t="${x.t.id}">Notes</button><button class="btn" data-pl="quiz" data-t="${x.t.id}">Quiz</button>${examFor(x.t.id).length?`<button class="btn" data-pl="exam" data-t="${x.t.id}">${esc(exLabel())}</button>`:''}</span></li>`;
+  let body;
+  if(!rated) body=`<p class="muted" style="margin:.4em 0 0">Rate yourself on the checklist below and your weekly plan will build itself, starting with the topics you're least sure of.</p>`;
+  else if(!plan.length) body=`<p style="margin:.4em 0 0"><b>Everything is rated confident.</b> Keep it fresh with the Daily 5 and ${esc(exLabel().toLowerCase())}.</p>`;
+  else body=`<h3 class="pl-h">This week</h3><ul class="pl-list">${plan[0].map(row).join('')}</ul>
+    ${plan.length>1?`<details class="pl-more"><summary>Weeks after (${plan.length-1} more)</summary>${plan.slice(1).map((w,i)=>`<h3 class="pl-h">Week ${i+2}</h3><ul class="pl-list">${w.map(row).join('')}</ul>`).join('')}${e?`<h3 class="pl-h">Final week</h3><p class="muted" style="margin:0">Mixed revision: past papers, the Daily 5 and your red topics again.</p>`:''}</details>`:''}`;
+  box.innerHTML=`<div class="pl">${head}<div class="pl-body"><h3 class="pl-h0">Your revision plan</h3>${body}</div></div>`;
+  box.querySelectorAll('[data-pl]').forEach(b=>b.onclick=()=>{ topicId=b.dataset.t; store.set('topic',topicId); const g=b.dataset.pl;
+    if(g==='notes'){renderNotes();setTab('notes');} else if(g==='quiz'){$('#qz-topic').value=topicId;resetQuiz();setTab('quiz');} else {$('#ex-topic').value=topicId;renderExam();setTab('exam');} });
+}
+
+/* ---------- 3. Search ---------- */
+let srIndex=null;
+const strip = h => String(h).replace(/\{\{fig:[^}]*\}\}/g,' ').replace(/<\/?(sub|sup|b|i|em|strong|span)[^>]*>/g,'').replace(/<[^>]+>/g,' ').replace(/&nbsp;/g,' ').replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/\s+/g,' ').trim();
+function srBuild(){
+  srIndex=[];
+  Object.keys(SUBJ).forEach(id=>{ const D=SUBJ[id]; (D.TOPICS||[]).forEach(t=>{
+    srIndex.push({id,t:t.id,title:t.title,h:t.title,text:strip((t.notes||[]).map(s=>s.h).join(' · ')),lv:t.hOnly?'h':t.nOnly?'n':'b',kind:'topic'});
+    (t.notes||[]).forEach((s,k)=>srIndex.push({id,t:t.id,title:t.title,h:s.h,text:strip(s.html),lv:t.hOnly?'h':s.lv,kind:'note',k}));
+    (t.cards||[]).forEach(c=>srIndex.push({id,t:t.id,title:t.title,h:c[1],text:strip(c[2]),lv:t.hOnly?'h':c[0],kind:'card'}));
+  }); });
+}
+function srRun(q){
+  if(!srIndex) srBuild(); q=q.trim().toLowerCase(); const out=$('#sr-out');
+  if(q.length<2){ out.innerHTML='<p class="muted">Type at least two letters: a term, process or formula.</p>'; return; }
+  const words=q.split(/\s+/);
+  const hits=srIndex.map(r=>{ const H=r.h.toLowerCase(), T=r.text.toLowerCase(), TI=r.title.toLowerCase(); if(!words.every(w=>H.includes(w)||T.includes(w)||TI.includes(w))) return null;
+     let s=(H.includes(q)?6:0)+(TI.includes(q)?3:0)+(r.kind==='card'&&H.includes(q)?3:0)+(r.kind==='topic'?1:0)+(curSubj&&r.id===curSubj?2:0); return {r,s}; }).filter(Boolean).sort((a,b)=>b.s-a.s).slice(0,40);
+  if(!hits.length){ out.innerHTML=`<p class="muted">No matches for “${esc(q)}”. Try a shorter word.</p>`; return; }
+  const snip=(T)=>{ const i=T.toLowerCase().indexOf(words[0]); const s=Math.max(0,i-60); let x=(s?'…':'')+T.slice(s,s+170)+(T.length>s+170?'…':''); x=esc(x); words.forEach(w=>{ x=x.replace(new RegExp('('+w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','ig'),'<mark>$1</mark>'); }); return x; };
+  out.innerHTML=`<p class="muted" style="margin:0 0 6px">${hits.length}${hits.length===40?'+':''} result${hits.length===1?'':'s'}</p>`+hits.map(({r},i)=>`<button class="sr-hit" data-i="${i}" data-s="${r.id}"><span class="sr-meta"><span class="sr-sub">${esc(SUBJ_NAME(r.id))}</span> · ${esc(r.title)}${r.lv==='h'?' · Higher':r.lv==='n'?' · National 5':''}${r.kind==='card'?' · key term':''}</span><b>${esc(r.h)}</b><span class="sr-snip">${snip(r.text)}</span></button>`).join('');
+  out.querySelectorAll('.sr-hit').forEach(b=>b.onclick=()=>srGo(hits[+b.dataset.i].r));
+}
+function srGo(r){
+  $('#sr-dlg').close();
+  if(curSubj!==r.id) loadSubject(r.id);
+  const t=topicById(r.t); const needH = r.lv==='h' || (t&&t.hOnly), needN = r.lv==='n' || (t&&t.nOnly);
+  const m=SUBJECTS.find(s=>s.id===r.id);
+  if(needH && level!=='h' && !(m&&m.n5only)) setLevel('h'); else if(needN && level!=='n5') setLevel('n5');
+  topicId=r.t; store.set('topic',topicId); renderNotes(); setTab('notes');
+  if(r.kind==='note'){ const secs=[...document.querySelectorAll('#sheet .sec h3')]; const h=secs.find(x=>x.textContent.trim().startsWith(r.h)); if(h){ h.scrollIntoView({block:'start'}); window.scrollBy(0,-(document.querySelector('.top').offsetHeight+12)); h.parentElement.classList.add('sr-flash'); setTimeout(()=>h.parentElement.classList.remove('sr-flash'),2200);} }
+}
+function srOpen(){ const d=$('#sr-dlg'); d.showModal?d.showModal():d.setAttribute('open',''); const i=$('#sr-in'); i.value=''; srRun(''); setTimeout(()=>i.focus(),30); }
+
+/* ---------- 4. Accessibility ---------- */
+let a11y = gstore.get('a11y',{size:0,read:false,speak:false});
+function a11yApply(){
+  const r=document.documentElement; r.classList.remove('ts-1','ts-2'); if(a11y.size) r.classList.add('ts-'+a11y.size);
+  r.classList.toggle('readable',!!a11y.read); document.body.classList.toggle('speak-on',!!a11y.speak);
+  document.querySelectorAll('#a11y-dlg [data-size]').forEach(b=>b.setAttribute('aria-pressed',String(+b.dataset.size===a11y.size)));
+  const rd=$('#a11y-read'), sp=$('#a11y-speak'); if(rd) rd.checked=!!a11y.read; if(sp) sp.checked=!!a11y.speak;
+  if(!a11y.speak && window.speechSynthesis) speechSynthesis.cancel();
+  featNotes();
+}
+function speak(text,btn){
+  if(!window.speechSynthesis){ toast('Read aloud is not supported on this device'); return; }
+  if(speechSynthesis.speaking && btn.classList.contains('on')){ speechSynthesis.cancel(); return; }
+  speechSynthesis.cancel(); document.querySelectorAll('.say.on').forEach(b=>{b.classList.remove('on');b.textContent='🔊 Listen';});
+  const u=new SpeechSynthesisUtterance(text); u.lang='en-GB'; u.rate=0.95;
+  const v=speechSynthesis.getVoices().find(v=>/en-GB/i.test(v.lang)); if(v) u.voice=v;
+  u.onend=u.onerror=()=>{btn.classList.remove('on');btn.textContent='🔊 Listen';};
+  btn.classList.add('on'); btn.textContent='■ Stop'; speechSynthesis.speak(u);
+}
+function featNotes(){
+  document.querySelectorAll('#sheet .say').forEach(b=>b.remove());
+  if(!a11y.speak) return;
+  document.querySelectorAll('#sheet .sec').forEach(sec=>{ const h=sec.querySelector('h3'); if(!h) return;
+    const b=document.createElement('button'); b.className='say'; b.type='button'; b.textContent='🔊 Listen';
+    b.onclick=()=>{ const c=sec.cloneNode(true); c.querySelectorAll('figure,.say,.fb-btn,svg,.chip').forEach(x=>x.remove()); speak(c.textContent.replace(/\s+/g,' ').replace(/→/g,' to ').replace(/÷/g,' divided by ').replace(/×/g,' times '),b); };
+    h.appendChild(b); });
+}
+
+/* ---------- 5. Progress report ---------- */
+function renderReport(){
+  const who=store.get('who',null); const name=gstore.get('repName', who&&who.n || '');
+  const qb=store.get('qzBest',{}); const dl=dailyState(); const cs=calcStats();
+  let tot=[0,0,0,0]; const rows=ckTopics().map(t=>{ const c=ckCounts(ckItems(t),t); c.forEach((n,k)=>tot[k]+=n); const n=c.reduce((a,b)=>a+b,0)||1; const best=qb[level+':'+t.id];
+    return `<tr><td>${esc(t.title)}</td><td><div class="ck-bar rp-bar"><i class="r3" style="width:${c[3]/n*100}%"></i><i class="r2" style="width:${c[2]/n*100}%"></i><i class="r1" style="width:${c[1]/n*100}%"></i></div><small>${c[3]} confident · ${c[2]} getting there · ${c[1]} need to revise${c[0]?` · ${c[0]} not rated`:''}</small></td><td class="rp-q">${best==null?'–':best+'%'}</td></tr>`; }).join('');
+  const e=examLine(curSubj); const today=new Date().toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
+  const mixed=qb[level+':mixed'];
+  $('#rp-body').innerHTML=`<div class="rp-top"><div><div class="eyebrow">Progress report · ${esc(today)}</div><h2>${esc(SUBJ_NAME(curSubj))} · ${esc(levelName())}</h2></div>
+    <label class="field rp-name">Name<input type="text" id="rp-name" value="${esc(name)}" placeholder="Your name"></label></div>
+    <div class="rp-stats"><div><b>${tot[3]}</b><small>confident</small></div><div><b>${tot[2]}</b><small>getting there</small></div><div><b>${tot[1]}</b><small>need to revise</small></div><div><b>${tot[0]}</b><small>not rated</small></div>
+      <div><b>${dl.streak||0}</b><small>Daily 5 streak (best ${dl.best||0})</small></div>${curSubj==='es'?`<div><b>${cs.right}/${cs.tried}</b><small>calculations correct</small></div>`:''}${mixed!=null?`<div><b>${mixed}%</b><small>best mixed quiz</small></div>`:''}${e&&e.days>0?`<div><b>${e.days}</b><small>days to the exam</small></div>`:''}</div>
+    <table class="rp-t"><thead><tr><th>Topic</th><th>Checklist</th><th>Best quiz</th></tr></thead><tbody>${rows}</tbody></table>
+    <p class="muted rp-foot">From the Mr Kelly DT revision site (mrkellydt.co.uk). Checklist ratings are the pupil's own; quiz scores are their best on this device.</p>`;
+  $('#rp-name').oninput=e=>gstore.set('repName',e.target.value);
+}
+function reportText(){
+  const qb=store.get('qzBest',{}); const nm=($('#rp-name')&&$('#rp-name').value)||'';
+  const L=[`${SUBJ_NAME(curSubj)} (${levelName()}) progress report${nm?' for '+nm:''}`, new Date().toLocaleDateString('en-GB'), ''];
+  ckTopics().forEach(t=>{ const c=ckCounts(ckItems(t),t); const b=qb[level+':'+t.id]; L.push(`${t.title}: ${c[3]} confident, ${c[2]} getting there, ${c[1]} need to revise${c[0]?', '+c[0]+' not rated':''}${b!=null?' · best quiz '+b+'%':''}`); });
+  return L.join('\n');
+}
+
+/* ---------- 6. Install as an app ---------- */
+let installEvt=null;
+window.addEventListener('beforeinstallprompt',e=>{ e.preventDefault(); installEvt=e; featInstall(); });
+function featInstall(){
+  const box=$('#home-install'); if(!box) return;
+  const standalone = window.matchMedia&&matchMedia('(display-mode: standalone)').matches || navigator.standalone;
+  const onSite = typeof STANDALONE!=='undefined' && STANDALONE;
+  if(standalone || !onSite){ box.hidden=true; return; }
+  const ios=/iphone|ipad|ipod/i.test(navigator.userAgent) || (navigator.platform==='MacIntel' && navigator.maxTouchPoints>1);
+  if(installEvt){ box.hidden=false; box.innerHTML=`<span>Use it like an app, even without signal.</span><button class="btn" id="inst-go">Install the app</button>`; $('#inst-go').onclick=async()=>{ installEvt.prompt(); try{await installEvt.userChoice;}catch(e){} installEvt=null; box.hidden=true; }; }
+  else if(ios){ box.hidden=false; box.innerHTML=`<span><b>Add it to your home screen</b> to use it like an app: tap <b>Share</b> <span aria-hidden="true">⬆︎</span>, then <b>Add to Home Screen</b>.</span>`; }
+  else box.hidden=true;
+}
+if('serviceWorker' in navigator && typeof STANDALONE!=='undefined' && STANDALONE && location.protocol==='https:'){
+  window.addEventListener('load',()=>navigator.serviceWorker.register('/sw.js').catch(()=>{}));
+}
+
+/* ---------- wiring ---------- */
+function featBrand(){
+  const P=GROUPS.practise.items; const has=P.some(i=>i[0]==='calc');
+  if(curSubj==='es' && !has) P.push(['calc','Calculation practice','Endless calculations with new numbers every time, and the working shown if you get stuck.']);
+  if(curSubj!=='es' && has) P.splice(P.findIndex(i=>i[0]==='calc'),1);
+}
+ICON.calc='<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 11h2M12 11h2M16 11v6M8 15h2M12 15h2M8 18.5h6"/>';
+$('#sr-btn').onclick=srOpen;
+$('#sr-in').oninput=e=>srRun(e.target.value);
+$('#sr-close').onclick=()=>$('#sr-dlg').close();
+$('#sr-dlg').addEventListener('click',e=>{ if(e.target===e.currentTarget) e.currentTarget.close(); });
+document.addEventListener('keydown',e=>{ if((e.key==='/'&&!/input|textarea|select/i.test(document.activeElement.tagName)) || ((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k')){ e.preventDefault(); srOpen(); } });
+$('#a11y-btn').onclick=()=>{ const d=$('#a11y-dlg'); a11yApply(); d.showModal?d.showModal():d.setAttribute('open',''); };
+$('#a11y-close').onclick=()=>$('#a11y-dlg').close();
+$('#a11y-dlg').addEventListener('click',e=>{ if(e.target===e.currentTarget) e.currentTarget.close(); });
+document.querySelectorAll('#a11y-dlg [data-size]').forEach(b=>b.onclick=()=>{ a11y.size=+b.dataset.size; gstore.set('a11y',a11y); a11yApply(); });
+$('#a11y-read').onchange=e=>{ a11y.read=e.target.checked; gstore.set('a11y',a11y); a11yApply(); };
+$('#a11y-speak').onchange=e=>{ a11y.speak=e.target.checked; gstore.set('a11y',a11y); a11yApply(); if(a11y.speak) toast('Open any notes page and tap 🔊 Listen'); };
+$('#ck-report').onclick=()=>setTab('report');
+$('#rp-back').onclick=()=>setTab('check');
+$('#rp-print').onclick=()=>window.print();
+$('#rp-copy').onclick=()=>{ const t=reportText(); if(navigator.share){ navigator.share({title:'My progress report',text:t}).catch(()=>{}); } else navigator.clipboard.writeText(t).then(()=>toast('Copied. Paste it into an email or Teams')).catch(()=>toast('Could not copy on this device')); };
+a11yApply();
 
 brandUpdate(); renderAll(); setTab(tab);
 
