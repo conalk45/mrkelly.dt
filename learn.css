@@ -179,6 +179,7 @@ table.res th:first-child,table.res td:first-child{text-align:left;position:stick
 .fig .acc-t{fill:var(--steel);font-weight:600}
 .hnote{border-left:3px solid var(--tag);padding-left:10px}
 body[data-level="n5"] .hnote{display:none}
+body[data-level="n5"] .honly{display:none}
 .vids li{margin:.35em 0}
 .vids a{color:var(--steel);font-weight:600}
 .fb-btn{margin-top:10px;background:none;border:1.5px dashed var(--muted);color:var(--muted);border-radius:var(--r);padding:8px 12px;cursor:pointer;font-size:.9rem;min-height:44px}
