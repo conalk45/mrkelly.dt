@@ -10113,16 +10113,16 @@ function renderCalc(){
 }
 
 /* ---------- 2. Exam countdown + revision planner ---------- */
-const EXAM_DATES={ gc:{n5:'2027-05-05T09:00',h:'2027-05-05T09:00',label:'Wednesday 5 May 2027, 9:00'},
-                   dm:{n5:'2027-05-20T13:30',h:'2027-05-20T13:30',label:'Thursday 20 May 2027, 1:30pm'},
-                   es:{n5:'2027-05-28T13:00',h:'2027-05-28T13:00',label:'Friday 28 May 2027, 1:00pm'} };
+const EXAM_DATES={ gc:{n5:'2027-05-05T09:00',h:'2027-05-05T09:00',day:'Wednesday 5 May 2027',t:{n5:'9:00–11:00am',h:'9:00–11:30am'}},
+                   dm:{n5:'2027-05-20T13:30',h:'2027-05-20T13:30',day:'Thursday 20 May 2027',t:{n5:'1:30–3:15pm',h:'1:30–3:45pm'}},
+                   es:{n5:'2027-05-28T13:00',h:'2027-05-28T13:00',day:'Friday 28 May 2027',t:{n5:'1:00–2:50pm',h:'1:00–3:30pm'}} };
 const NO_EXAM={pw:'No exam: your grade comes from the practical activity and case study.', ct:'No exam: your grade comes from your portfolio.'};
 function daysTo(iso){ const d=new Date(iso), now=new Date(); return Math.ceil((d - now)/86400000); }
-function examLine(id){ const e=EXAM_DATES[id]; if(!e) return null; const n=daysTo(e[level==='n5'?'n5':'h']); return {days:n,label:e.label}; }
+function examLine(id){ const e=EXAM_DATES[id]; if(!e) return null; const k=level==='n5'?'n5':'h'; const n=daysTo(e[k]); return {days:n,label:`${e.day}, ${e.t[k]}`,both:`${e.day} · N5 ${e.t.n5} · Higher ${e.t.h}`}; }
 function featHome(){
   const box=$('#home-exams'); if(!box) return;
-  const items=['gc','dm','es'].map(id=>{const x=examLine(id); return x&&x.days>-1?`<div class="ex-cd" data-s="${id}"><span class="ex-cd-n">${x.days}</span><span class="ex-cd-t"><b>${esc(SUBJ_NAME(id))}</b><small>${esc(x.label)}</small></span></div>`:'';}).join('');
-  box.innerHTML = items ? `<h2 class="ck-area" style="margin-top:6px">Days until your exams</h2><p class="muted" style="margin:-2px 0 8px;font-size:.9rem">National 5 and Higher are sat on the same day for each subject (SQA / QS 2027 timetable).</p><div class="ex-cd-row">${items}</div>` : '';
+  const items=['gc','dm','es'].map(id=>{const x=examLine(id); return x&&x.days>-1?`<div class="ex-cd" data-s="${id}"><span class="ex-cd-n">${x.days}</span><span class="ex-cd-t"><b>${esc(SUBJ_NAME(id))}</b><small>${esc(x.both)}</small></span></div>`:'';}).join('');
+  box.innerHTML = items ? `<h2 class="ck-area" style="margin-top:6px">Days until your exams</h2><p class="muted" style="margin:-2px 0 8px;font-size:.9rem">N5 and Higher start together on the same day; Higher papers finish later (SQA / QS 2027 timetable).</p><div class="ex-cd-row">${items}</div>` : '';
 }
 function planTopics(){
   return ckTopics().map(t=>{ const c=ckCounts(ckItems(t),t); return {t, c, score:c[1]*3+c[2]*2+c[0]*1}; })
